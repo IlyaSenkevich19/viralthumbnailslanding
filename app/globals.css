@@ -1,0 +1,157 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #0A0A0B;
+  --color-bg-card: #141416;
+  --color-bg-card-hover: #1a1a1e;
+  --color-bg-elevated: #111116;
+  --color-bg-footer: #111113;
+  --color-accent: #FF3B3B;
+  --color-accent-hover: #e63535;
+  --color-accent-amber: #FBBF24;
+  --color-accent-amber-hover: #F59E0B;
+  --color-text-primary: #F5F5F5;
+  --color-text-muted: #A1A1AA;
+  --color-text-dim: #71717A;
+  --color-border: #27272A;
+  --color-border-hover: #3f3f46;
+  --color-success: #22C55E;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Scroll Reveal ── */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+.scroll-reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Hero entrance ── */
+@keyframes hero-fade-in {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Gradient text color shift ── */
+@keyframes gradient-shift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ── Floating thumbnail drift (3 variants) ── */
+@keyframes float-1 {
+  0%, 100% { translate: 0 0; }
+  33%      { translate: 12px -18px; }
+  66%      { translate: -8px -30px; }
+}
+@keyframes float-2 {
+  0%, 100% { translate: 0 0; }
+  33%      { translate: -14px -12px; }
+  66%      { translate: 8px -24px; }
+}
+@keyframes float-3 {
+  0%, 100% { translate: 0 0; }
+  50%      { translate: 10px -22px; }
+}
+
+/* ── CTA pulse glow ── */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(251, 191, 36, 0.15); }
+  50%      { box-shadow: 0 0 40px rgba(251, 191, 36, 0.35); }
+}
+
+/* ── Pipeline step sequential highlight ── */
+@keyframes pipeline-pulse {
+  0%, 8%   { border-color: var(--color-accent); box-shadow: 0 0 30px rgba(255, 59, 59, 0.12); }
+  28%, 100% { border-color: var(--color-border); box-shadow: 0 0 0 transparent; }
+}
+
+/* ── Before/After slider ── */
+@keyframes clip-reveal {
+  0%, 12%  { clip-path: inset(0 0 0 25%); }
+  42%, 58% { clip-path: inset(0 0 0 72%); }
+  88%, 100%{ clip-path: inset(0 0 0 25%); }
+}
+@keyframes divider-pos {
+  0%, 12%  { left: 25%; }
+  42%, 58% { left: 72%; }
+  88%, 100%{ left: 25%; }
+}
+
+/* ── Cursor blink ── */
+@keyframes blink {
+  0%, 49%  { opacity: 1; }
+  50%, 100%{ opacity: 0; }
+}
+
+/* ── Shimmer loading bar ── */
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* ── Badge pulse ── */
+@keyframes badge-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%      { opacity: 0.85; transform: scale(1.04); }
+}
+
+/* ── Thumbnail marquee (hero) ── */
+@keyframes marquee-scroll-left {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@keyframes marquee-scroll-right {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+.marquee-left {
+  animation: marquee-scroll-left 35s linear infinite;
+}
+.marquee-right {
+  animation: marquee-scroll-right 35s linear infinite;
+}
+
+/* ── Testimonials carousel ── */
+@keyframes scroll-left {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.carousel-track {
+  animation: scroll-left 45s linear infinite;
+}
+.carousel-track:hover {
+  animation-play-state: paused;
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .floating-thumb,
+  .slider-clip,
+  .slider-divider,
+  .carousel-track,
+  .marquee-left,
+  .marquee-right {
+    animation: none !important;
+  }
+}

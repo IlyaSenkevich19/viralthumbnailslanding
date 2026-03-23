@@ -1,0 +1,51 @@
+# ViralThumbnails — AI YouTube Thumbnail Generator
+# https://viralthumbnails.com
+# Last updated: 2026-03-23
+
+## What is ViralThumbnails?
+
+ViralThumbnails is an AI-powered YouTube thumbnail generator that creates high-CTR thumbnails in under 2 minutes. It replaces expensive freelancers ($50–200 per thumbnail) and hours spent in Canva or Photoshop.
+
+## Who is it for?
+
+YouTube creators with 5,000–30,000 subscribers who upload regularly (1–5 videos per week) and want to increase their click-through rate, views, and revenue without spending hours on design.
+
+## How does it work?
+
+1. Paste a YouTube link, upload a video, or describe your idea in a text prompt.
+2. Choose from 100+ proven high-CTR templates or upload your own Canva-compatible design.
+3. Select or upload your face/avatar. Add hooks, text overlays, and style instructions.
+4. AI generates multiple thumbnail variations. Edit, compare, and A/B test them.
+5. Export the winning thumbnail or save it to your project library.
+
+## Key features
+
+- AI thumbnail generation from video link, file upload, or text prompt
+- 100+ proven high-CTR thumbnail templates
+- Canva-compatible template import
+- Face/avatar selection and upload for consistent branding
+- A/B testing to find the best-performing thumbnail
+- One-click export and project saving
+- Custom branding and style presets
+
+## Pricing (USD)
+
+- Free trial: 10 thumbnails, no credit card required
+- Starter: $19/month — 50 thumbnails, all templates, Canva import, email support
+- Pro: $49/month — 200 thumbnails, A/B testing, custom branding, priority support
+- Agency: $99/month — Unlimited thumbnails, team access (5 seats), API, white-label, dedicated support
+
+## Results
+
+- Average +35% CTR increase for users
+- 10+ hours saved per week
+- $600+ saved per month compared to hiring freelance designers
+
+## Risk-free
+
+- 7-day money-back guarantee
+- Free trial without credit card
+
+## Contact
+
+Website: https://viralthumbnails.com
