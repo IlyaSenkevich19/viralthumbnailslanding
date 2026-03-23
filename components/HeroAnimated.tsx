@@ -1,20 +1,20 @@
-import { Play, Zap, UserCircle, MousePointerClick } from "lucide-react";
+import { Play, Clock, DollarSign, Paintbrush } from "lucide-react";
 import Button from "@/components/ui/Button";
 import ThumbnailBackground from "@/components/ThumbnailBackground";
 import ThumbnailMarquee from "@/components/ThumbnailMarquee";
 
-const quickBullets = [
+const featurePills = [
   {
-    icon: <Zap className="h-4 w-4" />,
-    text: "Generate in under 60 seconds",
+    icon: <Clock className="h-4 w-4" />,
+    label: "Save Time",
   },
   {
-    icon: <UserCircle className="h-4 w-4" />,
-    text: "A.I. Face Cloning — your face, any style",
+    icon: <DollarSign className="h-4 w-4" />,
+    label: "Save Money",
   },
   {
-    icon: <MousePointerClick className="h-4 w-4" />,
-    text: "No Photoshop. No designers. Just 3 clicks.",
+    icon: <Paintbrush className="h-4 w-4" />,
+    label: "No Design Skills Needed",
   },
 ];
 
@@ -45,7 +45,7 @@ export default function HeroAnimated() {
       {/* Content */}
       <div className="relative z-10 mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
         {/* Badge */}
-        <div style={{ animation: "hero-fade-in 0.7s ease-out 0s both" }}>
+        {/* <div style={{ animation: "hero-fade-in 0.7s ease-out 0s both" }}>
           <span className="inline-flex items-center gap-2 rounded-full border border-accent/20 bg-accent/5 px-4 py-1.5 text-xs font-medium text-accent">
             <span
               className="h-1.5 w-1.5 rounded-full bg-accent"
@@ -53,7 +53,7 @@ export default function HeroAnimated() {
             />
             AI-Powered Thumbnail Generator
           </span>
-        </div>
+        </div> */}
 
         {/* Headline */}
         <h1
@@ -101,18 +101,18 @@ export default function HeroAnimated() {
           </Button>
         </div>
 
-        {/* Quick bullets */}
+        {/* Feature pills */}
         <div
-          className="mx-auto mt-10 flex max-w-2xl flex-col items-center justify-center gap-4 sm:flex-row sm:gap-8"
+          className="mx-auto mt-10 flex max-w-2xl flex-wrap items-center justify-center gap-2 sm:gap-3"
           style={{ animation: "hero-fade-in 0.8s ease-out 0.7s both" }}
         >
-          {quickBullets.map((b, i) => (
+          {featurePills.map((pill, i) => (
             <div
               key={i}
-              className="flex items-center gap-2 text-sm text-text-dim"
+              className="inline-flex items-center gap-2 rounded-full border border-border bg-[#1a1a1a] px-3.5 py-2 text-sm font-medium text-text-primary shadow-sm sm:px-4"
             >
-              <span className="text-accent">{b.icon}</span>
-              <span>{b.text}</span>
+              <span className="text-accent">{pill.icon}</span>
+              <span>{pill.label}</span>
             </div>
           ))}
         </div>
@@ -122,7 +122,7 @@ export default function HeroAnimated() {
           className="mt-6 text-sm text-text-dim"
           style={{ animation: "hero-fade-in 0.8s ease-out 0.85s both" }}
         >
-          No design skills needed. No credit card required.
+         No credit card required.
         </p>
       </div>
 
