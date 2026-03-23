@@ -4,21 +4,21 @@ import ScrollReveal from "@/components/ui/ScrollReveal";
 
 const painPoints = [
   {
-    icon: <Clock className="h-8 w-8" />,
+    icon: <Clock className="h-7 w-7 shrink-0 sm:h-8 sm:w-8" />,
     stat: "2–3 hrs",
     title: "Wasted on Every Thumbnail",
     description:
       "You spend 2–3 hours per thumbnail in Canva or Photoshop. At 3 videos a week, that's 9 hours gone — every single week.",
   },
   {
-    icon: <DollarSign className="h-8 w-8" />,
+    icon: <DollarSign className="h-7 w-7 shrink-0 sm:h-8 sm:w-8" />,
     stat: "$50–200",
     title: "Per Freelancer Thumbnail",
     description:
       "Hiring a designer costs $50–200 per thumbnail. At 3 videos a week, you're burning $600–2,400 every month.",
   },
   {
-    icon: <TrendingDown className="h-8 w-8" />,
+    icon: <TrendingDown className="h-7 w-7 shrink-0 sm:h-8 sm:w-8" />,
     stat: "<4% CTR",
     title: "Means Your Video Is Buried",
     description:
@@ -41,15 +41,17 @@ export default function Problem() {
         {painPoints.map((point, i) => (
           <ScrollReveal key={i} delay={i * 0.12}>
             <div className="group rounded-2xl border border-border bg-bg-card p-8 transition-all duration-300 hover:-translate-y-1 hover:border-accent/20 hover:bg-bg-card-hover hover:shadow-lg hover:shadow-accent/5">
-              <div className="text-accent transition-transform duration-300 group-hover:scale-110">
-                {point.icon}
-              </div>
-              <div className="mt-4 text-3xl font-bold text-accent">
+              <div className="text-3xl font-bold text-accent">
                 {point.stat}
               </div>
-              <h3 className="mt-2 text-lg font-semibold text-text-primary">
-                {point.title}
-              </h3>
+              <div className="mt-3 flex items-center gap-3">
+                <div className="text-accent transition-transform duration-300 group-hover:scale-110">
+                  {point.icon}
+                </div>
+                <h3 className="text-lg font-semibold leading-snug text-text-primary">
+                  {point.title}
+                </h3>
+              </div>
               <p className="mt-2 text-sm leading-relaxed text-text-muted">
                 {point.description}
               </p>
