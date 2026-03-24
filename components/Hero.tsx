@@ -21,8 +21,7 @@ export default function Hero() {
         </h1>
 
         <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-text-muted md:text-lg lg:text-xl">
-          AI-powered thumbnails that boost your CTR — built for YouTubers with
-          5–30K subs who upload weekly and want more views, more revenue, less
+          AI-powered thumbnails that boost your CTR — built for YouTubers who upload weekly and want more views, more revenue, less
           busywork.
         </p>
 

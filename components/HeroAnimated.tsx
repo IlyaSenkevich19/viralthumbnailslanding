@@ -68,7 +68,7 @@ export default function HeroAnimated() {
             >
               in Seconds
             </span>{" "}
-            <span className="text-text-primary">with A.I.</span>
+            <span className="text-text-primary">with AI</span>
           </span>
         </h1>
 
@@ -79,7 +79,7 @@ export default function HeroAnimated() {
         >
           Stop wasting hours designing thumbnails. Generate high-CTR,
           creator-worthy designs in under 60 seconds. Built for YouTubers
-          with 5–30K subs who upload weekly and want more views without the busywork.
+          who upload weekly and want more views without the busywork.
         </p>
 
         {/* CTAs */}

@@ -20,27 +20,18 @@ const stats = [
     value: "+35%",
     label: "Average CTR Increase",
     color: "text-accent",
-    gradient: "from-accent/20 to-accent/5",
-    border: "border-accent/20",
-    glow: "shadow-accent/10",
   },
   {
     icon: <Clock className="h-6 w-6" />,
     value: "10+ hrs",
     label: "Saved Per Week",
     color: "text-accent-amber",
-    gradient: "from-accent-amber/20 to-accent-amber/5",
-    border: "border-accent-amber/20",
-    glow: "shadow-accent-amber/10",
   },
   {
     icon: <DollarSign className="h-6 w-6" />,
     value: "$600+",
     label: "Saved Per Month",
     color: "text-success",
-    gradient: "from-success/20 to-success/5",
-    border: "border-success/20",
-    glow: "shadow-success/10",
   },
 ];
 
@@ -63,25 +54,18 @@ export default function BenefitsSection() {
       <div className="mt-12 grid gap-4 sm:grid-cols-3">
         {stats.map((s, i) => (
           <ScrollReveal key={i} delay={i * 0.12}>
-            <div
-              className={`group relative overflow-hidden rounded-2xl border ${s.border} bg-bg-card p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${s.glow}`}
-            >
+            <div className="group rounded-2xl border border-border bg-bg-card p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:border-accent/20 hover:bg-bg-card-hover hover:shadow-lg hover:shadow-accent/5">
               <div
-                className={`pointer-events-none absolute inset-0 bg-gradient-to-b ${s.gradient} opacity-0 transition-opacity duration-300 group-hover:opacity-100`}
-              />
-              <div className="relative">
-                <div
-                  className={`mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-bg-elevated ${s.color}`}
-                >
-                  {s.icon}
-                </div>
-                <div
-                  className={`mt-4 text-4xl font-extrabold tracking-tight ${s.color} sm:text-5xl`}
-                >
-                  {s.value}
-                </div>
-                <div className="mt-2 text-sm text-text-muted">{s.label}</div>
+                className={`mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-bg-elevated ${s.color} transition-transform duration-300 group-hover:scale-110`}
+              >
+                {s.icon}
               </div>
+              <div
+                className={`mt-4 text-4xl font-extrabold tracking-tight ${s.color} sm:text-5xl`}
+              >
+                {s.value}
+              </div>
+              <div className="mt-2 text-sm text-text-muted">{s.label}</div>
             </div>
           </ScrollReveal>
         ))}

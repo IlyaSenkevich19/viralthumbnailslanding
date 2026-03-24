@@ -1,11 +1,11 @@
 import Header from "@/components/Header";
 import HeroAnimated from "@/components/HeroAnimated";
 import Problem from "@/components/Problem";
-import WorkflowSteps from "@/components/WorkflowSteps";
+import HowItWorks from "@/components/HowItWorks";
 import FeaturesGrid from "@/components/FeaturesGrid";
-import VisualDemo from "@/components/VisualDemo";
 import BenefitsSection from "@/components/BenefitsSection";
 import TestimonialsCarousel from "@/components/TestimonialsCarousel";
+import BenefitRecap from "@/components/BenefitRecap";
 import Pricing from "@/components/Pricing";
 import LeadForm from "@/components/LeadForm";
 import CtaBanner from "@/components/CtaBanner";
@@ -18,11 +18,11 @@ export default function Home() {
       <main>
         <HeroAnimated />
         <Problem />
-        <WorkflowSteps />
+        <HowItWorks />
         <FeaturesGrid />
-        <VisualDemo />
         <BenefitsSection />
         <TestimonialsCarousel />
+        <BenefitRecap />
         <Pricing />
         <LeadForm />
         <CtaBanner />

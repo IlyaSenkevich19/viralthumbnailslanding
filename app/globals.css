@@ -121,10 +121,10 @@ body {
   to   { transform: translateX(0); }
 }
 .marquee-left {
-  animation: marquee-scroll-left 35s linear infinite;
+  animation: marquee-scroll-left 60s linear infinite;
 }
 .marquee-right {
-  animation: marquee-scroll-right 35s linear infinite;
+  animation: marquee-scroll-right 60s linear infinite;
 }
 
 /* ── Testimonials carousel ── */

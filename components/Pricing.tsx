@@ -1,32 +1,7 @@
-import {
-  Check,
-  Shield,
-  CreditCard,
-  Clock,
-  DollarSign,
-  TrendingUp,
-} from "lucide-react";
+import { Check, Shield, CreditCard } from "lucide-react";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import Button from "@/components/ui/Button";
-
-const valueRecap = [
-  {
-    icon: <Clock className="h-6 w-6" />,
-    value: "10+ hrs / week",
-    label: "saved on design",
-  },
-  {
-    icon: <DollarSign className="h-6 w-6" />,
-    value: "$600+ / month",
-    label: "saved vs freelancers",
-  },
-  {
-    icon: <TrendingUp className="h-6 w-6" />,
-    value: "2× higher CTR",
-    label: "on average",
-  },
-];
 
 const plans = [
   {
@@ -115,24 +90,6 @@ export default function Pricing() {
       </div>
 
       <div className="relative">
-        {/* Value Recap */}
-        <ScrollReveal>
-          <div className="mx-auto mb-14 grid max-w-3xl gap-6 sm:grid-cols-3">
-            {valueRecap.map((item, i) => (
-              <div
-                key={i}
-                className="flex flex-col items-center rounded-2xl border border-border bg-bg-card p-6 text-center"
-              >
-                <div className="text-accent">{item.icon}</div>
-                <div className="mt-2 text-2xl font-bold text-text-primary">
-                  {item.value}
-                </div>
-                <div className="mt-1 text-sm text-text-muted">{item.label}</div>
-              </div>
-            ))}
-          </div>
-        </ScrollReveal>
-
         <ScrollReveal>
           <div className="text-center">
             <h2 className="text-2xl font-bold text-text-primary sm:text-3xl lg:text-4xl">

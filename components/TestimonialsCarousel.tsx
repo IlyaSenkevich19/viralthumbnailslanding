@@ -9,7 +9,6 @@ const testimonials = [
     author: "Jake M.",
     channel: "Tech Tips Daily",
     result: "+80% CTR",
-    accent: "from-accent/20 to-transparent",
   },
   {
     quote:
@@ -17,7 +16,6 @@ const testimonials = [
     author: "Sarah K.",
     channel: "Fitness with Sarah",
     result: "+35% Views",
-    accent: "from-accent-amber/20 to-transparent",
   },
   {
     quote:
@@ -25,7 +23,6 @@ const testimonials = [
     author: "Marcus T.",
     channel: "Daily Gaming",
     result: "10hrs Saved/Week",
-    accent: "from-success/20 to-transparent",
   },
   {
     quote:
@@ -33,7 +30,6 @@ const testimonials = [
     author: "Emily R.",
     channel: "Cook with Emily",
     result: "+52% CTR",
-    accent: "from-accent/20 to-transparent",
   },
   {
     quote:
@@ -41,7 +37,6 @@ const testimonials = [
     author: "David L.",
     channel: "Code Academy",
     result: "3x More Clicks",
-    accent: "from-accent-amber/20 to-transparent",
   },
   {
     quote:
@@ -49,7 +44,6 @@ const testimonials = [
     author: "Priya S.",
     channel: "Finance Decoded",
     result: "+41% Views",
-    accent: "from-success/20 to-transparent",
   },
   {
     quote:
@@ -57,7 +51,6 @@ const testimonials = [
     author: "Alex W.",
     channel: "Travel Diaries",
     result: "5hrs Saved/Week",
-    accent: "from-accent/20 to-transparent",
   },
   {
     quote:
@@ -65,7 +58,6 @@ const testimonials = [
     author: "Jordan P.",
     channel: "Music Mastery",
     result: "+67% CTR",
-    accent: "from-accent-amber/20 to-transparent",
   },
 ];
 
@@ -89,19 +81,8 @@ function Initials({ name }: { name: string }) {
     .join("")
     .toUpperCase();
 
-  const colors = [
-    "bg-accent/20 text-accent",
-    "bg-accent-amber/20 text-accent-amber",
-    "bg-success/20 text-success",
-    "bg-blue-500/20 text-blue-400",
-    "bg-purple-500/20 text-purple-400",
-  ];
-  const color = colors[name.length % colors.length];
-
   return (
-    <div
-      className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-sm font-bold ${color}`}
-    >
+    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-border/50 text-sm font-bold text-text-muted">
       {initials}
     </div>
   );
@@ -129,19 +110,14 @@ export default function TestimonialsCarousel() {
         <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-bg to-transparent sm:w-28" />
         <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-bg to-transparent sm:w-28" />
 
-        <div className="overflow-hidden">
+        <div className="overflow-hidden py-2">
           <div className="carousel-track flex gap-5">
             {doubled.map((t, i) => (
               <div
                 key={i}
-                className="group relative w-[300px] shrink-0 overflow-hidden rounded-2xl border border-border bg-bg-card transition-all duration-300 hover:border-border-hover sm:w-[340px]"
+                className="group w-[300px] shrink-0 rounded-2xl border border-border bg-bg-card transition-all duration-300 hover:-translate-y-1 hover:border-border-hover hover:shadow-lg hover:shadow-black/20 sm:w-[340px]"
               >
-                {/* Color accent at top */}
-                <div
-                  className={`absolute top-0 right-0 left-0 h-24 bg-gradient-to-b ${t.accent} opacity-0 transition-opacity duration-300 group-hover:opacity-100`}
-                />
-
-                <div className="relative p-6">
+                <div className="p-6">
                   <Stars />
 
                   <p className="mt-4 text-sm leading-relaxed text-text-muted">
