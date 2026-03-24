@@ -7,7 +7,7 @@ const features = [
     title: "100+ Winning Thumbnail Templates",
     description:
       "Choose from our massive library of proven presets and work backwards from success.",
-    image: "/thumb_5.jpg",
+    image: "/templates.png",
     alt: "Library of 100+ proven high-CTR YouTube thumbnail templates",
     bg: "from-amber-900/60 via-yellow-900/40 to-amber-950/60",
     borderColor: "border-amber-500/20",
@@ -34,8 +34,8 @@ const features = [
     title: "A.I. Face Cloning Technology",
     description:
       "Generate realistic clones of yourself in any pose, expression, or outfit — with transparent backgrounds.",
-    image: "/thumb_7.jpg",
-    alt: "AI face cloning — realistic expressions and outfits for thumbnails",
+    image: "/ai-technolochy.png",
+    alt: "AI face cloning technology — realistic expressions and outfits for YouTube thumbnails",
     bg: "from-purple-900/60 via-fuchsia-900/40 to-purple-950/60",
     borderColor: "border-purple-500/20",
   },

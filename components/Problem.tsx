@@ -5,26 +5,26 @@ import ScrollReveal from "@/components/ui/ScrollReveal";
 
 const painPoints = [
   {
-    image: "/thumb_2.jpg",
-    imageAlt: "DIY thumbnail design in Canva — time-consuming process",
-    title: "DIY = Time Suck",
+    image: "/wastetime.png",
+    imageAlt: "DIY thumbnail design — hours lost on every upload",
+    title: "DIY Thumbnails Steal Time",
     problems: [
       "Takes 2–3 hours per design",
       "No guarantee it actually works",
     ],
   },
   {
-    image: "/thumb_4.jpg",
-    imageAlt: "Freelancer thumbnail — expensive and slow turnaround",
-    title: "Freelancers = Expensive & Slow",
+    image: "/freelancers.png",
+    imageAlt: "Freelance thumbnail design — high cost and slow delivery",
+    title: "Freelancers Cost Too Much",
     problems: [
       "$50–200+ per thumbnail",
       "Long waits, little control",
     ],
   },
   {
-    image: "/thumb_6.jpg",
-    imageAlt: "Big YouTubers have teams — hard to compete alone",
+    image: "/bigteams.png",
+    imageAlt: "Large YouTube channels with design teams and A/B testing at scale",
     title: "Big YouTubers Have Teams",
     problems: [
       "Hard to compete alone",
