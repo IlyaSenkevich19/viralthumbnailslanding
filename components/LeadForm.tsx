@@ -18,6 +18,7 @@ import {
 } from "lucide-react";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import ScrollReveal from "@/components/ui/ScrollReveal";
+import CustomSelect from "@/components/ui/CustomSelect";
 
 const subscriberOptions = [
   "Under 1,000",
@@ -216,11 +217,11 @@ export default function LeadForm() {
                 <form
                   ref={formRef}
                   onSubmit={handleSubmit}
-                  className="space-y-5"
+                  className="space-y-4"
                   noValidate
                 >
                   {/* 1. Pain — clickable cards */}
-                  <fieldset>
+                  <fieldset className="relative pb-2">
                     <legend className="mb-3 text-sm font-medium text-text-primary">
                       What&apos;s your biggest thumbnail problem?{" "}
                       <span className="text-accent">*</span>
@@ -253,27 +254,24 @@ export default function LeadForm() {
                       ))}
                     </div>
                     {hasError("pain") && (
-                      <p className="mt-2 flex items-center gap-1 text-xs text-red-400">
-                        <AlertCircle className="h-3.5 w-3.5" />
+                      <p className="absolute mt-1 flex items-center gap-1 text-xs text-red-400">
+                        <AlertCircle className="h-3.5 w-3.5 shrink-0" />
                         {errors.pain}
                       </p>
                     )}
                   </fieldset>
 
                   {/* 2. Subscribers */}
-                  <div>
-                    <label
-                      htmlFor="subscribers"
-                      className="mb-2 block text-sm font-medium text-text-primary"
-                    >
+                  <div className="relative pb-2">
+                    <label className="mb-2 block text-sm font-medium text-text-primary">
                       Subscriber count{" "}
                       <span className="text-accent">*</span>
                     </label>
-                    <select
-                      id="subscribers"
+                    <CustomSelect
                       value={subscribers}
-                      onChange={(e) => {
-                        setSubscribers(e.target.value);
+                      onChange={(val) => {
+                        setSubscribers(val);
+                        setTouched((prev) => ({ ...prev, subscribers: true }));
                         setErrors((prev) => {
                           const next = { ...prev };
                           delete next.subscribers;
@@ -281,41 +279,29 @@ export default function LeadForm() {
                         });
                       }}
                       onBlur={() => handleBlur("subscribers")}
-                      className={
-                        hasError("subscribers") ? inputError : inputDefault
-                      }
-                    >
-                      <option value="" disabled>
-                        Select range
-                      </option>
-                      {subscriberOptions.map((opt) => (
-                        <option key={opt} value={opt}>
-                          {opt}
-                        </option>
-                      ))}
-                    </select>
+                      options={subscriberOptions}
+                      placeholder="Select range"
+                      hasError={!!hasError("subscribers")}
+                    />
                     {hasError("subscribers") && (
-                      <p className="mt-2 flex items-center gap-1 text-xs text-red-400">
-                        <AlertCircle className="h-3.5 w-3.5" />
+                      <p className="absolute mt-1 flex items-center gap-1 text-xs text-red-400">
+                        <AlertCircle className="h-3.5 w-3.5 shrink-0" />
                         {errors.subscribers}
                       </p>
                     )}
                   </div>
 
                   {/* 3. Videos per week */}
-                  <div>
-                    <label
-                      htmlFor="uploads"
-                      className="mb-2 block text-sm font-medium text-text-primary"
-                    >
+                  <div className="relative pb-2">
+                    <label className="mb-2 block text-sm font-medium text-text-primary">
                       How many videos per week?{" "}
                       <span className="text-accent">*</span>
                     </label>
-                    <select
-                      id="uploads"
+                    <CustomSelect
                       value={uploads}
-                      onChange={(e) => {
-                        setUploads(e.target.value);
+                      onChange={(val) => {
+                        setUploads(val);
+                        setTouched((prev) => ({ ...prev, uploads: true }));
                         setErrors((prev) => {
                           const next = { ...prev };
                           delete next.uploads;
@@ -323,29 +309,20 @@ export default function LeadForm() {
                         });
                       }}
                       onBlur={() => handleBlur("uploads")}
-                      className={
-                        hasError("uploads") ? inputError : inputDefault
-                      }
-                    >
-                      <option value="" disabled>
-                        Select frequency
-                      </option>
-                      {uploadsPerWeek.map((opt) => (
-                        <option key={opt} value={opt}>
-                          {opt}
-                        </option>
-                      ))}
-                    </select>
+                      options={uploadsPerWeek}
+                      placeholder="Select frequency"
+                      hasError={!!hasError("uploads")}
+                    />
                     {hasError("uploads") && (
-                      <p className="mt-2 flex items-center gap-1 text-xs text-red-400">
-                        <AlertCircle className="h-3.5 w-3.5" />
+                      <p className="absolute mt-1 flex items-center gap-1 text-xs text-red-400">
+                        <AlertCircle className="h-3.5 w-3.5 shrink-0" />
                         {errors.uploads}
                       </p>
                     )}
                   </div>
 
                   {/* 4. Email */}
-                  <div>
+                  <div className="relative pb-2">
                     <label
                       htmlFor="email"
                       className="mb-2 block text-sm font-medium text-text-primary"
@@ -378,8 +355,8 @@ export default function LeadForm() {
                       }
                     />
                     {hasError("email") && (
-                      <p className="mt-2 flex items-center gap-1 text-xs text-red-400">
-                        <AlertCircle className="h-3.5 w-3.5" />
+                      <p className="absolute mt-1 flex items-center gap-1 text-xs text-red-400">
+                        <AlertCircle className="h-3.5 w-3.5 shrink-0" />
                         {errors.email}
                       </p>
                     )}
