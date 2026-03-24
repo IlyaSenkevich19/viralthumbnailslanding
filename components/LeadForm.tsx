@@ -14,10 +14,10 @@ import {
   Shield,
   Loader2,
   AlertCircle,
+  ExternalLink,
 } from "lucide-react";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import ScrollReveal from "@/components/ui/ScrollReveal";
-import Button from "@/components/ui/Button";
 
 const subscriberOptions = [
   "Under 1,000",
@@ -26,6 +26,8 @@ const subscriberOptions = [
   "15,000 – 30,000",
   "30,000+",
 ];
+
+const uploadsPerWeek = ["1–2 videos", "3–4 videos", "5+ videos"];
 
 const painCards = [
   { id: "time", icon: <Clock className="h-5 w-5" />, label: "Takes too long" },
@@ -56,12 +58,14 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 type FieldErrors = {
   pain?: string;
   subscribers?: string;
+  uploads?: string;
   email?: string;
 };
 
 export default function LeadForm() {
   const [pain, setPain] = useState("");
   const [subscribers, setSubscribers] = useState("");
+  const [uploads, setUploads] = useState("");
   const [email, setEmail] = useState("");
   const [channelUrl, setChannelUrl] = useState("");
   const [errors, setErrors] = useState<FieldErrors>({});
@@ -75,6 +79,7 @@ export default function LeadForm() {
     const e: FieldErrors = {};
     if (!pain) e.pain = "Please select your biggest problem";
     if (!subscribers) e.subscribers = "Please select subscriber range";
+    if (!uploads) e.uploads = "Please select upload frequency";
     if (!email.trim()) e.email = "Email is required";
     else if (!EMAIL_RE.test(email)) e.email = "Enter a valid email address";
     return e;
@@ -90,7 +95,12 @@ export default function LeadForm() {
 
     const validationErrors = validate();
     setErrors(validationErrors);
-    setTouched({ pain: true, subscribers: true, email: true });
+    setTouched({
+      pain: true,
+      subscribers: true,
+      uploads: true,
+      email: true,
+    });
 
     if (Object.keys(validationErrors).length > 0) return;
 
@@ -113,14 +123,21 @@ export default function LeadForm() {
               <CheckCircle2 className="h-10 w-10 text-success" />
             </div>
             <h3 className="mt-6 text-2xl font-bold text-text-primary sm:text-3xl">
-              You&apos;re in! Check your inbox.
+              You&apos;re in! Your account is ready.
             </h3>
             <p className="mx-auto mt-3 max-w-md text-text-muted">
-              We&apos;re generating your first 3 AI thumbnails right now.
-              You&apos;ll get them at{" "}
-              <span className="font-medium text-text-primary">{email}</span>{" "}
-              within 5 minutes.
+              We&apos;ve created your account and are generating your first 3 AI
+              thumbnails right now. Access them instantly in your dashboard.
             </p>
+
+            <a
+              href="/dashboard"
+              className="mt-8 inline-flex items-center justify-center rounded-xl bg-accent px-8 py-4 text-lg font-medium text-white shadow-lg shadow-accent/20 transition-all hover:scale-[1.02] hover:bg-accent-hover hover:shadow-xl hover:shadow-accent/30 active:scale-[0.98]"
+            >
+              Go to Dashboard
+              <ExternalLink className="ml-2 h-5 w-5" />
+            </a>
+
             <div className="mt-8 flex flex-col gap-3 text-sm text-text-dim sm:flex-row sm:gap-6">
               <span className="flex items-center gap-2">
                 <CheckCircle2 className="h-4 w-4 text-success" />
@@ -165,15 +182,15 @@ export default function LeadForm() {
                   Get 3 AI Thumbnails for Your Channel — Free
                 </h2>
                 <p className="mt-4 text-text-muted">
-                  Tell us about your channel and we&apos;ll generate 3 custom
-                  thumbnails tailored to your niche, style, and audience. Takes
-                  30 seconds.
+                  Answer 4 quick questions and get instant access to the AI
+                  generator. No long sales calls — just fill the form and start
+                  creating thumbnails immediately.
                 </p>
 
                 <div className="mt-8 space-y-4">
                   {[
                     "Personalized to your channel and niche",
-                    "Ready in under 2 minutes",
+                    "Instant access to the AI generator",
                     "No design skills needed",
                   ].map((item) => (
                     <div key={item} className="flex items-center gap-3">
@@ -285,7 +302,49 @@ export default function LeadForm() {
                     )}
                   </div>
 
-                  {/* 3. Email */}
+                  {/* 3. Videos per week */}
+                  <div>
+                    <label
+                      htmlFor="uploads"
+                      className="mb-2 block text-sm font-medium text-text-primary"
+                    >
+                      How many videos per week?{" "}
+                      <span className="text-accent">*</span>
+                    </label>
+                    <select
+                      id="uploads"
+                      value={uploads}
+                      onChange={(e) => {
+                        setUploads(e.target.value);
+                        setErrors((prev) => {
+                          const next = { ...prev };
+                          delete next.uploads;
+                          return next;
+                        });
+                      }}
+                      onBlur={() => handleBlur("uploads")}
+                      className={
+                        hasError("uploads") ? inputError : inputDefault
+                      }
+                    >
+                      <option value="" disabled>
+                        Select frequency
+                      </option>
+                      {uploadsPerWeek.map((opt) => (
+                        <option key={opt} value={opt}>
+                          {opt}
+                        </option>
+                      ))}
+                    </select>
+                    {hasError("uploads") && (
+                      <p className="mt-2 flex items-center gap-1 text-xs text-red-400">
+                        <AlertCircle className="h-3.5 w-3.5" />
+                        {errors.uploads}
+                      </p>
+                    )}
+                  </div>
+
+                  {/* 4. Email */}
                   <div>
                     <label
                       htmlFor="email"
@@ -326,7 +385,7 @@ export default function LeadForm() {
                     )}
                   </div>
 
-                  {/* 4. Channel URL (optional) */}
+                  {/* 5. Channel URL (optional) */}
                   <div>
                     <label
                       htmlFor="channel-url"
@@ -359,11 +418,11 @@ export default function LeadForm() {
                     {submitting ? (
                       <>
                         <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-                        Generating...
+                        Creating your account...
                       </>
                     ) : (
                       <>
-                        Generate My Free Thumbnails
+                        Get Instant Access
                         <ArrowRight className="ml-2 h-5 w-5" />
                       </>
                     )}

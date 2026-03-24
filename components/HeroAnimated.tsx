@@ -93,9 +93,9 @@ export default function HeroAnimated() {
             href="#lead-form"
             className="animate-[pulse-glow_3s_ease-in-out_infinite]"
           >
-            Get Started Today!
+            Get Started for Free!
           </Button>
-          <Button variant="outline" size="lg" href="#demo">
+          <Button variant="outline" size="lg" href="#how-it-works">
             <Play className="mr-2 h-4 w-4" />
             Watch Demo
           </Button>

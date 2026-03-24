@@ -7,7 +7,7 @@ const columns = [
       { label: "Features", href: "#features" },
       { label: "Pricing", href: "#pricing" },
       { label: "How It Works", href: "#how-it-works" },
-      { label: "Watch Demo", href: "#demo" },
+      { label: "Testimonials", href: "#testimonials" },
       { label: "Templates", href: "#" },
     ],
   },
@@ -121,8 +121,8 @@ export default function Footer() {
                 {col.title}
               </h4>
               <ul className="mt-3 space-y-2">
-                {col.links.map((link) => (
-                  <li key={link.label}>
+                {col.links.map((link, index) => (
+                  <li key={`${link.label}-${link.href}-${index}`}>
                     <a
                       href={link.href}
                       className="text-sm text-text-dim transition-colors hover:text-text-muted"

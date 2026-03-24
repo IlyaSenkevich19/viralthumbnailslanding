@@ -32,7 +32,7 @@ export default function CtaBanner() {
             >
               Get Started for Free!
             </Button>
-            <Button variant="outline" size="lg" href="#demo">
+            <Button variant="outline" size="lg" href="#how-it-works">
               Watch Demo
             </Button>
           </div>

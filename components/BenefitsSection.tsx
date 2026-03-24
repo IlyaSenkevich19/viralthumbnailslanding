@@ -37,7 +37,7 @@ const stats = [
 
 export default function BenefitsSection() {
   return (
-    <SectionWrapper id="how-it-works" className="bg-bg-elevated">
+    <SectionWrapper id="benefits" className="bg-bg-elevated">
       <ScrollReveal>
         <div className="text-center">
           <h2 className="text-2xl font-bold text-text-primary sm:text-3xl lg:text-4xl">
