@@ -150,13 +150,11 @@ export default function HowItWorks() {
           {/* Before layer */}
           <div className="absolute inset-0">
             <Image
-              src="/thumb_1.jpg"
-              alt="YouTube thumbnail before AI optimization — desaturated, low-CTR generic design"
+              src="/before.png"
+              alt="YouTube thumbnail before AI optimization — generic, low-CTR design"
               fill
               className="object-cover"
-              style={{ filter: "grayscale(100%) brightness(0.45)" }}
             />
-            <div className="absolute inset-0 bg-zinc-900/20" />
           </div>
 
           {/* After layer */}

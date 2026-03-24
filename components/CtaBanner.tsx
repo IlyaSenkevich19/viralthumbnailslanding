@@ -18,11 +18,6 @@ export default function CtaBanner() {
             Ready to Make Click-Boosting Thumbnails?
           </h2>
 
-          <p className="mx-auto mt-5 max-w-xl text-lg text-text-muted">
-            Join 2,500+ creators who already save 10+ hours a week and get 2×
-            more clicks. Start free — no credit card, no design skills needed.
-          </p>
-
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Button
               variant="secondary"
