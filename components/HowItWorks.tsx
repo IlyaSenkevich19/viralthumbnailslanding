@@ -1,7 +1,6 @@
 import Image from "next/image";
 import {
   CheckCircle2,
-  GripVertical,
   TrendingUp,
   Eye,
   Flame,
@@ -143,52 +142,35 @@ export default function HowItWorks() {
       </ScrollReveal>
 
       <ScrollReveal delay={0.15} className="mt-10">
-        <div
-          className="relative mx-auto max-w-4xl overflow-hidden rounded-2xl border border-border"
-          style={{ aspectRatio: "16 / 9" }}
-        >
-          {/* Before layer */}
-          <div className="absolute inset-0">
-            <Image
-              src="/before.png"
-              alt="YouTube thumbnail before AI optimization — generic, low-CTR design"
-              fill
-              className="object-cover"
-            />
-          </div>
-
-          {/* After layer */}
-          <div
-            className="slider-clip absolute inset-0"
-            style={{
-              animation: "clip-reveal 8s ease-in-out infinite",
-              willChange: "clip-path",
-            }}
-          >
-            <Image
-              src="/thumb_1.jpg"
-              alt="YouTube thumbnail after AI optimization — vibrant, high-CTR design by ViralThumbnails"
-              fill
-              className="object-cover"
-            />
-          </div>
-
-          {/* Divider line */}
-          <div
-            className="slider-divider absolute top-0 bottom-0 z-20 w-0.5 bg-white/80"
-            style={{ animation: "divider-pos 8s ease-in-out infinite" }}
-          >
-            <div className="absolute top-1/2 left-1/2 flex h-9 w-9 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-white/30 bg-white/10 backdrop-blur-sm">
-              <GripVertical className="h-4 w-4 text-white" />
+        <div className="mx-auto grid max-w-4xl gap-6 sm:grid-cols-2">
+          {/* Before */}
+          <div className="relative overflow-hidden rounded-2xl border border-border">
+            <div className="absolute top-4 left-4 z-10 rounded-full bg-zinc-800/80 px-3 py-1 text-xs font-medium text-zinc-300 backdrop-blur-sm">
+              Before
+            </div>
+            <div className="relative aspect-video">
+              <Image
+                src="/before.png"
+                alt="YouTube thumbnail before AI optimization — generic, low-CTR design"
+                fill
+                className="object-cover"
+              />
             </div>
           </div>
 
-          {/* Labels */}
-          <div className="absolute top-4 left-4 z-30 rounded-full bg-zinc-800/80 px-3 py-1 text-xs font-medium text-zinc-300 backdrop-blur-sm">
-            Before
-          </div>
-          <div className="absolute top-4 right-4 z-30 rounded-full bg-accent/20 px-3 py-1 text-xs font-medium text-accent backdrop-blur-sm">
-            After — AI Optimized
+          {/* After */}
+          <div className="relative overflow-hidden rounded-2xl border border-accent/30">
+            <div className="absolute top-4 left-4 z-10 rounded-full bg-accent/20 px-3 py-1 text-xs font-medium text-accent backdrop-blur-sm">
+              After — AI Optimized
+            </div>
+            <div className="relative aspect-video">
+              <Image
+                src="/thumb_1.jpg"
+                alt="YouTube thumbnail after AI optimization — vibrant, high-CTR design by ViralThumbnails"
+                fill
+                className="object-cover"
+              />
+            </div>
           </div>
         </div>
 

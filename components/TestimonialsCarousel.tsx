@@ -117,10 +117,10 @@ export default function TestimonialsCarousel() {
                 key={i}
                 className="group w-[300px] shrink-0 rounded-2xl border border-border bg-bg-card transition-all duration-300 hover:-translate-y-1 hover:border-border-hover hover:shadow-lg hover:shadow-black/20 sm:w-[340px]"
               >
-                <div className="p-6">
+                <div className="flex h-full flex-col p-6">
                   <Stars />
 
-                  <p className="mt-4 text-sm leading-relaxed text-text-muted">
+                  <p className="mt-4 flex-1 text-sm leading-relaxed text-text-muted">
                     &ldquo;{t.quote}&rdquo;
                   </p>
 
