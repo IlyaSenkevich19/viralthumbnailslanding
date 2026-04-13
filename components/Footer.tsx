@@ -1,12 +1,12 @@
 import { Zap } from "lucide-react";
-import { VIRAL_APP_URL } from "@/lib/app-url";
+import { VIRAL_APP_PLANS_URL } from "@/lib/app-url";
 
 const columns = [
   {
     title: "Product",
     links: [
       { label: "Features", href: "#features" },
-      { label: "Pricing", href: VIRAL_APP_URL },
+      { label: "Pricing", href: VIRAL_APP_PLANS_URL },
       { label: "How It Works", href: "#how-it-works" },
       { label: "Testimonials", href: "#testimonials" },
       { label: "Templates", href: "#" },
