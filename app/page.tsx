@@ -7,7 +7,6 @@ import BenefitsSection from "@/components/BenefitsSection";
 import TestimonialsCarousel from "@/components/TestimonialsCarousel";
 
 import Pricing from "@/components/Pricing";
-import LeadForm from "@/components/LeadForm";
 import CtaBanner from "@/components/CtaBanner";
 import Footer from "@/components/Footer";
 
@@ -23,7 +22,6 @@ export default function Home() {
         <BenefitsSection />
         <TestimonialsCarousel />
         <Pricing />
-        <LeadForm />
         <CtaBanner />
       </main>
       <Footer />

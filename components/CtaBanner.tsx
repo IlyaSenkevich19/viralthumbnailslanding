@@ -22,7 +22,7 @@ export default function CtaBanner() {
             <Button
               variant="secondary"
               size="lg"
-              href="#lead-form"
+              href="#pricing"
               className="animate-[pulse-glow_3s_ease-in-out_infinite]"
             >
               Get Started for Free!

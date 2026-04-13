@@ -72,7 +72,7 @@ export default function Header() {
           >
             Login
           </a>
-          <Button variant="primary" size="sm" href="#lead-form">
+          <Button variant="primary" size="sm" href="#pricing">
             Get Started
           </Button>
         </div>
@@ -165,7 +165,7 @@ export default function Header() {
             <Button
               variant="primary"
               size="md"
-              href="#lead-form"
+                href="#pricing"
               className="w-full"
             >
               Get Started

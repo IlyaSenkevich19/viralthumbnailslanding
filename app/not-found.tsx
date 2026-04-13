@@ -68,7 +68,7 @@ export default function NotFound() {
             <Home className="mr-2 h-4 w-4" />
             Back to Home
           </Button>
-          <Button variant="secondary" size="lg" href="/#lead-form">
+          <Button variant="secondary" size="lg" href="/#pricing">
             Start Creating
             <ArrowRight className="ml-2 h-4 w-4" />
           </Button>

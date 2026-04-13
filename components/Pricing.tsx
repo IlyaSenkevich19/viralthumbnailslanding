@@ -151,7 +151,7 @@ export default function Pricing() {
                 <Button
                   variant={plan.ctaVariant}
                   size="md"
-                  href="#lead-form"
+                  href="#cta"
                   className="w-full"
                 >
                   {plan.ctaText}
