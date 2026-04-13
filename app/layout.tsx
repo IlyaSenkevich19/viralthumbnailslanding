@@ -65,7 +65,7 @@ const jsonLd = {
     {
       "@type": "Offer",
       name: "Starter",
-      price: "19",
+      price: "29",
       priceCurrency: "USD",
       billingIncrement: "P1M",
       description: "50 thumbnails/month, all templates, Canva import",

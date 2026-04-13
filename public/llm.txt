@@ -31,9 +31,10 @@ YouTube creators with 5,000–30,000 subscribers who upload regularly (1–5 vid
 ## Pricing (USD)
 
 - Free trial: 10 thumbnails, no credit card required
-- Starter: $19/month — 50 thumbnails, all templates, Canva import, email support
+- Starter: $29/month — 50 thumbnails, all templates, Canva import, email support
 - Pro: $49/month — 200 thumbnails, A/B testing, custom branding, priority support
 - Agency: $99/month — Unlimited thumbnails, team access (5 seats), API, white-label, dedicated support
+- On every plan, unused credits roll over — balances are not wiped at month-end.
 
 ## Results
 

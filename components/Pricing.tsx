@@ -12,6 +12,7 @@ const plans = [
     description: "Try it out — zero commitment.",
     features: [
       "10 thumbnails total",
+      "Unused credits roll over — nothing resets at month-end",
       "5 basic templates",
       "Watermarked exports",
       "Community support",
@@ -22,11 +23,12 @@ const plans = [
   },
   {
     name: "Starter",
-    price: "$19",
+    price: "$29",
     period: "/mo",
     description: "For creators uploading 1–2 videos/week.",
     features: [
       "50 thumbnails / month",
+      "Unused credits roll over — nothing resets at month-end",
       "All templates",
       "Canva import",
       "No watermark",
@@ -43,6 +45,7 @@ const plans = [
     description: "For serious creators who want max CTR.",
     features: [
       "200 thumbnails / month",
+      "Unused credits roll over — nothing resets at month-end",
       "A/B testing",
       "Custom branding",
       "Priority support",
@@ -60,6 +63,7 @@ const plans = [
     description: "For teams managing multiple channels.",
     features: [
       "Unlimited thumbnails",
+      "Unused credits roll over — nothing resets at month-end",
       "Team access (5 seats)",
       "API access",
       "White-label exports",
