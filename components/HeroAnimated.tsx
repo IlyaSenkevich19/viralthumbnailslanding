@@ -1,5 +1,6 @@
 import { Play, Clock, DollarSign, Paintbrush } from "lucide-react";
 import Button from "@/components/ui/Button";
+import { VIRAL_APP_URL } from "@/lib/app-url";
 import ThumbnailBackground from "@/components/ThumbnailBackground";
 import ThumbnailMarquee from "@/components/ThumbnailMarquee";
 
@@ -90,7 +91,7 @@ export default function HeroAnimated() {
           <Button
             variant="secondary"
             size="lg"
-            href="#pricing"
+            href={VIRAL_APP_URL}
             className="animate-[pulse-glow_3s_ease-in-out_infinite]"
           >
             Get Started for Free!

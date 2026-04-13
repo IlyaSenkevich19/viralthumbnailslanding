@@ -44,8 +44,13 @@ export default function Button({
   const classes = `inline-flex items-center justify-center rounded-xl font-medium cursor-pointer transition-all duration-200 ease-out hover:scale-[1.02] active:scale-[0.98] ${variantClasses[variant]} ${sizeClasses[size]} ${disabled ? "opacity-40 pointer-events-none" : ""} ${className}`;
 
   if (href) {
+    const external = /^https?:\/\//i.test(href);
     return (
-      <a href={href} className={classes}>
+      <a
+        href={href}
+        className={classes}
+        {...(external ? { rel: "noopener noreferrer" } : {})}
+      >
         {children}
       </a>
     );

@@ -2,6 +2,7 @@ import { Check, Shield, CreditCard } from "lucide-react";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import Button from "@/components/ui/Button";
+import { VIRAL_APP_URL } from "@/lib/app-url";
 
 const plans = [
   {
@@ -151,7 +152,7 @@ export default function Pricing() {
                 <Button
                   variant={plan.ctaVariant}
                   size="md"
-                  href="#cta"
+                  href={VIRAL_APP_URL}
                   className="w-full"
                 >
                   {plan.ctaText}

@@ -1,5 +1,6 @@
 import { Users } from "lucide-react";
 import Button from "@/components/ui/Button";
+import { VIRAL_APP_URL } from "@/lib/app-url";
 
 export default function Hero() {
   return (
@@ -26,7 +27,7 @@ export default function Hero() {
         </p>
 
         <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-          <Button variant="secondary" size="lg" href="#pricing">
+          <Button variant="secondary" size="lg" href={VIRAL_APP_URL}>
             Get 10 Free Thumbnails
           </Button>
           <Button variant="outline" size="lg" href="#how-it-works">

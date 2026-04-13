@@ -1,6 +1,7 @@
 import { Zap, Home, ArrowRight } from "lucide-react";
 import ThumbnailBackground from "@/components/ThumbnailBackground";
 import Button from "@/components/ui/Button";
+import { VIRAL_APP_URL } from "@/lib/app-url";
 
 export default function NotFound() {
   return (
@@ -68,7 +69,7 @@ export default function NotFound() {
             <Home className="mr-2 h-4 w-4" />
             Back to Home
           </Button>
-          <Button variant="secondary" size="lg" href="/#pricing">
+          <Button variant="secondary" size="lg" href={VIRAL_APP_URL}>
             Start Creating
             <ArrowRight className="ml-2 h-4 w-4" />
           </Button>

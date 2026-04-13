@@ -1,11 +1,12 @@
 import { Zap } from "lucide-react";
+import { VIRAL_APP_URL } from "@/lib/app-url";
 
 const columns = [
   {
     title: "Product",
     links: [
       { label: "Features", href: "#features" },
-      { label: "Pricing", href: "#pricing" },
+      { label: "Pricing", href: VIRAL_APP_URL },
       { label: "How It Works", href: "#how-it-works" },
       { label: "Testimonials", href: "#testimonials" },
       { label: "Templates", href: "#" },
@@ -126,6 +127,9 @@ export default function Footer() {
                     <a
                       href={link.href}
                       className="text-sm text-text-dim transition-colors hover:text-text-muted"
+                      {...(/^https?:\/\//i.test(link.href)
+                        ? { rel: "noopener noreferrer" }
+                        : {})}
                     >
                       {link.label}
                     </a>

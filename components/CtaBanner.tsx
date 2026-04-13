@@ -1,5 +1,6 @@
 import { Sparkles } from "lucide-react";
 import Button from "@/components/ui/Button";
+import { VIRAL_APP_URL } from "@/lib/app-url";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 
 export default function CtaBanner() {
@@ -22,7 +23,7 @@ export default function CtaBanner() {
             <Button
               variant="secondary"
               size="lg"
-              href="#pricing"
+              href={VIRAL_APP_URL}
               className="animate-[pulse-glow_3s_ease-in-out_infinite]"
             >
               Get Started for Free!

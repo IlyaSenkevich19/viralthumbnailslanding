@@ -3,12 +3,13 @@
 import { useEffect, useState, useRef } from "react";
 import { Zap } from "lucide-react";
 import Button from "@/components/ui/Button";
+import { VIRAL_APP_URL } from "@/lib/app-url";
 
 const navLinks = [
   { label: "Features", href: "#features" },
   { label: "How It Works", href: "#how-it-works" },
   { label: "Testimonials", href: "#testimonials" },
-  { label: "Pricing", href: "#pricing" },
+  { label: "Pricing", href: VIRAL_APP_URL },
 ];
 
 export default function Header() {
@@ -67,12 +68,13 @@ export default function Header() {
         {/* Desktop CTAs */}
         <div className="hidden items-center gap-3 lg:flex">
           <a
-            href="#"
+            href={VIRAL_APP_URL}
+            rel="noopener noreferrer"
             className="text-sm text-text-muted transition-colors hover:text-text-primary"
           >
             Login
           </a>
-          <Button variant="primary" size="sm" href="#pricing">
+          <Button variant="primary" size="sm" href={VIRAL_APP_URL}>
             Get Started
           </Button>
         </div>
@@ -137,7 +139,8 @@ export default function Header() {
             </a>
           ))}
           <a
-            href="#"
+            href={VIRAL_APP_URL}
+            rel="noopener noreferrer"
             onClick={() => setMobileOpen(false)}
             className="rounded-lg px-4 py-3 text-lg font-medium text-text-muted hover:bg-accent/10 hover:text-text-primary"
             style={{
@@ -165,7 +168,7 @@ export default function Header() {
             <Button
               variant="primary"
               size="md"
-                href="#pricing"
+              href={VIRAL_APP_URL}
               className="w-full"
             >
               Get Started
