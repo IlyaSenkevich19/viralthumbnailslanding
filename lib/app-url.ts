@@ -12,12 +12,12 @@ function appPath(path: string): string {
 
 export const VIRAL_APP_URL = APP_ORIGIN;
 
-/** Matches `src/app/(app)/auth/...` on the app (route group does not appear in URL). */
-export const VIRAL_APP_LOGIN_URL = appPath("/auth/login");
+/** Sign-in lives at the app root (`/`). */
+export const VIRAL_APP_LOGIN_URL = `${APP_ORIGIN}/`;
+
 export const VIRAL_APP_SIGNUP_URL = appPath("/auth/register");
 
 /**
- * Nav “Pricing” + plan buttons → product credits/plans UI (`src/app/(app)/credits`).
- * The app must redirect guests to `/auth/login` or `/auth/register` (e.g. middleware on `(app)` routes).
+ * Nav “Pricing” + plan buttons → `/credits`. Guests should be redirected to `/` (login) or `/auth/register`.
  */
 export const VIRAL_APP_PLANS_URL = appPath("/credits");
