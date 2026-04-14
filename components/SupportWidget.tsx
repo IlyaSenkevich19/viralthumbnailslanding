@@ -20,7 +20,7 @@ export default function SupportWidget() {
   function handleSend() {
     const text = [
       name.trim() ? `Hi, I'm ${name.trim()}.` : "Hi!",
-      message.trim() || "I have a question about ViralThumbnails.",
+      message.trim() || "I have a question about ViralThumblify.",
     ].join(" ");
 
     const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
@@ -53,7 +53,7 @@ export default function SupportWidget() {
           </div>
           <div>
             <div className="text-sm font-semibold text-white">
-              ViralThumbnails Support
+              ViralThumblify Support
             </div>
             <div className="flex items-center gap-1.5 text-xs text-white/80">
               <span className="h-2 w-2 rounded-full bg-white/90" />
@@ -86,7 +86,7 @@ export default function SupportWidget() {
                     : "-translate-x-2 opacity-0"
                 }`}
               >
-                Hey! 👋 Ask us anything about ViralThumbnails. We&apos;ll
+                Hey! 👋 Ask us anything about ViralThumblify. We&apos;ll
                 reply in WhatsApp.
               </div>
 

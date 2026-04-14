@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import MarketingScripts from "@/components/MarketingScripts";
 // import SupportWidget from "@/components/SupportWidget";
 import "./globals.css";
 
@@ -10,12 +11,12 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
-const siteUrl = "https://viralthumbnails.com";
+const siteUrl = "https://www.viralthumblify.com";
 
 export const metadata: Metadata = {
-  title: "ViralThumbnails — AI YouTube Thumbnail Generator | Boost CTR Fast",
+  title: "ViralThumblify — AI YouTube Thumbnail Generator | Boost CTR Fast",
   description:
-    "ViralThumbnails is an AI YouTube thumbnail generator that creates high-CTR thumbnails in under 2 minutes. Save 10+ hours/week, replace $200 freelancers, and grow your channel. Free trial — no card required.",
+    "ViralThumblify is an AI YouTube thumbnail generator that creates high-CTR thumbnails in under 2 minutes. Save 10+ hours/week, replace $200 freelancers, and grow your channel. Free trial — no card required.",
   keywords: [
     "YouTube thumbnail generator",
     "AI thumbnails",
@@ -29,17 +30,17 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
   robots: { index: true, follow: true },
   openGraph: {
-    title: "ViralThumbnails — AI YouTube Thumbnail Generator",
+    title: "ViralThumblify — AI YouTube Thumbnail Generator",
     description:
       "Create high-CTR YouTube thumbnails in under 2 minutes with AI. Free trial, no card required.",
     url: siteUrl,
-    siteName: "ViralThumbnails",
+    siteName: "ViralThumblify",
     locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "ViralThumbnails — AI YouTube Thumbnail Generator",
+    title: "ViralThumblify — AI YouTube Thumbnail Generator",
     description:
       "Create high-CTR YouTube thumbnails in under 2 minutes with AI. Free trial, no card required.",
   },
@@ -48,7 +49,7 @@ export const metadata: Metadata = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
-  name: "ViralThumbnails",
+  name: "ViralThumblify",
   url: siteUrl,
   description:
     "AI-powered YouTube thumbnail generator that creates high-CTR thumbnails in under 2 minutes. Includes template library, Canva import, avatar support, A/B testing, and one-click export.",
@@ -118,6 +119,7 @@ export default function RootLayout({
         />
       </head>
       <body className="font-sans">
+        <MarketingScripts />
         {children}
         {/* <SupportWidget /> */}
         <Analytics />

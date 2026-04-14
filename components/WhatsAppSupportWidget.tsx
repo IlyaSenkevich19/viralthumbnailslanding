@@ -21,7 +21,7 @@ function WhatsAppGlyph({ className }: { className?: string }) {
 }
 
 const DEFAULT_PREFILL =
-  "Hi! I have a question about ViralThumbnails (from the website).";
+  "Hi! I have a question about ViralThumblify (from the website).";
 
 export default function WhatsAppSupportWidget() {
   const raw = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER?.trim() ?? "";

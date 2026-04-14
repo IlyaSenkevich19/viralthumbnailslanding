@@ -1,6 +1,6 @@
-# ViralThumbnails — Landing Page
+# ViralThumblify — Landing Page
 
-Marketing landing for **ViralThumbnails**, an AI-powered YouTube thumbnail generator aimed at creators (especially ~5–30K subscribers). Built with **Next.js (App Router)**, **React 19**, **TypeScript**, and **Tailwind CSS v4**.
+Marketing landing for **ViralThumblify**, an AI-powered YouTube thumbnail generator aimed at creators (especially ~5–30K subscribers). Built with **Next.js (App Router)**, **React 19**, **TypeScript**, and **Tailwind CSS v4**.
 
 ## Features
 

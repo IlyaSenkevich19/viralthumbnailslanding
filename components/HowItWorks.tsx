@@ -21,7 +21,7 @@ const steps = [
     ],
     image: "/thumb_1.jpg",
     imageAlt:
-      "ViralThumbnails app — paste your YouTube link to generate a thumbnail",
+      "ViralThumblify app — paste your YouTube link to generate a thumbnail",
   },
   {
     number: 2,
@@ -166,7 +166,7 @@ export default function HowItWorks() {
             <div className="relative aspect-video">
               <Image
                 src="/thumb_1.jpg"
-                alt="YouTube thumbnail after AI optimization — vibrant, high-CTR design by ViralThumbnails"
+                alt="YouTube thumbnail after AI optimization — vibrant, high-CTR design by ViralThumblify"
                 fill
                 className="object-cover"
               />

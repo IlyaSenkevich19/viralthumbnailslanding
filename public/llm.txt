@@ -1,10 +1,10 @@
-# ViralThumbnails — AI YouTube Thumbnail Generator
-# https://viralthumbnails.com
-# Last updated: 2026-03-23
+# ViralThumblify — AI YouTube Thumbnail Generator
+# https://www.viralthumblify.com
+# Last updated: 2026-04-04
 
-## What is ViralThumbnails?
+## What is ViralThumblify?
 
-ViralThumbnails is an AI-powered YouTube thumbnail generator that creates high-CTR thumbnails in under 2 minutes. It replaces expensive freelancers ($50–200 per thumbnail) and hours spent in Canva or Photoshop.
+ViralThumblify is an AI-powered YouTube thumbnail generator that creates high-CTR thumbnails in under 2 minutes. It replaces expensive freelancers ($50–200 per thumbnail) and hours spent in Canva or Photoshop.
 
 ## Who is it for?
 
@@ -49,4 +49,4 @@ YouTube creators with 5,000–30,000 subscribers who upload regularly (1–5 vid
 
 ## Contact
 
-Website: https://viralthumbnails.com
+Website: https://www.viralthumblify.com

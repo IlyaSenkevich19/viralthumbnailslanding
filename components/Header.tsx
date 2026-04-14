@@ -52,7 +52,7 @@ export default function Header() {
         <a href="#" className="relative z-10 flex items-center gap-2">
           <Zap className="h-6 w-6 text-accent" />
           <span className="text-lg font-bold text-text-primary">
-            Viral<span className="text-accent">Thumbnails</span>
+            Viral<span className="text-accent">Thumblify</span>
           </span>
         </a>
 

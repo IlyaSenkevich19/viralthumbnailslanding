@@ -92,7 +92,7 @@ export default function Footer() {
             <a href="#" className="flex items-center gap-2">
               <Zap className="h-6 w-6 text-accent" />
               <span className="text-lg font-bold text-text-primary">
-                Viral<span className="text-accent">Thumbnails</span>
+                Viral<span className="text-accent">Thumblify</span>
               </span>
             </a>
             <p className="mt-3 max-w-xs text-sm leading-relaxed text-text-dim">
@@ -141,7 +141,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-10 border-t border-border pt-6 text-center text-xs text-text-dim">
-          &copy; {new Date().getFullYear()} ViralThumbnails. All rights
+          &copy; {new Date().getFullYear()} ViralThumblify. All rights
           reserved.
         </div>
       </div>
