@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import MarketingScripts from "@/components/MarketingScripts";
+import { SITE_URL } from "@/lib/site";
 // import SupportWidget from "@/components/SupportWidget";
 import "./globals.css";
 
@@ -10,8 +11,6 @@ const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
 });
-
-const siteUrl = "https://www.viralthumblify.com";
 
 export const metadata: Metadata = {
   title: "ViralThumblify — AI YouTube Thumbnail Generator | Boost CTR Fast",
@@ -26,14 +25,14 @@ export const metadata: Metadata = {
     "YouTube thumbnail creator",
     "thumbnail A/B testing",
   ],
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL(SITE_URL),
   alternates: { canonical: "/" },
   robots: { index: true, follow: true },
   openGraph: {
     title: "ViralThumblify — AI YouTube Thumbnail Generator",
     description:
       "Create high-CTR YouTube thumbnails in under 2 minutes with AI. Free trial, no card required.",
-    url: siteUrl,
+    url: SITE_URL,
     siteName: "ViralThumblify",
     locale: "en_US",
     type: "website",
@@ -50,7 +49,7 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   name: "ViralThumblify",
-  url: siteUrl,
+  url: SITE_URL,
   description:
     "AI-powered YouTube thumbnail generator that creates high-CTR thumbnails in under 2 minutes. Includes template library, Canva import, avatar support, A/B testing, and one-click export.",
   applicationCategory: "DesignApplication",

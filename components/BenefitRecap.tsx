@@ -1,5 +1,5 @@
 import {
-  Zap,
+  Image as ImageIcon,
   Clock,
   DollarSign,
   TrendingUp,
@@ -10,7 +10,7 @@ import ScrollReveal from "@/components/ui/ScrollReveal";
 
 const benefits = [
   {
-    icon: <Zap className="h-5 w-5" />,
+    icon: <ImageIcon className="h-5 w-5" />,
     text: "AI-generated thumbnails in under 60 seconds",
   },
   {

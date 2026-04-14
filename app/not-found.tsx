@@ -1,4 +1,4 @@
-import { Zap, Home, ArrowRight } from "lucide-react";
+import { Home, ArrowRight } from "lucide-react";
 import ThumbnailBackground from "@/components/ThumbnailBackground";
 import Button from "@/components/ui/Button";
 import { VIRAL_APP_SIGNUP_URL } from "@/lib/app-url";
@@ -29,15 +29,8 @@ export default function NotFound() {
 
       {/* Content */}
       <div className="relative z-10">
-        <div
-          className="flex items-center justify-center"
-          style={{ animation: "hero-fade-in 0.7s ease-out 0s both" }}
-        >
-          <Zap className="h-10 w-10 text-accent" />
-        </div>
-
         <h1
-          className="mt-6 text-8xl font-extrabold tracking-tighter sm:text-[10rem]"
+          className="text-8xl font-extrabold tracking-tighter sm:text-[10rem]"
           style={{ animation: "hero-fade-in 0.8s ease-out 0.15s both" }}
         >
           <span className="bg-gradient-to-r from-accent via-orange-400 to-accent-amber bg-[length:200%_200%] bg-clip-text text-transparent"

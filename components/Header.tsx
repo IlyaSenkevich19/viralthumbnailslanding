@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState, useRef } from "react";
-import { Zap } from "lucide-react";
 import Button from "@/components/ui/Button";
 import {
   VIRAL_APP_LOGIN_URL,
@@ -10,9 +9,9 @@ import {
 } from "@/lib/app-url";
 
 const navLinks = [
-  { label: "Features", href: "#features" },
-  { label: "How It Works", href: "#how-it-works" },
-  { label: "Testimonials", href: "#testimonials" },
+  { label: "Features", href: "/#features" },
+  { label: "How It Works", href: "/#how-it-works" },
+  { label: "Testimonials", href: "/#testimonials" },
   { label: "Pricing", href: VIRAL_APP_PLANS_URL },
 ];
 
@@ -49,8 +48,7 @@ export default function Header() {
     >
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Logo */}
-        <a href="#" className="relative z-10 flex items-center gap-2">
-          <Zap className="h-6 w-6 text-accent" />
+        <a href="/" className="relative z-10 flex items-center gap-2">
           <span className="text-lg font-bold text-text-primary">
             Viral<span className="text-accent">Thumblify</span>
           </span>

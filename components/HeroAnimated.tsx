@@ -56,18 +56,18 @@ export default function HeroAnimated() {
           </span>
         </div> */}
 
-        {/* Headline */}
+        {/* Headline — two lines only; avoids a single short word wrapping off-center */}
         <h1
-          className="mt-6 text-3xl leading-tight font-extrabold tracking-tight text-text-primary sm:text-4xl md:text-5xl lg:text-6xl"
+          className="mt-6 w-full text-center text-3xl leading-tight font-extrabold tracking-tight text-text-primary sm:text-4xl md:text-5xl lg:text-6xl"
           style={{ animation: "hero-fade-in 0.8s ease-out 0.15s both" }}
         >
-          <span className="block">Create Thumbnails That Go Viral</span>
+          <span className="block">Create Thumbnails That Go</span>
           <span className="mt-1 block sm:mt-2">
             <span
               className="bg-gradient-to-r from-accent via-orange-400 to-accent-amber bg-[length:200%_200%] bg-clip-text text-transparent"
               style={{ animation: "gradient-shift 4s ease-in-out infinite" }}
             >
-              in Seconds
+              Viral in Seconds
             </span>{" "}
             <span className="text-text-primary">with AI</span>
           </span>

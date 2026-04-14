@@ -9,7 +9,6 @@ import {
   MousePointerClick,
   Paintbrush,
   FlaskConical,
-  Sparkles,
   Users,
   Shield,
   Loader2,
@@ -174,8 +173,7 @@ export default function LeadForm() {
             <div className="grid gap-0 lg:grid-cols-2">
               {/* Left — value proposition */}
               <div className="flex flex-col justify-center p-8 sm:p-10 lg:p-12">
-                <div className="inline-flex w-fit items-center gap-2 rounded-full bg-accent/10 px-3 py-1 text-xs font-medium text-accent">
-                  <Sparkles className="h-3.5 w-3.5" />
+                <div className="inline-flex w-fit items-center rounded-full bg-accent/10 px-3 py-1 text-xs font-medium text-accent">
                   Free — no card required
                 </div>
 

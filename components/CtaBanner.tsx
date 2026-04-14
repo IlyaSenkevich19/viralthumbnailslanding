@@ -1,4 +1,3 @@
-import { Sparkles } from "lucide-react";
 import Button from "@/components/ui/Button";
 import { VIRAL_APP_SIGNUP_URL } from "@/lib/app-url";
 import ScrollReveal from "@/components/ui/ScrollReveal";
@@ -13,9 +12,7 @@ export default function CtaBanner() {
 
       <ScrollReveal>
         <div className="relative mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
-          <Sparkles className="mx-auto h-10 w-10 text-accent-amber" />
-
-          <h2 className="mt-6 text-3xl font-bold text-text-primary sm:text-4xl lg:text-5xl">
+          <h2 className="text-3xl font-bold text-text-primary sm:text-4xl lg:text-5xl">
             Ready to Make Click-Boosting Thumbnails?
           </h2>
 
@@ -28,7 +25,7 @@ export default function CtaBanner() {
             >
               Get Started for Free!
             </Button>
-            <Button variant="outline" size="lg" href="#how-it-works">
+            <Button variant="outline" size="lg" href="/#how-it-works">
               Watch Demo
             </Button>
           </div>
