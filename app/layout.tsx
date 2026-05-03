@@ -4,7 +4,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import MarketingScripts from "@/components/MarketingScripts";
 import { SITE_URL } from "@/lib/site";
-// import SupportWidget from "@/components/SupportWidget";
+import SupportWidget from "@/components/SupportWidget";
 import "./globals.css";
 
 const inter = Inter({
@@ -120,7 +120,7 @@ export default function RootLayout({
       <body className="font-sans">
         <MarketingScripts />
         {children}
-        {/* <SupportWidget /> */}
+        <SupportWidget />
         <Analytics />
         <SpeedInsights />
       </body>
