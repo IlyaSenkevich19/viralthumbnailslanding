@@ -112,8 +112,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={inter.variable}>
-      {gtmId ? <GoogleTagManager gtmId={gtmId} /> : null}
       <head>
+        {gtmId ? <GoogleTagManager gtmId={gtmId} /> : null}
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <script
           type="application/ld+json"
@@ -121,6 +121,17 @@ export default function RootLayout({
         />
       </head>
       <body className="font-sans">
+        {gtmId ? (
+          <noscript>
+            <iframe
+              title="Google Tag Manager"
+              src={`https://www.googletagmanager.com/ns.html?id=${gtmId}`}
+              height={0}
+              width={0}
+              style={{ display: 'none', visibility: 'hidden' }}
+            />
+          </noscript>
+        ) : null}
         {children}
         <SupportWidget />
         <Analytics />
