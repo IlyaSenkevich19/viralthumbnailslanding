@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
+import { GoogleTagManager } from "@next/third-parties/google";
 import { Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import MarketingScripts from "@/components/MarketingScripts";
 import { SITE_URL } from "@/lib/site";
 import SupportWidget from "@/components/SupportWidget";
 import "./globals.css";
@@ -103,6 +103,8 @@ const jsonLd = {
   },
 };
 
+const gtmId = process.env.NEXT_PUBLIC_GTM_ID?.trim();
+
 export default function RootLayout({
   children,
 }: {
@@ -110,6 +112,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={inter.variable}>
+      {gtmId ? <GoogleTagManager gtmId={gtmId} /> : null}
       <head>
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <script
@@ -118,7 +121,6 @@ export default function RootLayout({
         />
       </head>
       <body className="font-sans">
-        <MarketingScripts />
         {children}
         <SupportWidget />
         <Analytics />

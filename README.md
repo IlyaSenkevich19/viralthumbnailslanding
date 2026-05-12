@@ -58,7 +58,10 @@ After you have a production URL, update:
 
 ## Environment variables
 
-No env vars are required for the static marketing page. Add them when you connect analytics, forms API, or auth.
+No env vars are required for a bare static build. Optional:
+
+- **`NEXT_PUBLIC_SUPPORT_API_URL`** — Nest `/api/support/contact` for the floating support widget (CORS must allow this site’s origin).
+- **`NEXT_PUBLIC_GTM_ID`** — e.g. `GTM-XXXXXXX`. GA4 and Google Ads are configured **only inside GTM** (no separate `NEXT_PUBLIC_GA_*` / Ads env vars in this repo).
 
 ## License
 
