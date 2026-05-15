@@ -18,8 +18,8 @@ export default function SupportWidget() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    const t = setTimeout(() => setMounted(true), 1500);
-    return () => clearTimeout(t);
+    const frame = requestAnimationFrame(() => setMounted(true));
+    return () => cancelAnimationFrame(frame);
   }, []);
 
   useEffect(() => {
