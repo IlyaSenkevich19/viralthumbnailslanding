@@ -117,12 +117,7 @@ export default function Pricing() {
                 }`}
               >
                 {plan.popular && (
-                  <div
-                    className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-accent px-4 py-1 text-xs font-bold text-white"
-                    style={{
-                      animation: "badge-pulse 2.5s ease-in-out infinite",
-                    }}
-                  >
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-accent px-4 py-1 text-xs font-bold text-white">
                     Most Popular
                   </div>
                 )}

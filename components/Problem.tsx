@@ -5,7 +5,7 @@ import ScrollReveal from "@/components/ui/ScrollReveal";
 
 const painPoints = [
   {
-    image: "/wastetime.png",
+    image: "/wastetime.webp",
     imageAlt: "DIY thumbnail design — hours lost on every upload",
     title: "DIY Thumbnails Steal Time",
     problems: [
@@ -14,7 +14,7 @@ const painPoints = [
     ],
   },
   {
-    image: "/freelancers.png",
+    image: "/freelancers.webp",
     imageAlt: "Freelance thumbnail design — high cost and slow delivery",
     title: "Freelancers Cost Too Much",
     problems: [
@@ -23,7 +23,7 @@ const painPoints = [
     ],
   },
   {
-    image: "/bigteams.png",
+    image: "/bigteams.webp",
     imageAlt: "Large YouTube channels with design teams and A/B testing at scale",
     title: "Big YouTubers Have Teams",
     problems: [
@@ -56,13 +56,14 @@ export default function Problem() {
           <ScrollReveal key={i} delay={i * 0.12}>
             <div className="group flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-bg-card transition-all duration-300 hover:-translate-y-1 hover:border-accent/20 hover:shadow-lg hover:shadow-accent/5">
               {/* Image */}
-              <div className="relative aspect-[4/3] w-full overflow-hidden">
+              <div className="relative hidden aspect-[4/3] w-full overflow-hidden md:block">
                 <Image
                   src={point.image}
                   alt={point.imageAlt}
                   fill
+                  quality={70}
                   className="object-cover opacity-60 grayscale transition-all duration-500 group-hover:opacity-80 group-hover:grayscale-[50%]"
-                  sizes="(max-width: 768px) 100vw, 33vw"
+                  sizes="(max-width: 768px) 92vw, 33vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-bg-card via-bg-card/30 to-transparent" />
               </div>

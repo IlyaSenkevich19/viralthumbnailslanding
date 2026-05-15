@@ -21,7 +21,6 @@ export default function CtaBanner() {
               variant="secondary"
               size="lg"
               href={VIRAL_APP_SIGNUP_URL}
-              className="animate-[pulse-glow_3s_ease-in-out_infinite]"
             >
               Get Started for Free!
             </Button>

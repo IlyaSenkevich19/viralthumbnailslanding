@@ -1,16 +1,9 @@
 import type { Metadata } from "next";
-import { GoogleTagManager } from "@next/third-parties/google";
-import { Inter } from "next/font/google";
-import { Analytics } from "@vercel/analytics/next";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 import { SITE_URL } from "@/lib/site";
+import GoogleTagManagerLazy from "@/components/google-tag-manager-lazy";
 import SupportWidgetLazy from "@/components/support-widget-lazy";
+import VercelObservabilityLazy from "@/components/vercel-observability-lazy";
 import "./globals.css";
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-});
 
 export const metadata: Metadata = {
   title: "ViralThumblify — AI YouTube Thumbnail Generator | Boost CTR Fast",
@@ -111,9 +104,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en">
       <head>
-        {gtmId ? <GoogleTagManager gtmId={gtmId} /> : null}
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <script
           type="application/ld+json"
@@ -121,21 +113,10 @@ export default function RootLayout({
         />
       </head>
       <body className="font-sans">
-        {gtmId ? (
-          <noscript>
-            <iframe
-              title="Google Tag Manager"
-              src={`https://www.googletagmanager.com/ns.html?id=${gtmId}`}
-              height={0}
-              width={0}
-              style={{ display: 'none', visibility: 'hidden' }}
-            />
-          </noscript>
-        ) : null}
         {children}
+        {gtmId ? <GoogleTagManagerLazy gtmId={gtmId} /> : null}
         <SupportWidgetLazy />
-        <Analytics />
-        <SpeedInsights />
+        <VercelObservabilityLazy />
       </body>
     </html>
   );

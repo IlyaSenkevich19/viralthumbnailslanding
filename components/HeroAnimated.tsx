@@ -25,17 +25,9 @@ export default function HeroAnimated() {
       {/* Floating thumbnail grid (background) */}
       <ThumbnailBackground />
 
-      {/* Radial glow */}
-      <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
-        <div className="h-[600px] w-[600px] rounded-full bg-accent/[0.08] blur-[140px]" />
-      </div>
-      <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
-        <div className="h-[350px] w-[350px] translate-x-40 rounded-full bg-accent-amber/[0.06] blur-[110px]" />
-      </div>
-
       {/* Dot grid texture */}
       <div
-        className="pointer-events-none absolute inset-0 opacity-[0.03]"
+        className="pointer-events-none absolute inset-0 hidden opacity-[0.03] sm:block"
         style={{
           backgroundImage:
             "radial-gradient(circle, #ffffff 1px, transparent 1px)",
@@ -57,16 +49,10 @@ export default function HeroAnimated() {
         </div> */}
 
         {/* Headline — two lines only; avoids a single short word wrapping off-center */}
-        <h1
-          className="mt-6 w-full text-center text-3xl leading-tight font-extrabold tracking-tight text-text-primary sm:text-4xl md:text-5xl lg:text-6xl"
-          style={{ animation: "hero-fade-in 0.8s ease-out 0.15s both" }}
-        >
+        <h1 className="mt-6 w-full text-center text-3xl leading-tight font-extrabold tracking-tight text-text-primary sm:text-4xl md:text-5xl lg:text-6xl">
           <span className="block">Create Thumbnails That Go</span>
           <span className="mt-1 block sm:mt-2">
-            <span
-              className="bg-gradient-to-r from-accent via-orange-400 to-accent-amber bg-[length:200%_200%] bg-clip-text text-transparent"
-              style={{ animation: "gradient-shift 4s ease-in-out infinite" }}
-            >
+            <span className="bg-gradient-to-r from-accent via-orange-400 to-accent-amber bg-clip-text text-transparent">
               Viral in Seconds
             </span>{" "}
             <span className="text-text-primary">with AI</span>
@@ -74,25 +60,18 @@ export default function HeroAnimated() {
         </h1>
 
         {/* Sub-headline */}
-        <p
-          className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-text-muted md:text-lg lg:text-xl"
-          style={{ animation: "hero-fade-in 0.8s ease-out 0.35s both" }}
-        >
+        <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-text-muted md:text-lg lg:text-xl">
           Stop wasting hours designing thumbnails. Generate high-CTR,
           creator-worthy designs in under 60 seconds. Built for YouTubers
           who upload weekly and want more views without the busywork.
         </p>
 
         {/* CTAs */}
-        <div
-          className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"
-          style={{ animation: "hero-fade-in 0.8s ease-out 0.55s both" }}
-        >
+        <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
           <Button
             variant="secondary"
             size="lg"
             href={VIRAL_APP_SIGNUP_URL}
-            className="animate-[pulse-glow_3s_ease-in-out_infinite]"
           >
             Get Started for Free!
           </Button>
@@ -103,10 +82,7 @@ export default function HeroAnimated() {
         </div>
 
         {/* Feature pills */}
-        <div
-          className="mx-auto mt-10 flex max-w-2xl flex-wrap items-center justify-center gap-2 sm:gap-3"
-          style={{ animation: "hero-fade-in 0.8s ease-out 0.7s both" }}
-        >
+        <div className="mx-auto mt-10 flex max-w-2xl flex-wrap items-center justify-center gap-2 sm:gap-3">
           {featurePills.map((pill, i) => (
             <div
               key={i}
@@ -119,19 +95,13 @@ export default function HeroAnimated() {
         </div>
 
         {/* Trust line */}
-        <p
-          className="mt-6 text-sm text-text-dim"
-          style={{ animation: "hero-fade-in 0.8s ease-out 0.85s both" }}
-        >
+        <p className="mt-6 text-sm text-text-dim">
          No credit card required.
         </p>
       </div>
 
       {/* Thumbnail marquee — two scrolling rows */}
-      <div
-        className="relative z-10"
-        style={{ animation: "hero-fade-in 1s ease-out 0.95s both" }}
-      >
+      <div className="relative z-10 hidden md:block">
         <ThumbnailMarquee />
       </div>
 

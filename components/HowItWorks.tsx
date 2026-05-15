@@ -19,7 +19,7 @@ const steps = [
       "AI analyzes content automatically",
       "Filter by niche and topic",
     ],
-    image: "/thumb_1.jpg",
+    image: "/thumb_1.webp",
     imageAlt:
       "ViralThumblify app — paste your YouTube link to generate a thumbnail",
   },
@@ -33,7 +33,7 @@ const steps = [
       "Or upload a reference thumbnail",
       "Add your face or go faceless",
     ],
-    image: "/thumb_5.jpg",
+    image: "/thumb_5.webp",
     imageAlt:
       "Choose from 100+ thumbnail presets and add your face with AI cloning",
   },
@@ -47,7 +47,7 @@ const steps = [
       "Built-in A/B testing",
       "One-click export to YouTube",
     ],
-    image: "/thumb_3.jpg",
+    image: "/thumb_3.webp",
     imageAlt:
       "Export your AI-generated thumbnail and publish directly to YouTube",
   },
@@ -103,7 +103,7 @@ export default function HowItWorks() {
                 </div>
 
                 {/* Image side */}
-                <div className="w-full flex-1">
+                <div className="hidden w-full flex-1 md:block">
                   <div className="group relative overflow-hidden rounded-2xl border border-border bg-bg-card shadow-2xl shadow-black/30">
                     {/* Glow */}
                     <div className="pointer-events-none absolute -inset-1 rounded-2xl bg-gradient-to-br from-accent/20 via-transparent to-accent-amber/10 opacity-0 blur-xl transition-opacity duration-500 group-hover:opacity-100" />
@@ -118,8 +118,9 @@ export default function HowItWorks() {
                         src={step.image}
                         alt={step.imageAlt}
                         fill
+                        quality={70}
                         className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                        sizes="(max-width: 1024px) 100vw, 50vw"
+                        sizes="(max-width: 1024px) 92vw, 50vw"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-bg-card/40 via-transparent to-transparent" />
                     </div>
@@ -142,7 +143,7 @@ export default function HowItWorks() {
       </ScrollReveal>
 
       <ScrollReveal delay={0.15} className="mt-10">
-        <div className="mx-auto grid max-w-4xl gap-6 sm:grid-cols-2">
+        <div className="mx-auto hidden max-w-4xl gap-6 md:grid md:grid-cols-2">
           {/* Before */}
           <div className="relative overflow-hidden rounded-2xl border border-border">
             <div className="absolute top-4 left-4 z-10 rounded-full bg-zinc-800/80 px-3 py-1 text-xs font-medium text-zinc-300 backdrop-blur-sm">
@@ -150,9 +151,11 @@ export default function HowItWorks() {
             </div>
             <div className="relative aspect-video">
               <Image
-                src="/before.png"
+                src="/before.webp"
                 alt="YouTube thumbnail before AI optimization — generic, low-CTR design"
                 fill
+                quality={70}
+                sizes="(max-width: 640px) 92vw, 50vw"
                 className="object-cover"
               />
             </div>
@@ -165,9 +168,11 @@ export default function HowItWorks() {
             </div>
             <div className="relative aspect-video">
               <Image
-                src="/thumb_1.jpg"
+                src="/thumb_1.webp"
                 alt="YouTube thumbnail after AI optimization — vibrant, high-CTR design by ViralThumblify"
                 fill
+                quality={70}
+                sizes="(max-width: 640px) 92vw, 50vw"
                 className="object-cover"
               />
             </div>

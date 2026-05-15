@@ -7,7 +7,7 @@ const features = [
     title: "100+ Winning Thumbnail Templates",
     description:
       "Choose from our massive library of proven presets and work backwards from success.",
-    image: "/templates.png",
+    image: "/templates.webp",
     alt: "Library of 100+ proven high-CTR YouTube thumbnail templates",
     bg: "from-amber-900/60 via-yellow-900/40 to-amber-950/60",
     borderColor: "border-amber-500/20",
@@ -16,7 +16,7 @@ const features = [
     title: "3x Variations for Every Design",
     description:
       "So you never run out of options and can always find the perfect fit for your video.",
-    image: "/thumb_1.jpg",
+    image: "/thumb_1.webp",
     alt: "Multiple AI-generated thumbnail variations to A/B test",
     bg: "from-emerald-900/60 via-green-900/40 to-emerald-950/60",
     borderColor: "border-emerald-500/20",
@@ -25,7 +25,7 @@ const features = [
     title: "Add Yourself & Edit Freely",
     description:
       "Clone your face with AI, change expressions and outfits, add text — full creative control.",
-    image: "/thumb_3.jpg",
+    image: "/thumb_3.webp",
     alt: "AI face cloning and text editing for YouTube thumbnails",
     bg: "from-blue-900/60 via-indigo-900/40 to-blue-950/60",
     borderColor: "border-blue-500/20",
@@ -34,7 +34,7 @@ const features = [
     title: "A.I. Face Cloning Technology",
     description:
       "Generate realistic clones of yourself in any pose, expression, or outfit — with transparent backgrounds.",
-    image: "/ai-technolochy.png",
+    image: "/ai-technolochy.webp",
     alt: "AI face cloning technology — realistic expressions and outfits for YouTube thumbnails",
     bg: "from-purple-900/60 via-fuchsia-900/40 to-purple-950/60",
     borderColor: "border-purple-500/20",
@@ -68,13 +68,14 @@ export default function FeaturesGrid() {
               />
 
               {/* Image */}
-              <div className="relative aspect-[16/10] w-full overflow-hidden">
+              <div className="relative hidden aspect-[16/10] w-full overflow-hidden md:block">
                 <Image
                   src={f.image}
                   alt={f.alt}
                   fill
+                  quality={70}
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  sizes="(max-width: 640px) 100vw, 50vw"
+                  sizes="(max-width: 640px) 92vw, 50vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
               </div>
