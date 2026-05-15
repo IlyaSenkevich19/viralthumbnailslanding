@@ -1,4 +1,5 @@
-import Image from "next/image";
+/* eslint-disable @next/next/no-img-element */
+
 import { cn } from "@/lib/cn";
 import { thumbSrc } from "@/lib/thumbnail-assets";
 
@@ -12,7 +13,6 @@ type FloatingThumb = {
   op: number;
   dur: number;
   del: number;
-  /** Shown from lg breakpoint only (fewer images on tablet). */
   desktopOnly?: boolean;
 };
 
@@ -62,14 +62,14 @@ export default function ThumbnailBackground() {
             animationDelay: `${t.del}s`,
           }}
         >
-          <Image
+          <img
             src={thumbSrc(t.img)}
             alt=""
             width={t.w}
             height={t.h}
-            sizes={`${t.w}px`}
-            quality={68}
             loading="lazy"
+            decoding="async"
+            fetchPriority="low"
             className="h-full w-full object-cover"
           />
         </div>

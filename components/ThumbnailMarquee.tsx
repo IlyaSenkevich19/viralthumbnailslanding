@@ -1,21 +1,17 @@
-import Image from "next/image";
+/* eslint-disable @next/next/no-img-element */
+
 import { thumbSrc } from "@/lib/thumbnail-assets";
 
-const row1 = [1, 2, 3, 4, 5, 6, 7];
+const row1Desktop = [1, 2, 3, 4, 5, 6, 7];
+const row1Mobile = [1, 2, 3, 4, 5];
 const row2 = [4, 7, 2, 5, 1, 6, 3];
-
-const MARQUEE_WIDTH = 280;
-const MARQUEE_HEIGHT = 158;
-const MARQUEE_SIZES =
-  "(max-width: 639px) 214px, (max-width: 1023px) 250px, 280px";
 
 type RowProps = {
   images: number[];
   direction: "left" | "right";
-  priorityLead?: boolean;
 };
 
-function Row({ images, direction, priorityLead = false }: RowProps) {
+function MarqueeRow({ images, direction }: RowProps) {
   const doubled = [...images, ...images];
   return (
     <div className="flex overflow-hidden">
@@ -25,16 +21,15 @@ function Row({ images, direction, priorityLead = false }: RowProps) {
         }`}
       >
         {doubled.map((n, i) => (
-          <Image
+          <img
             key={`${n}-${i}`}
             src={thumbSrc(n)}
             alt=""
-            width={MARQUEE_WIDTH}
-            height={MARQUEE_HEIGHT}
-            sizes={MARQUEE_SIZES}
-            quality={72}
-            priority={priorityLead && i === 0}
-            loading={priorityLead && i === 0 ? undefined : "lazy"}
+            width={280}
+            height={158}
+            loading="lazy"
+            decoding="async"
+            fetchPriority="low"
             className="h-[120px] w-[214px] shrink-0 rounded-xl object-cover sm:h-[140px] sm:w-[250px] lg:h-[158px] lg:w-[280px]"
           />
         ))}
@@ -45,15 +40,19 @@ function Row({ images, direction, priorityLead = false }: RowProps) {
 
 export default function ThumbnailMarquee() {
   return (
-    <div className="relative mt-16 overflow-hidden" aria-hidden="true">
+    <div
+      className="relative mt-16 overflow-hidden [content-visibility:auto]"
+      aria-hidden="true"
+    >
       <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-bg to-transparent sm:w-40" />
       <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-bg to-transparent sm:w-40" />
 
-      <div className="flex flex-col gap-4">
-        <Row images={row1} direction="left" priorityLead />
-        <div className="hidden md:block">
-          <Row images={row2} direction="right" />
-        </div>
+      <div className="flex flex-col gap-4 md:hidden">
+        <MarqueeRow images={row1Mobile} direction="left" />
+      </div>
+      <div className="hidden flex-col gap-4 md:flex">
+        <MarqueeRow images={row1Desktop} direction="left" />
+        <MarqueeRow images={row2} direction="right" />
       </div>
     </div>
   );
