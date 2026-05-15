@@ -32,6 +32,11 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
+  images: {
+    formats: ["image/avif", "image/webp"],
+    deviceSizes: [214, 250, 280, 384, 640],
+    imageSizes: [96, 120, 156],
+  },
   async headers() {
     return [
       {

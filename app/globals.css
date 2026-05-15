@@ -69,6 +69,20 @@ body {
   50%      { translate: 10px -22px; }
 }
 
+/* Hero decorative thumbs: skip drift on mobile / reduced motion (less main-thread work). */
+@media (max-width: 767px) {
+  .floating-thumb {
+    animation: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .floating-thumb,
+  .marquee-row {
+    animation: none !important;
+  }
+}
+
 /* ── CTA pulse glow ── */
 @keyframes pulse-glow {
   0%, 100% { box-shadow: 0 0 20px rgba(251, 191, 36, 0.15); }
