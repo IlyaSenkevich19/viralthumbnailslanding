@@ -4,8 +4,6 @@ import Problem from "@/components/Problem";
 import HowItWorks from "@/components/HowItWorks";
 import FeaturesGrid from "@/components/FeaturesGrid";
 import BenefitsSection from "@/components/BenefitsSection";
-import TestimonialsCarousel from "@/components/TestimonialsCarousel";
-
 import Pricing from "@/components/Pricing";
 import CtaBanner from "@/components/CtaBanner";
 import Footer from "@/components/Footer";
@@ -20,7 +18,6 @@ export default function Home() {
         <HowItWorks />
         <FeaturesGrid />
         <BenefitsSection />
-        <TestimonialsCarousel />
         <Pricing />
         <CtaBanner />
       </main>

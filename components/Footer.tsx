@@ -13,7 +13,6 @@ const columns = [
       { label: "Features", href: "/#features" },
       { label: "Pricing", href: VIRAL_APP_PLANS_URL },
       { label: "How It Works", href: "/#how-it-works" },
-      { label: "Testimonials", href: "/#testimonials" },
     ],
   },
   {
