@@ -8,7 +8,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "ViralThumblify — AI YouTube Thumbnail Generator | Boost CTR Fast",
   description:
-    "ViralThumblify is an AI YouTube thumbnail generator that creates high-CTR thumbnails in under 2 minutes. Save 10+ hours/week, replace $200 freelancers, and grow your channel. Free trial — no card required.",
+    "ViralThumblify is an AI YouTube thumbnail studio. Start with 3 free credits, generate from a link or video, compare variants, and top up with one-time credit packs — no subscription.",
   keywords: [
     "YouTube thumbnail generator",
     "AI thumbnails",
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     "YouTube growth tool",
     "AI thumbnail maker",
     "YouTube thumbnail creator",
-    "thumbnail A/B testing",
+    "thumbnail generator credits",
   ],
   metadataBase: new URL(SITE_URL),
   alternates: { canonical: "/" },
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "ViralThumblify — AI YouTube Thumbnail Generator",
     description:
-      "Create high-CTR YouTube thumbnails in under 2 minutes with AI. Free trial, no card required.",
+      "Start with 3 free starter credits. Generate thumbnails from YouTube links, video uploads, or prompts.",
     url: SITE_URL,
     siteName: "ViralThumblify",
     locale: "en_US",
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "ViralThumblify — AI YouTube Thumbnail Generator",
     description:
-      "Create high-CTR YouTube thumbnails in under 2 minutes with AI. Free trial, no card required.",
+      "Start with 3 free starter credits. Generate thumbnails from YouTube links, video uploads, or prompts.",
   },
 };
 
@@ -44,51 +44,45 @@ const jsonLd = {
   name: "ViralThumblify",
   url: SITE_URL,
   description:
-    "AI-powered YouTube thumbnail generator that creates high-CTR thumbnails in under 2 minutes. Includes template library, Canva import, avatar support, A/B testing, and one-click export.",
+    "AI YouTube thumbnail studio. Generate from a YouTube link, video upload, or text prompt; use preset templates and saved face references; compare variants and export.",
   applicationCategory: "DesignApplication",
   operatingSystem: "Web",
   offers: [
     {
       "@type": "Offer",
-      name: "Free Trial",
+      name: "Free starter",
       price: "0",
       priceCurrency: "USD",
-      description: "10 free thumbnails, no credit card required",
+      description: "3 starter credits on signup, no credit card required",
     },
     {
       "@type": "Offer",
-      name: "Starter",
-      price: "29",
+      name: "Pack 100",
+      price: "19",
       priceCurrency: "USD",
-      billingIncrement: "P1M",
-      description: "50 thumbnails/month, all templates, Canva import",
+      description: "100 one-time generation credits",
     },
     {
       "@type": "Offer",
-      name: "Pro",
+      name: "Pack 300",
       price: "49",
       priceCurrency: "USD",
-      billingIncrement: "P1M",
-      description:
-        "200 thumbnails/month, A/B testing, custom branding, priority support",
+      description: "300 one-time generation credits",
     },
     {
       "@type": "Offer",
-      name: "Agency",
+      name: "Pack 700",
       price: "99",
       priceCurrency: "USD",
-      billingIncrement: "P1M",
-      description:
-        "Unlimited thumbnails, team access, API, white-label, dedicated support",
+      description: "700 one-time generation credits",
     },
   ],
   featureList: [
     "AI thumbnail generation from YouTube link, video upload, or text prompt",
-    "100+ proven high-CTR templates",
-    "Canva-compatible template import",
-    "Face/avatar selection and upload",
-    "A/B testing to find the best performer",
-    "One-click export and project saving",
+    "Preset template library with niche filters",
+    "Saved face references for consistent channel branding",
+    "Multiple variants per project with refine and export",
+    "One-time credit packs with no subscription",
   ],
   audience: {
     "@type": "Audience",

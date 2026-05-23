@@ -98,7 +98,7 @@ export default function HeroAnimated() {
 
         {/* Trust line */}
         <p className="mt-6 text-sm text-text-dim">
-         No credit card required.
+          3 free starter credits · no credit card required.
         </p>
       </div>
 

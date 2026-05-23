@@ -1,52 +1,54 @@
-# ViralThumblify — AI YouTube Thumbnail Generator
+# ViralThumblify — AI YouTube Thumbnail Studio
 # https://www.viralthumblify.com
-# Last updated: 2026-04-04
+# Last updated: 2026-05-23
 
 ## What is ViralThumblify?
 
-ViralThumblify is an AI-powered YouTube thumbnail generator that creates high-CTR thumbnails in under 2 minutes. It replaces expensive freelancers ($50–200 per thumbnail) and hours spent in Canva or Photoshop.
+ViralThumblify is a web-based YouTube thumbnail studio. Paste a link, upload a video, or describe the idea — then generate multiple thumbnail variants, refine the strongest option, and export.
 
 ## Who is it for?
 
-YouTube creators with 5,000–30,000 subscribers who upload regularly (1–5 videos per week) and want to increase their click-through rate, views, and revenue without spending hours on design.
+YouTube creators who upload regularly and want faster thumbnail workflows without juggling Canva, freelancers, and multiple tools.
 
 ## How does it work?
 
-1. Paste a YouTube link, upload a video, or describe your idea in a text prompt.
-2. Choose from 100+ proven high-CTR templates or upload your own Canva-compatible design.
-3. Select or upload your face/avatar. Add hooks, text overlays, and style instructions.
-4. AI generates multiple thumbnail variations. Edit, compare, and A/B test them.
-5. Export the winning thumbnail or save it to your project library.
+1. Paste a YouTube URL, upload a video, or enter a text prompt.
+2. Pick a preset template and optionally attach a saved face reference.
+3. Run the studio pipeline to analyze the source and generate variants.
+4. Compare results, refine promising thumbnails, and export the winner.
 
-## Key features
+## Key features (currently in product)
 
-- AI thumbnail generation from video link, file upload, or text prompt
-- 100+ proven high-CTR thumbnail templates
-- Canva-compatible template import
-- Face/avatar selection and upload for consistent branding
-- A/B testing to find the best-performing thumbnail
-- One-click export and project saving
-- Custom branding and style presets
+- AI thumbnail generation from YouTube link, video upload, or text prompt
+- Preset template library with niche filters
+- Saved face references for consistent branding
+- Multiple variants per project
+- Refine and export finished thumbnails
+- Projects saved in your workspace
+- Credit ledger with refunds on failed runs
 
-## Pricing (USD)
+## Pricing (USD, credit-based)
 
-- Free trial: 10 thumbnails, no credit card required
-- Starter: $29/month — 50 thumbnails, all templates, Canva import, email support
-- Pro: $49/month — 200 thumbnails, A/B testing, custom branding, priority support
-- Agency: $99/month — Unlimited thumbnails, team access (5 seats), API, white-label, dedicated support
-- On every plan, unused credits roll over — balances are not wiped at month-end.
+- **Free starter:** 3 credits on signup — no credit card required
+- **Pack 100:** $19 — 100 one-time credits
+- **Pack 300:** $49 — 300 one-time credits (best value)
+- **Pack 700:** $99 — 700 one-time credits
 
-## Results
+Credit packs are **one-time top-ups**, not a monthly subscription. Credits stay on your balance until used.
 
-- Average +35% CTR increase for users
-- 10+ hours saved per week
-- $600+ saved per month compared to hiring freelance designers
+### How credits are spent
 
-## Risk-free
+- Typical full studio run (video analysis + 3 thumbnail variants): **4 credits**
+- Refining one thumbnail: **1 credit**
 
-- 7-day money-back guarantee
-- Free trial without credit card
+## What we do not claim
+
+- No built-in A/B testing dashboard
+- No Canva import
+- No watermarked free tier (exports are not watermarked in the current product)
+- No team seats, public API, or white-label plans yet
 
 ## Contact
 
 Website: https://www.viralthumblify.com
+App: https://app.viralthumblify.com

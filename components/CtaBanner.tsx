@@ -19,8 +19,8 @@ export default function CtaBanner() {
             Open the same studio you saw on this page
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-text-muted">
-            Ten free thumbnails. No card. If the workflow clicks, pick a plan
-            later — if not, you still saved a few hours in Canva.
+            3 free starter credits. No card. If the workflow clicks, buy a
+            one-time pack later — if not, you still saved a few hours in Canva.
           </p>
 
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
