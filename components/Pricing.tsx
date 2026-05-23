@@ -9,7 +9,7 @@ const plans = [
     name: "Free",
     price: "$0",
     period: "",
-    description: "Try it out — zero commitment.",
+    description: "Try the studio before you commit.",
     features: [
       "10 thumbnails total",
       "Unused credits roll over — nothing resets at month-end",
@@ -17,7 +17,7 @@ const plans = [
       "Watermarked exports",
       "Community support",
     ],
-    ctaText: "Start Free",
+    ctaText: "Start free",
     ctaVariant: "outline" as const,
     popular: false,
   },
@@ -25,7 +25,7 @@ const plans = [
     name: "Starter",
     price: "$29",
     period: "/mo",
-    description: "For creators uploading 1–2 videos/week.",
+    description: "For creators uploading 1–2 videos per week.",
     features: [
       "50 thumbnails / month",
       "Unused credits roll over — nothing resets at month-end",
@@ -79,11 +79,11 @@ const plans = [
 const guarantees = [
   {
     icon: <Shield className="h-5 w-5" />,
-    text: "7-day money-back guarantee — no questions asked",
+    text: "7-day money-back guarantee",
   },
   {
     icon: <CreditCard className="h-5 w-5" />,
-    text: "No credit card required for free trial",
+    text: "No credit card required for the free tier",
   },
 ];
 
@@ -97,11 +97,15 @@ export default function Pricing() {
       <div className="relative">
         <ScrollReveal>
           <div className="text-center">
-            <h2 className="text-2xl font-bold text-text-primary sm:text-3xl lg:text-4xl">
-              Simple, Creator-Friendly Pricing
+            <span className="text-xs font-semibold uppercase tracking-[0.24em] text-accent">
+              Pricing
+            </span>
+            <h2 className="mt-3 text-2xl font-bold text-text-primary sm:text-3xl lg:text-4xl">
+              Start free, upgrade when it sticks
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-text-muted">
-              Start free, upgrade when you&apos;re ready. Cancel anytime.
+              Plans match what you saw in the app. Cancel anytime if the workflow
+              does not fit your upload rhythm.
             </p>
           </div>
         </ScrollReveal>

@@ -45,7 +45,7 @@ export default function Header() {
             Login
           </a>
           <Button variant="primary" size="sm" href={VIRAL_APP_SIGNUP_URL}>
-            Get Started
+            Get started
           </Button>
         </div>
 
@@ -85,7 +85,7 @@ export default function Header() {
                   href={VIRAL_APP_SIGNUP_URL}
                   className="w-full"
                 >
-                  Get Started
+                  Get started
                 </Button>
               </div>
             </nav>

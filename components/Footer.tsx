@@ -40,8 +40,8 @@ export default function Footer() {
               </span>
             </a>
             <p className="mt-3 max-w-xs text-sm leading-relaxed text-text-dim">
-              AI-powered thumbnails that get clicks. Made for YouTube creators
-              who want to grow faster.
+              AI thumbnail studio for YouTube creators who want faster uploads
+              and covers that still read on mobile.
             </p>
 
             {socials.length > 0 && (

@@ -12,9 +12,16 @@ export default function CtaBanner() {
 
       <ScrollReveal>
         <div className="relative mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-text-primary sm:text-4xl lg:text-5xl">
-            Ready to Make Click-Boosting Thumbnails?
+          <span className="text-xs font-semibold uppercase tracking-[0.24em] text-accent">
+            Ready when you are
+          </span>
+          <h2 className="mt-3 text-3xl font-bold text-text-primary sm:text-4xl lg:text-5xl">
+            Open the same studio you saw on this page
           </h2>
+          <p className="mx-auto mt-4 max-w-xl text-text-muted">
+            Ten free thumbnails. No card. If the workflow clicks, pick a plan
+            later — if not, you still saved a few hours in Canva.
+          </p>
 
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Button
@@ -25,7 +32,7 @@ export default function CtaBanner() {
               Get Started for Free!
             </Button>
             <Button variant="outline" size="lg" href="/#how-it-works">
-              Watch Demo
+              Review the workflow
             </Button>
           </div>
 

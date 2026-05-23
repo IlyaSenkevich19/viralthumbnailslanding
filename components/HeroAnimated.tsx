@@ -48,7 +48,10 @@ export default function HeroAnimated() {
           </span>
         </div> */}
 
-        {/* Headline — two lines only; avoids a single short word wrapping off-center */}
+        <p className="text-xs font-semibold uppercase tracking-[0.24em] text-accent">
+          YouTube thumbnail studio
+        </p>
+
         <h1 className="mt-6 w-full text-center text-3xl leading-tight font-extrabold tracking-tight text-text-primary sm:text-4xl md:text-5xl lg:text-6xl">
           <span className="block">Create Thumbnails That Go</span>
           <span className="mt-1 block sm:mt-2">
@@ -59,7 +62,6 @@ export default function HeroAnimated() {
           </span>
         </h1>
 
-        {/* Sub-headline */}
         <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-text-muted md:text-lg lg:text-xl">
           Stop wasting hours designing thumbnails. Generate high-CTR,
           creator-worthy designs in under 60 seconds. Built for YouTubers
@@ -77,7 +79,7 @@ export default function HeroAnimated() {
           </Button>
           <Button variant="outline" size="lg" href="#how-it-works">
             <Play className="mr-2 h-4 w-4" />
-            Watch Demo
+            See how it works
           </Button>
         </div>
 

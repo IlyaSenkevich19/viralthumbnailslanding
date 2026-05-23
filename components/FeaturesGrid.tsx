@@ -4,38 +4,38 @@ import ScrollReveal from "@/components/ui/ScrollReveal";
 
 const features = [
   {
-    title: "100+ Winning Thumbnail Templates",
+    title: "Templates from channels that already win clicks",
     description:
-      "Choose from our massive library of proven presets and work backwards from success.",
+      "Start from presets modeled on high-performing layouts instead of a blank canvas.",
     image: "/templates.webp",
-    alt: "Library of 100+ proven high-CTR YouTube thumbnail templates",
+    alt: "Library of proven high-CTR YouTube thumbnail templates",
     bg: "from-amber-900/60 via-yellow-900/40 to-amber-950/60",
     borderColor: "border-amber-500/20",
   },
   {
-    title: "3x Variations for Every Design",
+    title: "Multiple variants per project",
     description:
-      "So you never run out of options and can always find the perfect fit for your video.",
+      "Generate a small set of options, compare side by side, and pick the one that fits the title.",
     image: "/thumb_1.webp",
-    alt: "Multiple AI-generated thumbnail variations to A/B test",
+    alt: "Multiple AI-generated thumbnail variations to compare",
     bg: "from-emerald-900/60 via-green-900/40 to-emerald-950/60",
     borderColor: "border-emerald-500/20",
   },
   {
-    title: "Add Yourself & Edit Freely",
+    title: "Your face, your text, your edits",
     description:
-      "Clone your face with AI, change expressions and outfits, add text — full creative control.",
+      "Add a face reference, adjust expression or outfit, and refine copy without leaving the workspace.",
     image: "/thumb_3.webp",
-    alt: "AI face cloning and text editing for YouTube thumbnails",
+    alt: "Face reference and text editing for YouTube thumbnails",
     bg: "from-blue-900/60 via-indigo-900/40 to-blue-950/60",
     borderColor: "border-blue-500/20",
   },
   {
-    title: "A.I. Face Cloning Technology",
+    title: "Face references that stay on-brand",
     description:
-      "Generate realistic clones of yourself in any pose, expression, or outfit — with transparent backgrounds.",
+      "Save references once and reuse them across uploads so your channel looks consistent.",
     image: "/ai-technolochy.webp",
-    alt: "AI face cloning technology — realistic expressions and outfits for YouTube thumbnails",
+    alt: "Saved face references for consistent YouTube thumbnail branding",
     bg: "from-purple-900/60 via-fuchsia-900/40 to-purple-950/60",
     borderColor: "border-purple-500/20",
   },
@@ -46,12 +46,15 @@ export default function FeaturesGrid() {
     <SectionWrapper id="features" className="bg-bg-elevated">
       <ScrollReveal>
         <div className="text-center">
-          <h2 className="text-2xl font-bold text-text-primary sm:text-3xl lg:text-4xl">
-            Everything You Need to Win Clicks
+          <span className="text-xs font-semibold uppercase tracking-[0.24em] text-accent">
+            Inside the studio
+          </span>
+          <h2 className="mt-3 text-2xl font-bold text-text-primary sm:text-3xl lg:text-4xl">
+            What you get after signup
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-text-muted">
-            Four powerful features that replace your designer, your editor, and
-            your guesswork.
+            The landing page shows the output. The app is where presets, face
+            refs, variants, and exports live in one place.
           </p>
         </div>
       </ScrollReveal>

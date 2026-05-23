@@ -1,20 +1,20 @@
 @import "tailwindcss";
 
 @theme {
-  --color-bg: #0A0A0B;
-  --color-bg-card: #141416;
-  --color-bg-card-hover: #1a1a1e;
-  --color-bg-elevated: #111116;
-  --color-bg-footer: #111113;
+  --color-bg: #0e0e12;
+  --color-bg-card: #1f1f26;
+  --color-bg-card-hover: #2a2a32;
+  --color-bg-elevated: #16161c;
+  --color-bg-footer: #08080a;
   --color-accent: #FF3B3B;
   --color-accent-hover: #e63535;
   --color-accent-amber: #FBBF24;
   --color-accent-amber-hover: #F59E0B;
-  --color-text-primary: #F5F5F5;
-  --color-text-muted: #A1A1AA;
-  --color-text-dim: #71717A;
-  --color-border: #27272A;
-  --color-border-hover: #3f3f46;
+  --color-text-primary: #FAFAFA;
+  --color-text-muted: #B4B4BE;
+  --color-text-dim: #8b8b96;
+  --color-border: #43434D;
+  --color-border-hover: #565662;
   --color-success: #22C55E;
 }
 
@@ -172,8 +172,8 @@ select {
 }
 
 select option {
-  background-color: #141416;
-  color: #F5F5F5;
+  background-color: #1f1f26;
+  color: #fafafa;
   padding: 8px 12px;
 }
 
@@ -181,9 +181,9 @@ input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 select:-webkit-autofill {
-  -webkit-box-shadow: 0 0 0 1000px #0A0A0B inset !important;
-  -webkit-text-fill-color: #F5F5F5 !important;
-  caret-color: #F5F5F5;
+  -webkit-box-shadow: 0 0 0 1000px #0e0e12 inset !important;
+  -webkit-text-fill-color: #fafafa !important;
+  caret-color: #fafafa;
   transition: background-color 5000s ease-in-out 0s;
 }
 
