@@ -38,6 +38,13 @@ const thumbs: FloatingThumb[] = [
   { top: "52%", left: "62%", w: 104, h: 59, img: 19, rot: -3, op: 0.16, dur: 28, del: 18, desktopOnly: true },
   { top: "20%", left: "92%", w: 114, h: 64, img: 20, rot: 4, op: 0.17, dur: 30, del: 19, desktopOnly: true },
   { top: "88%", left: "28%", w: 106, h: 60, img: 21, rot: -4, op: 0.16, dur: 32, del: 20, desktopOnly: true },
+  { top: "48%", left: "48%", w: 100, h: 56, img: 22, rot: 3, op: 0.15, dur: 29, del: 21, desktopOnly: true },
+  { top: "32%", left: "88%", w: 108, h: 61, img: 23, rot: -5, op: 0.16, dur: 31, del: 22, desktopOnly: true },
+  { top: "76%", left: "78%", w: 112, h: 63, img: 24, rot: 4, op: 0.17, dur: 28, del: 23, desktopOnly: true },
+  { top: "12%", left: "58%", w: 104, h: 59, img: 25, rot: -2, op: 0.15, dur: 30, del: 24, desktopOnly: true },
+  { top: "60%", left: "92%", w: 96, h: 54, img: 26, rot: 5, op: 0.16, dur: 33, del: 25, desktopOnly: true },
+  { top: "38%", left: "8%", w: 118, h: 66, img: 27, rot: -3, op: 0.17, dur: 27, del: 26, desktopOnly: true },
+  { top: "84%", left: "52%", w: 102, h: 58, img: 28, rot: 2, op: 0.16, dur: 32, del: 27, desktopOnly: true },
 ];
 
 export default function ThumbnailBackground() {
