@@ -21,3 +21,6 @@ export const VIRAL_APP_SIGNUP_URL = appPath("/auth/register");
  * Nav “Pricing” + plan buttons → `/credits`. Guests should be redirected to `/` (login) or `/auth/register`.
  */
 export const VIRAL_APP_PLANS_URL = appPath("/credits");
+
+/** Partner Stripe success redirect (canonical page lives on the app). */
+export const VIRAL_APP_PAYMENT_SUCCESS_URL = appPath("/payment/success");

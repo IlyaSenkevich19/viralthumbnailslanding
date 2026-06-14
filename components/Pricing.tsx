@@ -2,8 +2,12 @@ import { Check, CreditCard } from "lucide-react";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import Button from "@/components/ui/Button";
-import { VIRAL_APP_PLANS_URL, VIRAL_APP_SIGNUP_URL } from "@/lib/app-url";
+import {
+  VIRAL_APP_PLANS_URL,
+  VIRAL_APP_SIGNUP_URL,
+} from "@/lib/app-url";
 import { landingPricingPlans, PRICING_FOOTNOTES } from "@/lib/pricing-plans";
+import { getStripeCheckoutUrl, isStripePackId } from "@/lib/stripe-checkout";
 
 const guarantees = [
   {
@@ -11,6 +15,25 @@ const guarantees = [
     text: "3 starter credits on signup — no card required",
   },
 ];
+
+function resolvePlanButtonHref(planId: string): string {
+  if (planId === "trial") return VIRAL_APP_SIGNUP_URL;
+  if (isStripePackId(planId)) {
+    const checkoutUrl = getStripeCheckoutUrl(planId);
+    if (checkoutUrl) return checkoutUrl;
+  }
+  return VIRAL_APP_PLANS_URL;
+}
+
+function resolvePlanButtonLabel(planId: string, defaultLabel: string): string {
+  if (planId === "trial") return defaultLabel;
+  if (isStripePackId(planId) && getStripeCheckoutUrl(planId)) {
+    if (planId === "pack_100") return "Buy 100 credits";
+    if (planId === "pack_300") return "Buy 300 credits";
+    if (planId === "pack_700") return "Buy 700 credits";
+  }
+  return defaultLabel;
+}
 
 export default function Pricing() {
   return (
@@ -80,10 +103,10 @@ export default function Pricing() {
                 <Button
                   variant={plan.ctaVariant}
                   size="md"
-                  href={plan.id === "trial" ? VIRAL_APP_SIGNUP_URL : VIRAL_APP_PLANS_URL}
+                  href={resolvePlanButtonHref(plan.id)}
                   className="w-full"
                 >
-                  {plan.ctaText}
+                  {resolvePlanButtonLabel(plan.id, plan.ctaText)}
                 </Button>
               </div>
             </ScrollReveal>
