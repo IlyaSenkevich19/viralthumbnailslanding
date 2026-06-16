@@ -5,6 +5,8 @@ import ScrollReveal from "@/components/ui/ScrollReveal";
 
 /** Next/Image tuning for full-width app UI captures (already WebP in /public). */
 const APP_SCREENSHOT_IMAGE_QUALITY = 92;
+
+const steps = [
   {
     number: 1,
     title: "Drop your video link",
@@ -17,6 +19,7 @@ const APP_SCREENSHOT_IMAGE_QUALITY = 92;
     ],
     image: "/how-step-1-create-youtube.webp",
     imageAlt: "ViralThumblify app — paste a YouTube URL on the Generate screen",
+    imageAspect: "aspect-[1680/810]",
   },
   {
     number: 2,
@@ -30,6 +33,7 @@ const APP_SCREENSHOT_IMAGE_QUALITY = 92;
     ],
     image: "/how-step-2-template-face.webp",
     imageAlt: "ViralThumblify app — pick a template preset and attach a face reference",
+    imageAspect: "aspect-[1198/1402]",
   },
   {
     number: 3,
@@ -43,8 +47,9 @@ const APP_SCREENSHOT_IMAGE_QUALITY = 92;
     ],
     image: "/how-step-3-variants-export.webp",
     imageAlt: "ViralThumblify app — compare thumbnail variants and export",
+    imageAspect: "aspect-[1686/1454]",
   },
-];
+] as const;
 
 const comparisonNotes = [
   "Stronger subject separation at small size",
@@ -104,23 +109,20 @@ export default function HowItWorks() {
                 </div>
 
                 <div className="hidden w-full flex-1 md:block">
-                  <div className="group relative overflow-hidden rounded-2xl border border-border bg-bg-card shadow-2xl shadow-black/30">
-                    <div className="pointer-events-none absolute -inset-1 rounded-2xl bg-gradient-to-br from-accent/20 via-transparent to-accent-amber/10 opacity-0 blur-xl transition-opacity duration-500 group-hover:opacity-100" />
-
-                    <div className="absolute top-4 left-4 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-accent/90 text-sm font-bold text-white shadow-lg">
+                  <div className="group relative overflow-hidden rounded-lg border border-border/90 bg-bg-elevated shadow-[0_24px_80px_-40px_rgba(0,0,0,0.85)] ring-1 ring-white/[0.06]">
+                    <div className="absolute top-3 left-3 z-10 flex h-7 w-7 items-center justify-center rounded-md bg-accent text-xs font-bold text-white shadow-md">
                       {step.number}
                     </div>
 
-                    <div className="relative aspect-video">
+                    <div className={`relative w-full ${step.imageAspect}`}>
                       <Image
                         src={step.image}
                         alt={step.imageAlt}
                         fill
                         quality={APP_SCREENSHOT_IMAGE_QUALITY}
-                        className="object-contain object-top bg-bg-elevated transition-transform duration-500 group-hover:scale-[1.02]"
+                        className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.01]"
                         sizes="(max-width: 1024px) 92vw, (max-width: 1536px) 50vw, 720px"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-bg-card/25 via-transparent to-transparent" />
                     </div>
                   </div>
                 </div>
@@ -143,7 +145,7 @@ export default function HowItWorks() {
       </ScrollReveal>
 
       <ScrollReveal delay={0.12} className="mt-8">
-        <div className="mx-auto max-w-4xl overflow-hidden rounded-2xl border border-border bg-bg-card ring-1 ring-white/[0.08]">
+        <div className="mx-auto max-w-4xl overflow-hidden rounded-lg border border-border bg-bg-card ring-1 ring-white/[0.08]">
           <div className="grid divide-y divide-border md:grid-cols-2 md:divide-x md:divide-y-0">
             <div className="relative aspect-video">
               <Image
