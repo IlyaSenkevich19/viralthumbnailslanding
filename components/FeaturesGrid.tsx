@@ -7,8 +7,8 @@ const features = [
     title: "Templates from channels that already win clicks",
     description:
       "Start from presets modeled on high-performing layouts instead of a blank canvas.",
-    image: "/templates.webp",
-    alt: "Library of proven high-CTR YouTube thumbnail templates",
+    image: "/feature-templates-grid.webp",
+    alt: "ViralThumblify app — library of high-CTR thumbnail templates",
     bg: "from-amber-900/60 via-yellow-900/40 to-amber-950/60",
     borderColor: "border-amber-500/20",
   },
@@ -16,8 +16,8 @@ const features = [
     title: "Multiple variants per project",
     description:
       "Generate a small set of options, compare side by side, and pick the one that fits the title.",
-    image: "/thumb_1.webp",
-    alt: "Multiple AI-generated thumbnail variations to compare",
+    image: "/feature-variants-compare.webp",
+    alt: "ViralThumblify app — multiple thumbnail variants in one project",
     bg: "from-emerald-900/60 via-green-900/40 to-emerald-950/60",
     borderColor: "border-emerald-500/20",
   },
@@ -25,8 +25,8 @@ const features = [
     title: "Your face, your text, your edits",
     description:
       "Add a face reference, adjust expression or outfit, and refine copy without leaving the workspace.",
-    image: "/thumb_3.webp",
-    alt: "Face reference and text editing for YouTube thumbnails",
+    image: "/feature-refine-modal.webp",
+    alt: "ViralThumblify app — refine a thumbnail variant with prompts and face controls",
     bg: "from-blue-900/60 via-indigo-900/40 to-blue-950/60",
     borderColor: "border-blue-500/20",
   },
@@ -34,8 +34,8 @@ const features = [
     title: "Face references that stay on-brand",
     description:
       "Save references once and reuse them across uploads so your channel looks consistent.",
-    image: "/ai-technolochy.webp",
-    alt: "Saved face references for consistent YouTube thumbnail branding",
+    image: "/feature-faces-library.webp",
+    alt: "ViralThumblify app — saved face references for consistent channel branding",
     bg: "from-purple-900/60 via-fuchsia-900/40 to-purple-950/60",
     borderColor: "border-purple-500/20",
   },
@@ -77,7 +77,7 @@ export default function FeaturesGrid() {
                   alt={f.alt}
                   fill
                   quality={70}
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="object-contain object-top bg-black/40 transition-transform duration-500 group-hover:scale-[1.02]"
                   sizes="(max-width: 640px) 92vw, 50vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />

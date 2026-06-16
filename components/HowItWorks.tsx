@@ -14,8 +14,8 @@ const steps = [
       "Niche and topic inform the layout",
       "No manual brief required to start",
     ],
-    image: "/thumb_1.webp",
-    imageAlt: "Paste a YouTube link to start thumbnail generation",
+    image: "/how-step-1-create-youtube.webp",
+    imageAlt: "ViralThumblify app — paste a YouTube URL on the Generate screen",
   },
   {
     number: 2,
@@ -27,8 +27,8 @@ const steps = [
       "Optional reference thumbnail upload",
       "Faceless covers still supported",
     ],
-    image: "/thumb_5.webp",
-    imageAlt: "Choose a thumbnail preset and add a face reference",
+    image: "/how-step-2-template-face.webp",
+    imageAlt: "ViralThumblify app — pick a template preset and attach a face reference",
   },
   {
     number: 3,
@@ -40,8 +40,8 @@ const steps = [
       "Light edits before export",
       "Download when you are happy with one",
     ],
-    image: "/thumb_3.webp",
-    imageAlt: "Compare thumbnail variants and export the winner",
+    image: "/how-step-3-variants-export.webp",
+    imageAlt: "ViralThumblify app — compare thumbnail variants and export",
   },
 ];
 
@@ -116,7 +116,7 @@ export default function HowItWorks() {
                         alt={step.imageAlt}
                         fill
                         quality={70}
-                        className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                        className="object-contain object-top bg-bg-elevated transition-transform duration-500 group-hover:scale-[1.02]"
                         sizes="(max-width: 1024px) 92vw, 50vw"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-bg-card/40 via-transparent to-transparent" />
