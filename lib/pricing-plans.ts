@@ -29,7 +29,7 @@ export const landingPricingPlans: LandingPricingPlan[] = [
     name: 'Free starter',
     price: '$0',
     credits: 3,
-    description: 'Try the full studio with a small starter balance — no checkout.',
+    description: 'Try the full studio with 3 starter credits — enough for a quick prompt run or a shorter batch.',
     features: [
       '3 starter credits on signup',
       ...SHARED_STUDIO_FEATURES,
@@ -94,6 +94,7 @@ export const CREDIT_USAGE_FOOTNOTE =
   'A typical full studio run (video analysis plus 3 thumbnail variants) uses 4 credits. Refining one thumbnail uses 1 credit.';
 
 export const PRICING_FOOTNOTES = [
+  '3 starter credits on signup — try the studio before you buy a pack (no card required).',
   'Credit packs are one-time top-ups — not a monthly subscription.',
   'Credits stay on your balance until you use them.',
   CREDIT_USAGE_FOOTNOTE,

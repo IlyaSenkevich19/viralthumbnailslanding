@@ -1,4 +1,3 @@
-import { Users } from "lucide-react";
 import Button from "@/components/ui/Button";
 import { VIRAL_APP_SIGNUP_URL } from "@/lib/app-url";
 
@@ -28,17 +27,16 @@ export default function Hero() {
 
         <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
           <Button variant="secondary" size="lg" href={VIRAL_APP_SIGNUP_URL}>
-            Get 10 Free Thumbnails
+            Get Started for Free
           </Button>
           <Button variant="outline" size="lg" href="#how-it-works">
             See How It Works
           </Button>
         </div>
 
-        <div className="mt-8 flex items-center justify-center gap-2 text-sm text-text-dim">
-          <Users className="h-4 w-4" />
-          <span>Trusted by 2,500+ creators</span>
-        </div>
+        <p className="mt-8 text-sm text-text-dim">
+          3 free starter credits · no credit card required.
+        </p>
       </div>
     </section>
   );

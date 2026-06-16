@@ -40,7 +40,7 @@ const testimonials = [
   },
   {
     quote:
-      "Best ROI I've ever gotten from a tool. $49/month to replace a $600/month designer — and my views actually went up.",
+      "Best ROI I've gotten from a tool. A $49 credit pack replaced a $600/month designer — and my views actually went up.",
     author: "Priya S.",
     channel: "Finance Decoded",
     result: "+41% Views",

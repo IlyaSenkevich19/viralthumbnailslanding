@@ -1,14 +1,13 @@
 import Button from "@/components/ui/Button";
 import {
   VIRAL_APP_LOGIN_URL,
-  VIRAL_APP_PLANS_URL,
   VIRAL_APP_SIGNUP_URL,
 } from "@/lib/app-url";
 
 const navLinks = [
   { label: "Features", href: "/#features" },
   { label: "How It Works", href: "/#how-it-works" },
-  { label: "Pricing", href: VIRAL_APP_PLANS_URL },
+  { label: "Pricing", href: "/#pricing" },
 ];
 
 export default function Header() {
