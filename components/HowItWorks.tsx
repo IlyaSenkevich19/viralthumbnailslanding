@@ -3,7 +3,8 @@ import { CheckCircle2 } from "lucide-react";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 
-const steps = [
+/** Next/Image tuning for full-width app UI captures (already WebP in /public). */
+const APP_SCREENSHOT_IMAGE_QUALITY = 92;
   {
     number: 1,
     title: "Drop your video link",
@@ -115,11 +116,11 @@ export default function HowItWorks() {
                         src={step.image}
                         alt={step.imageAlt}
                         fill
-                        quality={70}
+                        quality={APP_SCREENSHOT_IMAGE_QUALITY}
                         className="object-contain object-top bg-bg-elevated transition-transform duration-500 group-hover:scale-[1.02]"
-                        sizes="(max-width: 1024px) 92vw, 50vw"
+                        sizes="(max-width: 1024px) 92vw, (max-width: 1536px) 50vw, 720px"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-bg-card/40 via-transparent to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-bg-card/25 via-transparent to-transparent" />
                     </div>
                   </div>
                 </div>

@@ -34,8 +34,9 @@ const securityHeaders = [
 const nextConfig: NextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
-    deviceSizes: [214, 250, 280, 384, 640],
-    imageSizes: [96, 120, 156],
+    // Marquee thumbs (small) + marketing app screenshots (up to ~50vw on lg).
+    deviceSizes: [214, 250, 280, 384, 640, 750, 828, 1080, 1200, 1536, 1920],
+    imageSizes: [96, 120, 156, 256, 384, 512],
   },
   async headers() {
     return [

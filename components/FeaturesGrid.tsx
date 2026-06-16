@@ -2,6 +2,8 @@ import Image from "next/image";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 
+const APP_SCREENSHOT_IMAGE_QUALITY = 92;
+
 const features = [
   {
     title: "Templates from channels that already win clicks",
@@ -76,11 +78,11 @@ export default function FeaturesGrid() {
                   src={f.image}
                   alt={f.alt}
                   fill
-                  quality={70}
-                  className="object-contain object-top bg-black/40 transition-transform duration-500 group-hover:scale-[1.02]"
-                  sizes="(max-width: 640px) 92vw, 50vw"
+                  quality={APP_SCREENSHOT_IMAGE_QUALITY}
+                  className="object-contain object-top bg-black/20 transition-transform duration-500 group-hover:scale-[1.02]"
+                  sizes="(max-width: 640px) 92vw, (max-width: 1024px) 50vw, 560px"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent" />
               </div>
 
               {/* Text content */}
