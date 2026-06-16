@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { landingPricingPlans } from "@/lib/pricing-plans";
 import { SITE_URL } from "@/lib/site";
 import GoogleTagManagerLazy from "@/components/google-tag-manager-lazy";
 import SupportWidgetLazy from "@/components/support-widget-lazy";
@@ -47,36 +48,13 @@ const jsonLd = {
     "AI YouTube thumbnail studio. Generate from a YouTube link, video upload, or text prompt; use preset templates and saved face references; compare variants and export.",
   applicationCategory: "DesignApplication",
   operatingSystem: "Web",
-  offers: [
-    {
-      "@type": "Offer",
-      name: "Free starter",
-      price: "0",
-      priceCurrency: "USD",
-      description: "3 starter credits on signup, no credit card required",
-    },
-    {
-      "@type": "Offer",
-      name: "Pack 100",
-      price: "19",
-      priceCurrency: "USD",
-      description: "100 one-time generation credits",
-    },
-    {
-      "@type": "Offer",
-      name: "Pack 300",
-      price: "49",
-      priceCurrency: "USD",
-      description: "300 one-time generation credits",
-    },
-    {
-      "@type": "Offer",
-      name: "Pack 700",
-      price: "99",
-      priceCurrency: "USD",
-      description: "700 one-time generation credits",
-    },
-  ],
+  offers: landingPricingPlans.map((plan) => ({
+    "@type": "Offer",
+    name: plan.name,
+    price: plan.price.replace("$", ""),
+    priceCurrency: "USD",
+    description: `${plan.credits} one-time generation credits`,
+  })),
   featureList: [
     "AI thumbnail generation from YouTube link, video upload, or text prompt",
     "Preset template library with niche filters",
