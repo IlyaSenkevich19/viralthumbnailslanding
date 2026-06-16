@@ -1,6 +1,6 @@
 /**
  * Public pricing copy — must stay aligned with app `apps/frontend/src/config/pricing-plans.ts`
- * and backend credit packs ($19/100, $49/300, $99/700).
+ * and backend credit packs ($29/100, $49/300, $99/700).
  */
 
 export type LandingPricingPlan = {
@@ -42,7 +42,7 @@ export const landingPricingPlans: LandingPricingPlan[] = [
   {
     id: 'pack_100',
     name: 'Pack 100',
-    price: '$19',
+    price: '$29',
     credits: 100,
     description: 'Light top-up after you finish the starter balance.',
     features: [
