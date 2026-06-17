@@ -6,7 +6,12 @@ import {
   VIRAL_APP_SIGNUP_URL,
   resolveAppCreditsUrl,
 } from "@/lib/app-url";
-import { landingPricingPlans, PRICING_FOOTNOTES } from "@/lib/pricing-plans";
+import { visibleLandingPricingPlans, PRICING_FOOTNOTES } from "@/lib/pricing-plans";
+
+const pricingGridClass =
+  visibleLandingPricingPlans.length > 2
+    ? "mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4"
+    : "mx-auto mt-12 grid max-w-3xl gap-6 md:grid-cols-2";
 
 const guarantees = [
   {
@@ -51,8 +56,8 @@ export default function Pricing() {
           </div>
         </ScrollReveal>
 
-        <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-          {landingPricingPlans.map((plan, i) => (
+        <div className={pricingGridClass}>
+          {visibleLandingPricingPlans.map((plan, i) => (
             <ScrollReveal key={plan.id} delay={i * 0.1}>
               <div
                 className={`relative flex h-full flex-col rounded-2xl border p-6 transition-all duration-300 hover:-translate-y-1 ${

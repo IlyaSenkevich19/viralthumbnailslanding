@@ -3,6 +3,8 @@
  * No env vars required for the landing.
  */
 
+import { resolveEnabledPaidPackId } from "@/lib/enabled-pricing-plans";
+
 const APP_ORIGIN = "https://app.viralthumblify.com";
 
 function appPath(path: string): string {
@@ -26,8 +28,9 @@ export const VIRAL_APP_PLANS_URL = appPath("/credits");
 /** Credits page — optional pack hint for in-app checkout UI. */
 export function resolveAppCreditsUrl(planId?: string): string {
   if (!planId || planId === "trial") return VIRAL_APP_PLANS_URL;
-  if (!planId.startsWith("pack_")) return VIRAL_APP_PLANS_URL;
-  return `${VIRAL_APP_PLANS_URL}?pack=${encodeURIComponent(planId)}`;
+  const resolved = resolveEnabledPaidPackId(planId);
+  if (!resolved) return VIRAL_APP_PLANS_URL;
+  return `${VIRAL_APP_PLANS_URL}?pack=${encodeURIComponent(resolved)}`;
 }
 
 /** Partner Stripe success redirect (canonical page lives on the app). */

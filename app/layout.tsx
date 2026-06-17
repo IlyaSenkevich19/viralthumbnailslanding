@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { landingPricingPlans } from "@/lib/pricing-plans";
+import { visibleLandingPricingPlans } from "@/lib/pricing-plans";
 import { SITE_URL } from "@/lib/site";
 import GoogleTagManagerLazy from "@/components/google-tag-manager-lazy";
 import SupportWidgetLazy from "@/components/support-widget-lazy";
@@ -48,7 +48,7 @@ const jsonLd = {
     "AI YouTube thumbnail studio. Generate from a YouTube link, video upload, or text prompt; use preset templates and saved face references; compare variants and export.",
   applicationCategory: "DesignApplication",
   operatingSystem: "Web",
-  offers: landingPricingPlans.map((plan) => ({
+  offers: visibleLandingPricingPlans.map((plan) => ({
     "@type": "Offer",
     name: plan.name,
     price: plan.price.replace("$", ""),

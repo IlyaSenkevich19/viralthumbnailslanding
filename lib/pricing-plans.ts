@@ -3,6 +3,8 @@
  * and backend credit packs ($29/100, $49/300, $99/700).
  */
 
+import { filterEnabledPricingPlans } from '@/lib/enabled-pricing-plans';
+
 export type LandingPricingPlan = {
   id: string;
   name: string;
@@ -88,6 +90,9 @@ export const landingPricingPlans: LandingPricingPlan[] = [
     popular: false,
   },
 ];
+
+/** Plans shown on landing pricing + JSON-LD (filtered by NEXT_PUBLIC_ENABLED_PRICING_PLAN_IDS). */
+export const visibleLandingPricingPlans = filterEnabledPricingPlans(landingPricingPlans);
 
 /** Matches app credit-pricing-notes.ts — keep in sync when billing rules change. */
 export const CREDIT_USAGE_FOOTNOTE =
