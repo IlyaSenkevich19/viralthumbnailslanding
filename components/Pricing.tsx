@@ -3,11 +3,10 @@ import SectionWrapper from "@/components/ui/SectionWrapper";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import Button from "@/components/ui/Button";
 import {
-  VIRAL_APP_PLANS_URL,
   VIRAL_APP_SIGNUP_URL,
+  resolveAppCreditsUrl,
 } from "@/lib/app-url";
 import { landingPricingPlans, PRICING_FOOTNOTES } from "@/lib/pricing-plans";
-import { getStripeCheckoutUrl, isStripePackId } from "@/lib/stripe-checkout";
 
 const guarantees = [
   {
@@ -18,19 +17,13 @@ const guarantees = [
 
 function resolvePlanButtonHref(planId: string): string {
   if (planId === "trial") return VIRAL_APP_SIGNUP_URL;
-  if (isStripePackId(planId)) {
-    const checkoutUrl = getStripeCheckoutUrl(planId);
-    if (checkoutUrl) return checkoutUrl;
-  }
-  return VIRAL_APP_PLANS_URL;
+  return resolveAppCreditsUrl(planId);
 }
 
 function resolvePlanButtonLabel(planId: string, defaultLabel: string): string {
   if (planId === "trial") return defaultLabel;
-  if (isStripePackId(planId) && getStripeCheckoutUrl(planId)) {
-    if (planId === "pack_100") return "Buy 100 credits";
-    if (planId === "pack_300") return "Buy 300 credits";
-    if (planId === "pack_700") return "Buy 700 credits";
+  if (planId.startsWith("pack_")) {
+    return "Sign in to buy credits";
   }
   return defaultLabel;
 }
