@@ -6,7 +6,7 @@ import {
   VIRAL_APP_SIGNUP_URL,
   resolveAppCreditsUrl,
 } from "@/lib/app-url";
-import { visibleLandingPricingPlans, PRICING_FOOTNOTES } from "@/lib/pricing-plans";
+import { visibleLandingPricingPlans } from "@/lib/pricing-plans";
 
 const pricingGridClass =
   visibleLandingPricingPlans.length > 2
@@ -111,15 +111,7 @@ export default function Pricing() {
           ))}
         </div>
 
-        <ScrollReveal delay={0.2} className="mt-10">
-          <ul className="mx-auto max-w-3xl space-y-2 text-center text-sm text-text-dim">
-            {PRICING_FOOTNOTES.map((note) => (
-              <li key={note}>{note}</li>
-            ))}
-          </ul>
-        </ScrollReveal>
-
-        <ScrollReveal delay={0.3} className="mt-8">
+        <ScrollReveal delay={0.2} className="mt-8">
           <div className="flex flex-col items-center justify-center gap-6 sm:flex-row sm:gap-10">
             {guarantees.map((g) => (
               <div

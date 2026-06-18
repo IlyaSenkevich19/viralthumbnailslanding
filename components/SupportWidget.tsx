@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { ArrowUpRight, MessageCircle, Send, X } from "lucide-react";
+import { SUPPORT_CONTACT_EMAIL } from "@/lib/legal";
 
 const QUICK = ["How does it work?", "Pricing question", "Need help"] as const;
 
@@ -117,7 +118,12 @@ export default function SupportWidget() {
             </div>
             <div className="flex items-center gap-1.5 text-xs text-white/85">
               <span className="h-2 w-2 rounded-full bg-white/90" />
-              We reply by email
+              <a
+                href={`mailto:${SUPPORT_CONTACT_EMAIL}`}
+                className="underline decoration-white/40 underline-offset-2 hover:decoration-white"
+              >
+                {SUPPORT_CONTACT_EMAIL}
+              </a>
             </div>
           </div>
         </div>

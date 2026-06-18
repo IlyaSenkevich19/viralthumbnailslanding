@@ -93,14 +93,3 @@ export const landingPricingPlans: LandingPricingPlan[] = [
 
 /** Plans shown on landing pricing + JSON-LD (filtered by NEXT_PUBLIC_ENABLED_PRICING_PLAN_IDS). */
 export const visibleLandingPricingPlans = filterEnabledPricingPlans(landingPricingPlans);
-
-/** Matches app credit-pricing-notes.ts — keep in sync when billing rules change. */
-export const CREDIT_USAGE_FOOTNOTE =
-  'A typical full studio run (video analysis plus 3 thumbnail variants) uses 4 credits. Refining one thumbnail uses 1 credit.';
-
-export const PRICING_FOOTNOTES = [
-  '3 starter credits on signup — try the studio before you buy a pack (no card required).',
-  'Credit packs are one-time top-ups — not a monthly subscription.',
-  'Credits stay on your balance until you use them.',
-  CREDIT_USAGE_FOOTNOTE,
-] as const;

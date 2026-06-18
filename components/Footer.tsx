@@ -19,7 +19,7 @@ const columns = [
     title: "Legal",
     links: [
       { label: "Privacy Policy", href: "/privacy" },
-      { label: "Terms & Conditions", href: "/terms" },
+      { label: "Terms of Service", href: "/terms" },
     ],
   },
 ];
