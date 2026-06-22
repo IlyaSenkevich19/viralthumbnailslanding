@@ -1,11 +1,7 @@
 import { Check, CreditCard } from "lucide-react";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import ScrollReveal from "@/components/ui/ScrollReveal";
-import Button from "@/components/ui/Button";
-import {
-  VIRAL_APP_SIGNUP_URL,
-  resolveAppCreditsUrl,
-} from "@/lib/app-url";
+import { PricingPlanCta } from "@/components/PricingPlanCta";
 import { visibleLandingPricingPlans } from "@/lib/pricing-plans";
 
 const pricingGridClass =
@@ -19,11 +15,6 @@ const guarantees = [
     text: "3 starter credits on signup — no card required",
   },
 ];
-
-function resolvePlanButtonHref(planId: string): string {
-  if (planId === "trial") return VIRAL_APP_SIGNUP_URL;
-  return resolveAppCreditsUrl(planId);
-}
 
 function resolvePlanButtonLabel(planId: string, defaultLabel: string): string {
   if (planId === "trial") return defaultLabel;
@@ -98,14 +89,11 @@ export default function Pricing() {
                   ))}
                 </ul>
 
-                <Button
+                <PricingPlanCta
+                  planId={plan.id}
                   variant={plan.ctaVariant}
-                  size="md"
-                  href={resolvePlanButtonHref(plan.id)}
-                  className="w-full"
-                >
-                  {resolvePlanButtonLabel(plan.id, plan.ctaText)}
-                </Button>
+                  label={resolvePlanButtonLabel(plan.id, plan.ctaText)}
+                />
               </div>
             </ScrollReveal>
           ))}

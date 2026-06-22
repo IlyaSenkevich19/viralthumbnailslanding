@@ -1,8 +1,6 @@
-import Button from "@/components/ui/Button";
-import {
-  VIRAL_APP_LOGIN_URL,
-  VIRAL_APP_SIGNUP_URL,
-} from "@/lib/app-url";
+import { AppLoginLink } from "@/components/AppLoginLink";
+import AppCtaButton from "@/components/AppCtaButton";
+import { VIRAL_APP_LOGIN_URL, VIRAL_APP_SIGNUP_URL } from "@/lib/app-url";
 
 const navLinks = [
   { label: "Features", href: "/#features" },
@@ -14,14 +12,12 @@ export default function Header() {
   return (
     <header className="fixed top-0 right-0 left-0 z-50 border-b border-border/50 bg-bg/80 backdrop-blur-xl">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        {/* Logo */}
         <a href="/" className="relative z-10 flex items-center gap-2">
           <span className="text-lg font-bold text-text-primary">
             Viral<span className="text-accent">Thumblify</span>
           </span>
         </a>
 
-        {/* Desktop nav */}
         <nav className="hidden items-center gap-6 lg:flex">
           {navLinks.map((link) => (
             <a
@@ -34,18 +30,16 @@ export default function Header() {
           ))}
         </nav>
 
-        {/* Desktop CTAs */}
         <div className="hidden items-center gap-3 lg:flex">
-          <a
-            href={VIRAL_APP_LOGIN_URL}
-            rel="noopener noreferrer"
+          <AppLoginLink
+            appHref={VIRAL_APP_LOGIN_URL}
             className="text-sm text-text-muted transition-colors hover:text-text-primary"
           >
             Login
-          </a>
-          <Button variant="primary" size="sm" href={VIRAL_APP_SIGNUP_URL}>
+          </AppLoginLink>
+          <AppCtaButton variant="primary" size="sm" appHref={VIRAL_APP_SIGNUP_URL}>
             Get started
-          </Button>
+          </AppCtaButton>
         </div>
 
         <details className="group lg:hidden">
@@ -70,22 +64,21 @@ export default function Header() {
                   {link.label}
                 </a>
               ))}
-              <a
-                href={VIRAL_APP_LOGIN_URL}
-                rel="noopener noreferrer"
+              <AppLoginLink
+                appHref={VIRAL_APP_LOGIN_URL}
                 className="rounded-lg px-4 py-3 text-lg font-medium text-text-muted hover:bg-accent/10 hover:text-text-primary"
               >
                 Login
-              </a>
+              </AppLoginLink>
               <div className="mt-3 px-4">
-                <Button
+                <AppCtaButton
                   variant="primary"
                   size="md"
-                  href={VIRAL_APP_SIGNUP_URL}
+                  appHref={VIRAL_APP_SIGNUP_URL}
                   className="w-full"
                 >
                   Get started
-                </Button>
+                </AppCtaButton>
               </div>
             </nav>
           </div>

@@ -1,4 +1,5 @@
 import Button from "@/components/ui/Button";
+import AppCtaButton from "@/components/AppCtaButton";
 import { VIRAL_APP_SIGNUP_URL } from "@/lib/app-url";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 
@@ -24,13 +25,13 @@ export default function CtaBanner() {
           </p>
 
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <Button
+            <AppCtaButton
               variant="secondary"
               size="lg"
-              href={VIRAL_APP_SIGNUP_URL}
+              appHref={VIRAL_APP_SIGNUP_URL}
             >
               Get Started for Free!
-            </Button>
+            </AppCtaButton>
             <Button variant="outline" size="lg" href="/#how-it-works">
               Review the workflow
             </Button>

@@ -1,6 +1,7 @@
 import { Home, ArrowRight } from "lucide-react";
 import ThumbnailBackground from "@/components/ThumbnailBackground";
 import Button from "@/components/ui/Button";
+import AppCtaButton from "@/components/AppCtaButton";
 import { VIRAL_APP_SIGNUP_URL } from "@/lib/app-url";
 
 export default function NotFound() {
@@ -62,10 +63,10 @@ export default function NotFound() {
             <Home className="mr-2 h-4 w-4" />
             Back to Home
           </Button>
-          <Button variant="secondary" size="lg" href={VIRAL_APP_SIGNUP_URL}>
+          <AppCtaButton variant="secondary" size="lg" appHref={VIRAL_APP_SIGNUP_URL}>
             Start Creating
             <ArrowRight className="ml-2 h-4 w-4" />
-          </Button>
+          </AppCtaButton>
         </div>
       </div>
     </div>
