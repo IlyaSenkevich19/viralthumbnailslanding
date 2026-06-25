@@ -30,6 +30,20 @@ export default function SupportWidget() {
     }
   }, []);
 
+  useEffect(() => {
+    const landmarks = Array.from(
+      document.querySelectorAll<HTMLElement>("header, main, footer"),
+    );
+    landmarks.forEach((element) => {
+      element.inert = open;
+    });
+    return () => {
+      landmarks.forEach((element) => {
+        element.inert = false;
+      });
+    };
+  }, [open]);
+
   async function handleSubmit() {
     setError(null);
     const em = email.trim();
@@ -102,6 +116,11 @@ export default function SupportWidget() {
   return (
     <div className="pointer-events-none fixed bottom-5 right-5 z-50 flex flex-col items-end">
       <div
+        inert={!open}
+        role="dialog"
+        aria-modal={open}
+        aria-label="Contact support"
+        aria-hidden={!open}
         className={`mb-3 w-[320px] origin-bottom-right overflow-hidden rounded-2xl border border-zinc-700 bg-zinc-900 shadow-2xl shadow-black/40 transition-all duration-300 sm:w-[340px] ${
           open
             ? "pointer-events-auto translate-y-0 scale-100 opacity-100"
@@ -233,7 +252,7 @@ export default function SupportWidget() {
                 />
               </div>
 
-              <div className="sr-only" aria-hidden>
+              <div hidden>
                 <label htmlFor="support-company">Company</label>
                 <input
                   id="support-company"

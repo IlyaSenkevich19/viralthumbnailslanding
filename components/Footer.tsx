@@ -63,9 +63,9 @@ export default function Footer() {
           {/* Link columns */}
           {columns.map((col) => (
             <div key={col.title}>
-              <h4 className="text-sm font-semibold text-text-primary">
+              <h3 className="text-sm font-semibold text-text-primary">
                 {col.title}
-              </h4>
+              </h3>
               <ul className="mt-3 space-y-2">
                 {col.links.map((link, index) => (
                   <li key={`${link.label}-${link.href}-${index}`}>

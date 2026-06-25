@@ -16,7 +16,10 @@ export default function Error({
   }, [error]);
 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center px-4 text-center">
+    <main
+      id="main-content"
+      className="relative flex min-h-screen flex-col items-center justify-center px-4 text-center"
+    >
       <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
         <div className="h-[400px] w-[400px] rounded-full bg-accent-amber/[0.06] blur-[120px]" />
       </div>
@@ -46,6 +49,6 @@ export default function Error({
           </Button>
         </div>
       </div>
-    </div>
+    </main>
   );
 }

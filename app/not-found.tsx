@@ -6,7 +6,10 @@ import { VIRAL_APP_SIGNUP_URL } from "@/lib/app-url";
 
 export default function NotFound() {
   return (
-    <div className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-4 text-center">
+    <main
+      id="main-content"
+      className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-4 text-center"
+    >
       {/* Floating thumbnails */}
       <ThumbnailBackground />
 
@@ -69,6 +72,6 @@ export default function NotFound() {
           </AppCtaButton>
         </div>
       </div>
-    </div>
+    </main>
   );
 }
