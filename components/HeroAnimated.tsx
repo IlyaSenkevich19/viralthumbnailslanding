@@ -22,7 +22,7 @@ const featurePills = [
 
 export default function HeroAnimated() {
   return (
-    <section className="relative overflow-hidden pt-28 pb-4 md:pt-36">
+    <section className="relative overflow-x-hidden pt-28 pb-10 md:pt-36 md:pb-12">
       {/* Floating thumbnail grid (background) */}
       <ThumbnailBackground />
 
@@ -103,13 +103,13 @@ export default function HeroAnimated() {
         </p>
       </div>
 
-      {/* Thumbnail marquee — two scrolling rows */}
-      <div className="relative z-10 hidden md:block">
+      {/* Thumbnail marquee — two scrolling rows; clip X only so rows are not vertically cropped */}
+      <div className="relative z-10 hidden overflow-x-hidden md:block">
         <ThumbnailMarquee />
       </div>
 
-      {/* Bottom gradient fade */}
-      <div className="pointer-events-none absolute right-0 bottom-0 left-0 h-24 bg-gradient-to-t from-bg to-transparent" />
+      {/* Soft fade into the next section — sits behind marquee (z-0) */}
+      <div className="pointer-events-none absolute right-0 bottom-0 left-0 z-0 h-20 bg-gradient-to-t from-bg via-bg/40 to-transparent" />
     </section>
   );
 }

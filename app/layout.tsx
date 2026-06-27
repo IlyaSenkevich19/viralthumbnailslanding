@@ -84,8 +84,8 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="font-sans">
-        {children}
+      <body className="flex min-h-dvh flex-col font-sans">
+        <div className="flex min-h-dvh flex-1 flex-col">{children}</div>
         {gtmId ? <GoogleTagManagerLazy gtmId={gtmId} /> : null}
         <SupportWidgetLazy />
         <VercelObservabilityLazy />

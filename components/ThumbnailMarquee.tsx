@@ -46,7 +46,7 @@ function MarqueeRow({ images, direction }: RowProps) {
 export default function ThumbnailMarquee() {
   return (
     <div
-      className="relative mt-16 overflow-hidden"
+      className="marquee-scroller relative mt-16"
       aria-hidden="true"
     >
       <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-bg to-transparent sm:w-40" />
