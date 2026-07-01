@@ -1,6 +1,6 @@
 # ViralThumblify — AI YouTube Thumbnail Studio
 # https://www.viralthumblify.com
-# Last updated: 2026-05-23
+# Last updated: 2026-07-01
 
 ## What is ViralThumblify?
 
@@ -38,7 +38,9 @@ Credit packs are **one-time top-ups**, not a monthly subscription. Credits stay 
 
 ### How credits are spent
 
-- Typical full studio run (video analysis + 3 thumbnail variants): **4 credits**
+- **1 credit** per generated thumbnail
+- **+1 credit** when analyzing a YouTube link or uploaded video
+- **Example:** 3 thumbnails from a YouTube URL = 4 credits (1 analysis + 3 images)
 - Refining one thumbnail: **1 credit**
 
 ## What we do not claim
@@ -47,6 +49,7 @@ Credit packs are **one-time top-ups**, not a monthly subscription. Credits stay 
 - No Canva import
 - No watermarked free tier (exports are not watermarked in the current product)
 - No team seats, public API, or white-label plans yet
+- Landing-page time, cost, and CTR estimates (~+35%, ~10 hrs, ~$600) are illustrative; results vary by niche and content
 
 ## Contact
 

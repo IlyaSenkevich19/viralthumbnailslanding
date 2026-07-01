@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { visibleLandingPricingPlans } from "@/lib/pricing-plans";
-import { SITE_URL } from "@/lib/site";
+import { LEGAL_CONTACT_EMAIL, LEGAL_OPERATOR_NAME } from "@/lib/legal";
+import { SITE_NAME, SITE_URL } from "@/lib/site";
 import GoogleTagManagerLazy from "@/components/google-tag-manager-lazy";
 import SupportWidgetLazy from "@/components/support-widget-lazy";
 import VercelObservabilityLazy from "@/components/vercel-observability-lazy";
@@ -39,33 +40,59 @@ export const metadata: Metadata = {
   },
 };
 
+const organizationId = `${SITE_URL}/#organization`;
+const websiteId = `${SITE_URL}/#website`;
+const softwareId = `${SITE_URL}/#software`;
+
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  name: "ViralThumblify",
-  url: SITE_URL,
-  description:
-    "AI YouTube thumbnail studio. Generate from a YouTube link, video upload, or text prompt; use preset templates and saved face references; compare variants and export.",
-  applicationCategory: "DesignApplication",
-  operatingSystem: "Web",
-  offers: visibleLandingPricingPlans.map((plan) => ({
-    "@type": "Offer",
-    name: plan.name,
-    price: plan.price.replace("$", ""),
-    priceCurrency: "USD",
-    description: `${plan.credits} one-time generation credits`,
-  })),
-  featureList: [
-    "AI thumbnail generation from YouTube link, video upload, or text prompt",
-    "Preset template library with niche filters",
-    "Saved face references for consistent channel branding",
-    "Multiple variants per project with refine and export",
-    "One-time credit packs with no subscription",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": organizationId,
+      name: LEGAL_OPERATOR_NAME,
+      url: SITE_URL,
+      logo: `${SITE_URL}/favicon.svg`,
+      email: LEGAL_CONTACT_EMAIL,
+    },
+    {
+      "@type": "WebSite",
+      "@id": websiteId,
+      url: SITE_URL,
+      name: SITE_NAME,
+      publisher: { "@id": organizationId },
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": softwareId,
+      name: SITE_NAME,
+      url: SITE_URL,
+      description:
+        "AI YouTube thumbnail studio. Generate from a YouTube link, video upload, or text prompt; use preset templates and saved face references; compare variants and export.",
+      applicationCategory: "DesignApplication",
+      operatingSystem: "Web",
+      provider: { "@id": organizationId },
+      isPartOf: { "@id": websiteId },
+      offers: visibleLandingPricingPlans.map((plan) => ({
+        "@type": "Offer",
+        name: plan.name,
+        price: plan.price.replace("$", ""),
+        priceCurrency: "USD",
+        description: `${plan.credits} one-time generation credits`,
+      })),
+      featureList: [
+        "AI thumbnail generation from YouTube link, video upload, or text prompt",
+        "Preset template library with niche filters",
+        "Saved face references for consistent channel branding",
+        "Multiple variants per project with refine and export",
+        "One-time credit packs with no subscription",
+      ],
+      audience: {
+        "@type": "Audience",
+        audienceType: "YouTube creators with 5,000–30,000 subscribers",
+      },
+    },
   ],
-  audience: {
-    "@type": "Audience",
-    audienceType: "YouTube creators with 5,000–30,000 subscribers",
-  },
 };
 
 const gtmId = process.env.NEXT_PUBLIC_GTM_ID?.trim();

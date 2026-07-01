@@ -2,6 +2,7 @@ import { Star, ArrowRight } from "lucide-react";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 
+/** Placeholder quotes — do not mount on the landing page until verified with real creators. */
 const testimonials = [
   {
     quote:

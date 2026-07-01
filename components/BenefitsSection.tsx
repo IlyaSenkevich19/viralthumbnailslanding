@@ -9,28 +9,28 @@ import ScrollReveal from "@/components/ui/ScrollReveal";
 
 const benefits = [
   "Stop paying $50–200 per thumbnail to freelancers",
-  "Save 10+ hours every week — spend it creating, not designing",
+  "Save ~10+ hours every week — spend it creating, not designing",
   "Consistent branding across your entire channel",
-  "Boost CTR and views with A/B-tested thumbnails",
+  "Compare multiple variants side by side before you publish",
 ];
 
 const stats = [
   {
     icon: <TrendingUp className="h-6 w-6" />,
-    value: "+35%",
-    label: "Average CTR Increase",
+    value: "~+35%",
+    label: "CTR uplift",
     color: "text-accent",
   },
   {
     icon: <Clock className="h-6 w-6" />,
-    value: "10+ hrs",
-    label: "Saved Per Week",
+    value: "~10 hrs",
+    label: "Saved on thumbnail work per week",
     color: "text-accent-amber",
   },
   {
     icon: <DollarSign className="h-6 w-6" />,
-    value: "$600+",
-    label: "Saved Per Month",
+    value: "~$600",
+    label: "Saved vs freelance thumbnails per month",
     color: "text-success",
   },
 ];
@@ -70,6 +70,13 @@ export default function BenefitsSection() {
           </ScrollReveal>
         ))}
       </div>
+
+      <ScrollReveal delay={0.25}>
+        <p className="mx-auto mt-6 max-w-2xl text-center text-xs text-text-muted sm:text-sm">
+          Estimates based on typical creator workflows. Results vary by niche and
+          content.
+        </p>
+      </ScrollReveal>
 
       {/* Benefits list */}
       <ScrollReveal delay={0.3}>
