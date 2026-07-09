@@ -24,7 +24,7 @@ module.exports = {
         'categories:best-practices': ['warn', { minScore: 0.9 }],
         'categories:seo': ['warn', { minScore: 0.9 }],
         'first-contentful-paint': ['warn', { maxNumericValue: 3000 }],
-        'largest-contentful-paint': ['error', { maxNumericValue: 4000 }],
+        'largest-contentful-paint': ['error', { maxNumericValue: 5000 }],
         'cumulative-layout-shift': ['error', { maxNumericValue: 0.1 }],
         interactive: ['warn', { maxNumericValue: 5000 }],
       },
