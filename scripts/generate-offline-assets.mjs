@@ -38,7 +38,7 @@ const pageOutput = pageTemplate
   )
   .replace(
     '__TIP_3__',
-    'Open the app at app.viralthumblify.com once you are back online.',
+    'Pricing, features, and free signup are available again once you reconnect.',
   );
 writeFileSync(resolve(ROOT, 'public/offline.html'), pageOutput);
 console.log(`[generate-offline-assets] buildId=${buildId}`);
