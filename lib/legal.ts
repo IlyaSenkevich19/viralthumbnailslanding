@@ -17,7 +17,7 @@ export const LEGAL_OPERATOR_NAME = "ViralThumblify";
 /** US governing law — update if your LLC is registered in another state. */
 export const LEGAL_GOVERNING_STATE = "Delaware";
 
-const DEFAULT_CONTACT_EMAIL = "ilya.senkevich.199@gmail.com";
+const DEFAULT_CONTACT_EMAIL = "viralthumblify@gmail.com";
 
 /** Support, privacy, DMCA, and legal contact email. */
 export const LEGAL_CONTACT_EMAIL =
