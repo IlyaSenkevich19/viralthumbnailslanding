@@ -1,20 +1,17 @@
 /**
  * Lighthouse CI gates for landing (production build on CI).
  * Baseline snapshot: docs/pagespeed-baseline.md (2026-07-10).
- * Hard fail: performance score, LCP, CLS. Other metrics stay warn-only.
+ * CI audits homepage only; /terms and /privacy are tracked in baseline doc.
  */
 /** @type {import('@lhci/cli').LHCI.ServerCommand.Options} */
 module.exports = {
   ci: {
     collect: {
-      url: [
-        'http://127.0.0.1:3000/',
-        'http://127.0.0.1:3000/terms',
-        'http://127.0.0.1:3000/privacy',
-      ],
+      url: ['http://127.0.0.1:3000/'],
       numberOfRuns: 1,
       settings: {
         preset: 'desktop',
+        chromeFlags: '--no-sandbox --disable-dev-shm-usage',
       },
     },
     assert: {

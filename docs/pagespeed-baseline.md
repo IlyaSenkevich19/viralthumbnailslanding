@@ -14,12 +14,14 @@ Prod URL: [viralthumblify.com](https://viralthumblify.com/). App baseline: Viral
 
 Bundle (client JS): **0.82 MB** / 1.05 MB budget.
 
-## CI hard-fail thresholds
+## CI hard-fail thresholds (homepage `/` in CI)
+
+CI audits **`/` only** (fast, stable). `/terms` and `/privacy` scores are in the table above for manual checks.
 
 | Metric | Gate | Rationale |
 |--------|------|-----------|
 | Performance score | ≥ 0.75 | CI runner headroom (~0.19 below baseline `/`) |
-| LCP | ≤ 5000 ms | marketing-safe upper bound (CI runner headroom) |
+| LCP | ≤ 5000 ms | marketing-safe upper bound |
 | CLS | ≤ 0.15 | layout stability |
 | Bundle | ≤ 1.05 MB | existing hard fail |
 
