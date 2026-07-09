@@ -15,7 +15,6 @@
         --border: rgba(255, 255, 255, 0.09);
         --primary: #c62828;
         --accent: #ff3b3b;
-        --amber: #fbbf24;
       }
       * {
         box-sizing: border-box;
@@ -49,20 +48,6 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 0.85rem;
-      }
-      .mark-wrap {
-        position: relative;
-        display: grid;
-        place-items: center;
-        width: 5.25rem;
-        height: 5.25rem;
-      }
-      .mark-ring {
-        position: absolute;
-        inset: 0;
-        border-radius: 999px;
-        border: 2px solid rgba(198, 40, 40, 0.22);
       }
       .mark {
         display: inline-flex;
@@ -82,27 +67,6 @@
       }
       .mark-t {
         color: var(--accent);
-      }
-      .status-pill {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.4rem;
-        border-radius: 999px;
-        border: 1px solid rgba(251, 191, 36, 0.28);
-        background: rgba(251, 191, 36, 0.1);
-        padding: 0.3rem 0.7rem;
-        font-size: 0.72rem;
-        font-weight: 600;
-        letter-spacing: 0.04em;
-        text-transform: uppercase;
-        color: #fde68a;
-      }
-      .status-dot {
-        width: 0.45rem;
-        height: 0.45rem;
-        border-radius: 999px;
-        background: var(--amber);
-        box-shadow: 0 0 0 4px rgba(251, 191, 36, 0.15);
       }
       h1 {
         margin: 1.1rem 0 0.45rem;
@@ -174,11 +138,7 @@
   <body>
     <main class="shell">
       <div class="hero">
-        <div class="mark-wrap" aria-hidden="true">
-          <div class="mark-ring"></div>
-          <div class="mark"><span class="mark-v">V</span><span class="mark-t">T</span></div>
-        </div>
-        <div class="status-pill"><span class="status-dot" aria-hidden="true"></span>Offline</div>
+        <div class="mark" aria-hidden="true"><span class="mark-v">V</span><span class="mark-t">T</span></div>
       </div>
       <h1>No connection right now</h1>
       <p class="subtitle">Reconnect to browse pricing, features, and start creating thumbnails.</p>
