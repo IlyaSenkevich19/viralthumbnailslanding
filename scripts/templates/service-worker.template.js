@@ -42,9 +42,21 @@ self.addEventListener('fetch', (event) => {
     return;
   }
   if (request.mode === 'navigate') {
+    if (shouldBypassOfflineNavigation(requestUrl.pathname)) {
+      return;
+    }
     event.respondWith(fetchNavigationDocument(request));
   }
 });
+
+/**
+ * Auth routes set cookies and redirect — the browser must handle them natively.
+ * @param {string} pathname
+ * @returns {boolean}
+ */
+function shouldBypassOfflineNavigation(pathname) {
+  return pathname.startsWith('/auth/');
+}
 
 /**
  * @param {Request} request
@@ -68,10 +80,13 @@ async function cacheStaticAsset(request) {
  * @returns {boolean}
  */
 function shouldPassThroughNavigationResponse(response) {
+  if (response.type === 'opaqueredirect') {
+    return true;
+  }
   if (response.ok) {
     return true;
   }
-  // Redirects (e.g. /auth/sign-out) and HTTP error pages must not map to offline.html.
+  // Redirects (e.g. middleware) and HTTP error pages must not map to offline.html.
   return response.status >= 300;
 }
 
@@ -81,7 +96,7 @@ function shouldPassThroughNavigationResponse(response) {
  */
 async function fetchNavigationDocument(request) {
   try {
-    const networkResponse = await fetch(request);
+    const networkResponse = await fetch(new Request(request, { redirect: 'manual' }));
     if (shouldPassThroughNavigationResponse(networkResponse)) {
       return networkResponse;
     }
