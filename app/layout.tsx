@@ -3,6 +3,8 @@ import { visibleLandingPricingPlans } from "@/lib/pricing-plans";
 import { LEGAL_CONTACT_EMAIL, LEGAL_OPERATOR_NAME } from "@/lib/legal";
 import { SITE_NAME, SITE_URL } from "@/lib/site";
 import GoogleTagManagerLazy from "@/components/google-tag-manager-lazy";
+import { NetworkStatusBanner } from "@/components/network-status-banner";
+import { ServiceWorkerProvider } from "@/components/service-worker-provider";
 import SupportWidgetLazy from "@/components/support-widget-lazy";
 import VercelObservabilityLazy from "@/components/vercel-observability-lazy";
 import "./globals.css";
@@ -119,6 +121,8 @@ export default function RootLayout({
         />
       </head>
       <body className="flex min-h-dvh flex-col font-sans">
+        <ServiceWorkerProvider />
+        <NetworkStatusBanner />
         <div className="flex min-h-dvh flex-1 flex-col">{children}</div>
         {gtmId ? <GoogleTagManagerLazy gtmId={gtmId} /> : null}
         <SupportWidgetLazy />

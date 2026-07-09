@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Offline — ViralThumblify</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --background: #0e0e12;
+        --foreground: #fafafa;
+        --muted: #b4b4be;
+        --card: #1f1f26;
+        --border: rgba(255, 255, 255, 0.09);
+        --primary: #c62828;
+        --accent: #ff3b3b;
+        --amber: #fbbf24;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        min-height: 100dvh;
+        display: grid;
+        place-items: center;
+        padding: 1.5rem;
+        background: var(--background);
+        background-image: radial-gradient(ellipse 90% 55% at 50% -15%, rgba(198, 40, 40, 0.14), transparent 70%);
+        color: var(--foreground);
+        font-family:
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          'Segoe UI',
+          sans-serif;
+      }
+      .shell {
+        width: min(100%, 26rem);
+        border: 1px solid var(--border);
+        border-radius: 1.25rem;
+        background: color-mix(in srgb, var(--card) 92%, transparent);
+        box-shadow: 0 28px 70px rgba(0, 0, 0, 0.42);
+        padding: 1.75rem 1.5rem 1.5rem;
+        text-align: center;
+      }
+      .hero {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.85rem;
+      }
+      .mark-wrap {
+        position: relative;
+        display: grid;
+        place-items: center;
+        width: 5.25rem;
+        height: 5.25rem;
+      }
+      .mark-ring {
+        position: absolute;
+        inset: 0;
+        border-radius: 999px;
+        border: 2px solid rgba(198, 40, 40, 0.22);
+      }
+      .mark {
+        display: inline-flex;
+        height: 4.25rem;
+        width: 4.25rem;
+        align-items: center;
+        justify-content: center;
+        border-radius: 1rem;
+        background: #252530;
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+        font-size: 1.55rem;
+        font-weight: 800;
+        letter-spacing: -0.04em;
+      }
+      .mark-v {
+        color: var(--foreground);
+      }
+      .mark-t {
+        color: var(--accent);
+      }
+      .status-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        border-radius: 999px;
+        border: 1px solid rgba(251, 191, 36, 0.28);
+        background: rgba(251, 191, 36, 0.1);
+        padding: 0.3rem 0.7rem;
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color: #fde68a;
+      }
+      .status-dot {
+        width: 0.45rem;
+        height: 0.45rem;
+        border-radius: 999px;
+        background: var(--amber);
+        box-shadow: 0 0 0 4px rgba(251, 191, 36, 0.15);
+      }
+      h1 {
+        margin: 1.1rem 0 0.45rem;
+        font-size: 1.25rem;
+        font-weight: 650;
+        letter-spacing: -0.02em;
+      }
+      .subtitle {
+        margin: 0;
+        font-size: 0.9rem;
+        line-height: 1.55;
+        color: var(--muted);
+      }
+      .tips {
+        margin: 1.25rem 0 0;
+        padding: 0;
+        list-style: none;
+        text-align: left;
+        border-top: 1px solid var(--border);
+        padding-top: 1rem;
+      }
+      .tips li {
+        display: flex;
+        gap: 0.65rem;
+        align-items: flex-start;
+        padding: 0.45rem 0;
+        font-size: 0.8125rem;
+        line-height: 1.45;
+        color: var(--muted);
+      }
+      .tips li::before {
+        content: '';
+        flex-shrink: 0;
+        width: 0.42rem;
+        height: 0.42rem;
+        margin-top: 0.42rem;
+        border-radius: 999px;
+        background: var(--accent);
+        box-shadow: 0 0 0 3px rgba(255, 59, 59, 0.12);
+      }
+      .actions {
+        margin-top: 1.35rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.55rem;
+      }
+      button {
+        border: 0;
+        border-radius: 0.8rem;
+        background: var(--primary);
+        color: #fff;
+        padding: 0.72rem 1rem;
+        font-size: 0.9rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: filter 150ms ease;
+      }
+      button:hover {
+        filter: brightness(1.06);
+      }
+      .footnote {
+        margin: 0.85rem 0 0;
+        min-height: 1.1rem;
+        font-size: 0.75rem;
+        color: #8b8b98;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="shell">
+      <div class="hero">
+        <div class="mark-wrap" aria-hidden="true">
+          <div class="mark-ring"></div>
+          <div class="mark"><span class="mark-v">V</span><span class="mark-t">T</span></div>
+        </div>
+        <div class="status-pill"><span class="status-dot" aria-hidden="true"></span>Offline</div>
+      </div>
+      <h1>No connection right now</h1>
+      <p class="subtitle">__SUBTITLE__</p>
+      <ul class="tips">
+        <li>__TIP_1__</li>
+        <li>__TIP_2__</li>
+        <li>__TIP_3__</li>
+      </ul>
+      <div class="actions">
+        <button type="button" id="retry">Try again</button>
+      </div>
+      <p class="footnote" id="status" role="status" aria-live="polite">Waiting for your network to return…</p>
+    </main>
+    <script>
+      const statusEl = document.getElementById('status');
+      const retryEl = document.getElementById('retry');
+      function setStatus(message) {
+        if (statusEl) statusEl.textContent = message;
+      }
+      function tryReload() {
+        setStatus('Checking connection…');
+        window.location.reload();
+      }
+      retryEl?.addEventListener('click', tryReload);
+      window.addEventListener('online', () => {
+        setStatus('Back online — reloading…');
+        window.setTimeout(tryReload, 400);
+      });
+      if (window.navigator.onLine) {
+        setStatus('Connection detected. Tap Try again to continue.');
+      }
+    </script>
+  </body>
+</html>
