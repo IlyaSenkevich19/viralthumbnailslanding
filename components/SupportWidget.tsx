@@ -135,23 +135,24 @@ export default function SupportWidget() {
 
   return (
     <div className="pointer-events-none fixed bottom-5 right-5 z-50 flex flex-col items-end">
-      <SupportProactiveNudge
-        visible={showNudge && !open}
-        onDismiss={markNudgeHandled}
-        onAccept={handleAcceptNudge}
-      />
-      <div
-        inert={!open}
-        role="dialog"
-        aria-modal={open}
-        aria-label="Contact support"
-        aria-hidden={!open}
-        className={`mb-3 w-[320px] origin-bottom-right overflow-hidden rounded-2xl border border-zinc-700 bg-zinc-900 shadow-2xl shadow-black/40 transition-all duration-300 sm:w-[340px] ${
-          open
-            ? "pointer-events-auto translate-y-0 scale-100 opacity-100"
-            : "pointer-events-none translate-y-4 scale-95 opacity-0"
-        }`}
-      >
+      <div className="relative mb-3 w-[320px] sm:w-[340px]">
+        <SupportProactiveNudge
+          visible={showNudge && !open}
+          onDismiss={markNudgeHandled}
+          onAccept={handleAcceptNudge}
+        />
+        <div
+          inert={!open}
+          role="dialog"
+          aria-modal={open}
+          aria-label="Contact support"
+          aria-hidden={!open}
+          className={`w-full origin-bottom-right overflow-hidden rounded-2xl border border-zinc-700 bg-zinc-900 shadow-2xl shadow-black/40 transition-all duration-300 ${
+            open
+              ? "pointer-events-auto relative translate-y-0 scale-100 opacity-100"
+              : "pointer-events-none absolute bottom-0 right-0 h-0 w-full overflow-hidden opacity-0"
+          }`}
+        >
         <div className="relative flex items-center gap-3 bg-gradient-to-r from-red-600 to-red-500 px-5 py-4">
           <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white/20">
             <MessageCircle className="h-5 w-5 text-white" />
@@ -312,6 +313,7 @@ export default function SupportWidget() {
             </>
           )}
         </div>
+      </div>
       </div>
 
       <button
