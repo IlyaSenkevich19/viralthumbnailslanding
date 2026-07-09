@@ -103,13 +103,11 @@ async function fetchNavigationDocument(request) {
   } catch {
     /* Network unavailable */
   }
-  const offlineResponse = await caches.match(OFFLINE_URL);
-  if (offlineResponse) {
-    return offlineResponse;
+  if (!self.navigator.onLine) {
+    const offlineResponse = await caches.match(OFFLINE_URL);
+    if (offlineResponse) {
+      return offlineResponse;
+    }
   }
-  return new Response('Offline', {
-    status: 503,
-    statusText: 'Service Unavailable',
-    headers: { 'Content-Type': 'text/plain; charset=utf-8' },
-  });
+  return fetch(request);
 }
