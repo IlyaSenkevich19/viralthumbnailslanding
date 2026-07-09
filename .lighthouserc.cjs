@@ -1,3 +1,8 @@
+/**
+ * Lighthouse CI gates for landing (production build on CI).
+ * Baseline snapshot: docs/pagespeed-baseline.md (2026-07-10).
+ * Hard fail: performance score, LCP, CLS. Other metrics stay warn-only.
+ */
 /** @type {import('@lhci/cli').LHCI.ServerCommand.Options} */
 module.exports = {
   ci: {
@@ -14,13 +19,13 @@ module.exports = {
     },
     assert: {
       assertions: {
-        'categories:performance': ['warn', { minScore: 0.75 }],
+        'categories:performance': ['error', { minScore: 0.85 }],
         'categories:accessibility': ['warn', { minScore: 0.9 }],
         'categories:best-practices': ['warn', { minScore: 0.9 }],
         'categories:seo': ['warn', { minScore: 0.9 }],
         'first-contentful-paint': ['warn', { maxNumericValue: 3000 }],
-        'largest-contentful-paint': ['warn', { maxNumericValue: 4000 }],
-        'cumulative-layout-shift': ['warn', { maxNumericValue: 0.1 }],
+        'largest-contentful-paint': ['error', { maxNumericValue: 4000 }],
+        'cumulative-layout-shift': ['error', { maxNumericValue: 0.1 }],
         interactive: ['warn', { maxNumericValue: 5000 }],
       },
     },

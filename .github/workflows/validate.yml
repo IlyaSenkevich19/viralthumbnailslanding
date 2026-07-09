@@ -1,6 +1,6 @@
 name: Validate
 
-# Production deploy (deploy job below) runs only after validate passes on main.
+# Production deploy runs only after validate + performance pass on main.
 # Free-tier gate: disable Vercel auto-deploy on main — Vercel → Settings → Git →
 # Ignored Build Step: if [ "$VERCEL_GIT_COMMIT_REF" = "main" ]; then exit 0; else exit 1; fi
 # GitHub repo secrets: VERCEL_TOKEN, VERCEL_ORG_ID, VERCEL_PROJECT_ID
@@ -23,8 +23,26 @@ jobs:
       - run: npm ci
       - run: npm run validate
 
+  performance:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - run: node scripts/check-bundle-budget.mjs
+      - name: Start landing
+        run: npm run start &
+      - name: Wait for landing
+        run: npx wait-on@7.2.0 http://127.0.0.1:3000 --timeout 60000
+      - name: Lighthouse CI
+        run: npx @lhci/cli@0.14.0 autorun --config=.lighthouserc.cjs
+
   deploy:
-    needs: validate
+    needs: [validate, performance]
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
     runs-on: ubuntu-latest
     env:
