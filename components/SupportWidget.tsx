@@ -3,6 +3,8 @@
 import { useEffect, useState } from "react";
 import { ArrowUpRight, MessageCircle, Send, X } from "lucide-react";
 import { SUPPORT_CONTACT_EMAIL } from "@/lib/legal";
+import { SupportProactiveNudge } from "@/components/SupportProactiveNudge";
+import { useSupportProactiveNudge } from "@/hooks/useSupportProactiveNudge";
 
 const QUICK = ["How does it work?", "Pricing question", "Need help"] as const;
 
@@ -17,6 +19,18 @@ export default function SupportWidget() {
   const [sent, setSent] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [hasSubmittedThisSession, setHasSubmittedThisSession] = useState(false);
+  const { showNudge, markNudgeHandled } = useSupportProactiveNudge({
+    isWidgetOpen: open,
+    hasSubmitted: hasSubmittedThisSession,
+    isLauncherVisible: mounted,
+  });
+
+  useEffect(() => {
+    if (open) {
+      markNudgeHandled();
+    }
+  }, [markNudgeHandled, open]);
 
   useEffect(() => {
     const frame = requestAnimationFrame(() => setMounted(true));
@@ -87,6 +101,7 @@ export default function SupportWidget() {
         (body as { ok: boolean }).ok;
       if (ok) {
         setSent(true);
+        setHasSubmittedThisSession(true);
         setMessage("");
         setTimeout(() => setSent(false), 8000);
         return;
@@ -113,8 +128,18 @@ export default function SupportWidget() {
     }
   }
 
+  function handleAcceptNudge(): void {
+    markNudgeHandled();
+    setOpen(true);
+  }
+
   return (
     <div className="pointer-events-none fixed bottom-5 right-5 z-50 flex flex-col items-end">
+      <SupportProactiveNudge
+        visible={showNudge && !open}
+        onDismiss={markNudgeHandled}
+        onAccept={handleAcceptNudge}
+      />
       <div
         inert={!open}
         role="dialog"
