@@ -64,13 +64,25 @@ async function cacheStaticAsset(request) {
 }
 
 /**
+ * @param {Response} response
+ * @returns {boolean}
+ */
+function shouldPassThroughNavigationResponse(response) {
+  if (response.ok) {
+    return true;
+  }
+  // Redirects (e.g. /auth/sign-out) and HTTP error pages must not map to offline.html.
+  return response.status >= 300;
+}
+
+/**
  * @param {Request} request
  * @returns {Promise<Response>}
  */
 async function fetchNavigationDocument(request) {
   try {
     const networkResponse = await fetch(request);
-    if (networkResponse.ok) {
+    if (shouldPassThroughNavigationResponse(networkResponse)) {
       return networkResponse;
     }
   } catch {
