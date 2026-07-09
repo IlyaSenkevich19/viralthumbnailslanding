@@ -3,8 +3,10 @@
 import Script from "next/script";
 import { useEffect, useState } from "react";
 
-const GTM_IDLE_DELAY_MS = 15000;
-const GTM_IDLE_TIMEOUT_MS = 10000;
+/** After full page load — keeps GTM off the LCP window while loading sooner than 15s. */
+const GTM_LOAD_DELAY_MS = 5000;
+const GTM_IDLE_TIMEOUT_MS = 8000;
+const GTM_SCROLL_DEPTH_PX = 300;
 const interactionEvents = ["pointerdown", "keydown", "touchstart"] as const;
 
 type GoogleTagManagerLazyProps = {
@@ -17,7 +19,7 @@ function scheduleIdle(callback: () => void): () => void {
   if ("requestIdleCallback" in window) {
     idleId = window.requestIdleCallback(callback, { timeout: GTM_IDLE_TIMEOUT_MS });
   } else {
-    timeoutId = setTimeout(callback, 3500);
+    timeoutId = setTimeout(callback, 3000);
   }
   return () => {
     if (idleId !== undefined) {
@@ -36,6 +38,7 @@ export default function GoogleTagManagerLazy({
 
   useEffect(() => {
     let cancelled = false;
+    let hasScheduledLoad = false;
     let delayId: ReturnType<typeof setTimeout> | undefined;
     let cancelIdle: (() => void) | undefined;
     function enable(): void {
@@ -43,17 +46,26 @@ export default function GoogleTagManagerLazy({
         setShouldLoad(true);
       }
     }
-    function scheduleAfterLoad(): void {
-      delayId = setTimeout(() => {
-        cancelIdle = scheduleIdle(enable);
-      }, GTM_IDLE_DELAY_MS);
-    }
-    function enableFromInteraction(): void {
+    function scheduleGtmLoad(): void {
+      if (hasScheduledLoad || cancelled) {
+        return;
+      }
+      hasScheduledLoad = true;
       if (delayId !== undefined) {
         clearTimeout(delayId);
+        delayId = undefined;
       }
       cancelIdle?.();
       cancelIdle = scheduleIdle(enable);
+    }
+    function scheduleAfterLoad(): void {
+      delayId = setTimeout(scheduleGtmLoad, GTM_LOAD_DELAY_MS);
+    }
+    function handleScroll(): void {
+      if (window.scrollY < GTM_SCROLL_DEPTH_PX) {
+        return;
+      }
+      scheduleGtmLoad();
     }
     if (document.readyState === "complete") {
       scheduleAfterLoad();
@@ -61,11 +73,13 @@ export default function GoogleTagManagerLazy({
       window.addEventListener("load", scheduleAfterLoad, { once: true });
     }
     interactionEvents.forEach((eventName) => {
-      window.addEventListener(eventName, enableFromInteraction, {
+      window.addEventListener(eventName, scheduleGtmLoad, {
         once: true,
         passive: true,
       });
     });
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
     return () => {
       cancelled = true;
       if (delayId !== undefined) {
@@ -73,8 +87,9 @@ export default function GoogleTagManagerLazy({
       }
       cancelIdle?.();
       window.removeEventListener("load", scheduleAfterLoad);
+      window.removeEventListener("scroll", handleScroll);
       interactionEvents.forEach((eventName) => {
-        window.removeEventListener(eventName, enableFromInteraction);
+        window.removeEventListener(eventName, scheduleGtmLoad);
       });
     };
   }, []);

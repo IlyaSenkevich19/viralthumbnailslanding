@@ -3,6 +3,7 @@ import { visibleLandingPricingPlans } from "@/lib/pricing-plans";
 import { LEGAL_CONTACT_EMAIL, LEGAL_OPERATOR_NAME } from "@/lib/legal";
 import { SITE_NAME, SITE_URL } from "@/lib/site";
 import GoogleTagManagerLazy from "@/components/google-tag-manager-lazy";
+import { GtmDataLayerBootstrap } from "@/components/gtm-data-layer-bootstrap";
 import { NetworkStatusBanner } from "@/components/network-status-banner";
 import { ServiceWorkerProvider } from "@/components/service-worker-provider";
 import SupportWidgetLazy from "@/components/support-widget-lazy";
@@ -115,6 +116,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {gtmId ? <GtmDataLayerBootstrap /> : null}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
