@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
+import { GoogleTagManager } from "@next/third-parties/google";
 import { visibleLandingPricingPlans } from "@/lib/pricing-plans";
 import { LEGAL_CONTACT_EMAIL, LEGAL_OPERATOR_NAME } from "@/lib/legal";
 import { SITE_NAME, SITE_URL } from "@/lib/site";
-import GoogleTagManagerLazy from "@/components/google-tag-manager-lazy";
 import { GtmDataLayerBootstrap } from "@/components/gtm-data-layer-bootstrap";
 import { NetworkStatusBanner } from "@/components/network-status-banner";
 import { ServiceWorkerProvider } from "@/components/service-worker-provider";
@@ -115,6 +115,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      {gtmId ? <GoogleTagManager gtmId={gtmId} /> : null}
       <head>
         {gtmId ? <GtmDataLayerBootstrap /> : null}
         <script
@@ -123,10 +124,20 @@ export default function RootLayout({
         />
       </head>
       <body className="flex min-h-dvh flex-col font-sans">
+        {gtmId ? (
+          <noscript>
+            <iframe
+              title="Google Tag Manager"
+              src={`https://www.googletagmanager.com/ns.html?id=${gtmId}`}
+              height={0}
+              width={0}
+              style={{ display: "none", visibility: "hidden" }}
+            />
+          </noscript>
+        ) : null}
         <ServiceWorkerProvider />
         <NetworkStatusBanner />
         <div className="flex min-h-dvh flex-1 flex-col">{children}</div>
-        {gtmId ? <GoogleTagManagerLazy gtmId={gtmId} /> : null}
         <SupportWidgetLazy />
         <VercelObservabilityLazy />
       </body>
