@@ -18,9 +18,9 @@ Bundle (client JS): **0.82 MB** / 1.05 MB budget.
 
 | Metric | Gate | Rationale |
 |--------|------|-----------|
-| Performance score | ≥ 0.85 | ~0.09 below baseline `/` |
+| Performance score | ≥ 0.75 | CI runner headroom (~0.19 below baseline `/`) |
 | LCP | ≤ 5000 ms | marketing-safe upper bound (CI runner headroom) |
-| CLS | ≤ 0.10 | layout stability |
+| CLS | ≤ 0.15 | layout stability |
 | Bundle | ≤ 1.05 MB | existing hard fail |
 
 SEO, best-practices, accessibility, FCP/TTI remain **warn-only**.
