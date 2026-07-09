@@ -38,6 +38,14 @@ export const metadata: Metadata = {
     description:
       "Start with 3 free starter credits. Generate thumbnails from YouTube links, video uploads, or prompts.",
   },
+  icons: {
+    icon: [
+      { url: "/icon-48.png", sizes: "48x48", type: "image/png" },
+      { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+    ],
+    apple: "/apple-touch-icon.png",
+  },
 };
 
 const organizationId = `${SITE_URL}/#organization`;
@@ -52,7 +60,7 @@ const jsonLd = {
       "@id": organizationId,
       name: LEGAL_OPERATOR_NAME,
       url: SITE_URL,
-      logo: `${SITE_URL}/favicon.svg`,
+      logo: `${SITE_URL}/icon-192.png`,
       email: LEGAL_CONTACT_EMAIL,
     },
     {
@@ -105,7 +113,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
