@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import Link from "next/link";
 import { VIRAL_APP_PLANS_URL } from "@/lib/app-url";
 
 type SocialLink = { label: string; href: string; icon: ReactNode };
@@ -34,11 +35,11 @@ export default function Footer() {
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
           <div className="lg:col-span-2">
-            <a href="/" className="flex items-center gap-2">
+            <Link href="/" className="flex items-center gap-2">
               <span className="text-lg font-bold text-text-primary">
                 Viral<span className="text-accent">Thumblify</span>
               </span>
-            </a>
+            </Link>
             <p className="mt-3 max-w-xs text-sm leading-relaxed text-text-dim">
               AI thumbnail studio for YouTube creators who want faster uploads
               and covers that still read on mobile.

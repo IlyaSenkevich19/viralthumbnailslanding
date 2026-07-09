@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { AppLoginLink } from "@/components/AppLoginLink";
 import AppCtaButton from "@/components/AppCtaButton";
 import { VIRAL_APP_LOGIN_URL, VIRAL_APP_SIGNUP_URL } from "@/lib/app-url";
@@ -12,11 +13,11 @@ export default function Header() {
   return (
     <header className="fixed top-0 right-0 left-0 z-50 border-b border-border/50 bg-bg/80 backdrop-blur-xl">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <a href="/" className="relative z-10 flex items-center gap-2">
+        <Link href="/" className="relative z-10 flex items-center gap-2">
           <span className="text-lg font-bold text-text-primary">
             Viral<span className="text-accent">Thumblify</span>
           </span>
-        </a>
+        </Link>
 
         <nav className="hidden items-center gap-6 lg:flex">
           {navLinks.map((link) => (

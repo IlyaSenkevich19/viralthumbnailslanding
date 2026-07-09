@@ -1,0 +1,26 @@
+name: Performance
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  bundle-and-lighthouse:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - run: node scripts/check-bundle-budget.mjs
+      - name: Start landing
+        run: npm run start &
+      - name: Wait for landing
+        run: npx wait-on@7.2.0 http://127.0.0.1:3000 --timeout 60000
+      - name: Lighthouse CI
+        run: npx @lhci/cli@0.14.0 autorun --config=.lighthouserc.cjs
