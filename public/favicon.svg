@@ -9,6 +9,5 @@
     font-size="12.5"
     font-weight="800"
     letter-spacing="-0.04em"
-    fill="#ff3b3b"
-  >VT</text>
+  ><tspan fill="#ffffff">V</tspan><tspan fill="#ff3b3b">T</tspan></text>
 </svg>
