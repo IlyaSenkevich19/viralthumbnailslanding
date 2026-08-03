@@ -29,15 +29,9 @@ html {
   color-scheme: dark;
 }
 
-/* When the consent bar is visible, lift the support dock so the FAB is not covered. */
+/* While consent is open, hide support so mobile ads traffic is not blocked by stacked overlays. */
 html[data-vt-consent-banner="1"] .vt-support-dock {
-  bottom: 7.25rem;
-}
-
-@media (min-width: 640px) {
-  html[data-vt-consent-banner="1"] .vt-support-dock {
-    bottom: 5.75rem;
-  }
+  display: none;
 }
 
 body {

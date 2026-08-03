@@ -134,8 +134,8 @@ export default function SupportWidget() {
   }
 
   return (
-    <div className="vt-support-dock pointer-events-none fixed right-5 bottom-5 z-50 flex flex-col items-end transition-[bottom] duration-200">
-      <div className="relative mb-3 w-[320px] sm:w-[340px]">
+    <div className="vt-support-dock pointer-events-none fixed right-4 z-50 flex flex-col items-end transition-[bottom] duration-200 bottom-[max(1rem,env(safe-area-inset-bottom))] sm:right-5 sm:bottom-[max(1.25rem,env(safe-area-inset-bottom))]">
+      <div className="relative mb-3 w-[min(calc(100vw-2rem),20rem)] sm:w-[min(calc(100vw-2.5rem),21.25rem)]">
         <SupportProactiveNudge
           visible={showNudge && !open}
           onDismiss={markNudgeHandled}
