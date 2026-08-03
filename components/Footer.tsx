@@ -1,31 +1,35 @@
+"use client";
+
 import type { ReactNode } from "react";
 import Link from "next/link";
 import { VIRAL_APP_PLANS_URL } from "@/lib/app-url";
+import { openCookiePreferences } from "@/lib/consent";
+import { useAttributedAppUrl } from "@/lib/use-attributed-app-url";
 
 type SocialLink = { label: string; href: string; icon: ReactNode };
 
 /** Add real profile URLs here when available (do not use "#"). */
 const socials: SocialLink[] = [];
 
-const columns = [
-  {
-    title: "Product",
-    links: [
-      { label: "Features", href: "/#features" },
-      { label: "Pricing", href: VIRAL_APP_PLANS_URL },
-      { label: "How It Works", href: "/#how-it-works" },
-    ],
-  },
-  {
-    title: "Legal",
-    links: [
-      { label: "Privacy Policy", href: "/privacy" },
-      { label: "Terms of Service", href: "/terms" },
-    ],
-  },
-];
-
 export default function Footer() {
+  const pricingHref = useAttributedAppUrl(VIRAL_APP_PLANS_URL);
+  const columns = [
+    {
+      title: "Product",
+      links: [
+        { label: "Features", href: "/#features" },
+        { label: "Pricing", href: pricingHref },
+        { label: "How It Works", href: "/#how-it-works" },
+      ],
+    },
+    {
+      title: "Legal",
+      links: [
+        { label: "Privacy Policy", href: "/privacy" },
+        { label: "Terms of Service", href: "/terms" },
+      ],
+    },
+  ];
   return (
     <footer className="relative border-t border-border bg-bg-footer">
       {/* Gradient glow at top */}
@@ -81,6 +85,17 @@ export default function Footer() {
                     </a>
                   </li>
                 ))}
+                {col.title === "Legal" ? (
+                  <li>
+                    <button
+                      type="button"
+                      className="text-left text-sm text-text-dim transition-colors hover:text-text-muted"
+                      onClick={openCookiePreferences}
+                    >
+                      Manage cookies
+                    </button>
+                  </li>
+                ) : null}
               </ul>
             </div>
           ))}

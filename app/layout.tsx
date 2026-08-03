@@ -3,11 +3,13 @@ import { GoogleTagManager } from "@next/third-parties/google";
 import { visibleLandingPricingPlans } from "@/lib/pricing-plans";
 import { LEGAL_CONTACT_EMAIL, LEGAL_OPERATOR_NAME } from "@/lib/legal";
 import { SITE_NAME, SITE_URL } from "@/lib/site";
+import { CookieConsentBanner } from "@/components/cookie-consent-banner";
 import { GtmDataLayerBootstrap } from "@/components/gtm-data-layer-bootstrap";
 import { NetworkStatusBanner } from "@/components/network-status-banner";
 import { ServiceWorkerProvider } from "@/components/service-worker-provider";
 import SupportWidgetLazy from "@/components/support-widget-lazy";
 import VercelObservabilityLazy from "@/components/vercel-observability-lazy";
+import { applyConsentDefault } from "@/lib/consent";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -115,14 +117,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      {gtmId ? <GoogleTagManager gtmId={gtmId} /> : null}
       <head>
+        {gtmId ? <script dangerouslySetInnerHTML={{ __html: applyConsentDefault() }} /> : null}
         {gtmId ? <GtmDataLayerBootstrap /> : null}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
+      {gtmId ? <GoogleTagManager gtmId={gtmId} /> : null}
       <body className="flex min-h-dvh flex-col font-sans">
         {gtmId ? (
           <noscript>
@@ -140,6 +143,7 @@ export default function RootLayout({
         <div className="flex min-h-dvh flex-1 flex-col">{children}</div>
         <SupportWidgetLazy />
         <VercelObservabilityLazy />
+        <CookieConsentBanner />
       </body>
     </html>
   );

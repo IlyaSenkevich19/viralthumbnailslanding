@@ -2,6 +2,7 @@
 
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
+import { CONSENT_UPDATED_EVENT, isAnalyticsStorageGranted } from "@/lib/consent";
 
 const Analytics = dynamic(
   () => import("@vercel/analytics/next").then((mod) => mod.Analytics),
@@ -42,17 +43,23 @@ export default function VercelObservabilityLazy() {
       }
     }
     function scheduleAfterLoad(): void {
+      if (!isAnalyticsStorageGranted()) return;
       cancelIdle = scheduleIdle(enable);
+    }
+    function handleConsentUpdate(): void {
+      scheduleAfterLoad();
     }
     if (document.readyState === "complete") {
       scheduleAfterLoad();
     } else {
       window.addEventListener("load", scheduleAfterLoad, { once: true });
     }
+    window.addEventListener(CONSENT_UPDATED_EVENT, handleConsentUpdate);
     return () => {
       cancelled = true;
       cancelIdle?.();
       window.removeEventListener("load", scheduleAfterLoad);
+      window.removeEventListener(CONSENT_UPDATED_EVENT, handleConsentUpdate);
     };
   }, []);
 

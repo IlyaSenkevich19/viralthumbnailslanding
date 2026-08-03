@@ -139,6 +139,12 @@ export default function PrivacyPolicyPage() {
         Google Tag Manager, Google Analytics, Google Ads, and hosting analytics where enabled).
         You can control many cookies through your browser settings.
       </p>
+      <p>
+        Where required, we show a cookie banner before non-essential analytics or advertising
+        storage is enabled. Our Google tags use Consent Mode v2: before you choose, advertising and
+        analytics consent defaults to denied; if you select Accept all or Reject non-essential, we
+        update those consent signals and store your choice so you can manage cookies later.
+      </p>
 
       <h2>3. Processing of Operational Content Data (Strict Limitations)</h2>
       <p>To be clear about the handling of your uploads:</p>
