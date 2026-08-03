@@ -39,6 +39,24 @@ html {
 html[data-vt-consent-banner="1"] .vt-cookie-consent-banner {
   display: block;
   pointer-events: none;
+  animation: vt-consent-enter 0.45s cubic-bezier(0.25, 1, 0.5, 1) both;
+}
+
+@keyframes vt-consent-enter {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html[data-vt-consent-banner="1"] .vt-cookie-consent-banner {
+    animation: none;
+  }
 }
 
 body {

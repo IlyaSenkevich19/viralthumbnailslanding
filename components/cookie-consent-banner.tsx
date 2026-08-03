@@ -9,6 +9,7 @@ import {
   hasConsentDecision,
   persistAndUpdateConsent,
 } from "@/lib/consent";
+import Button from "@/components/ui/Button";
 
 function setBannerAttr(isVisible: boolean): void {
   if (typeof document === "undefined") return;
@@ -20,8 +21,9 @@ function setBannerAttr(isVisible: boolean): void {
 }
 
 /**
- * Corner consent card (not a full-bleed bar): leaves support FAB clear,
- * equal Accept/Reject prominence (GDPR / EDPB), privacy link for informed choice.
+ * Landing-styled corner consent card: accent glow + amber Accept CTA
+ * (same language as hero), outline Reject at equal size, privacy link.
+ * Bottom-left so the support FAB stays clear by layout.
  */
 export function CookieConsentBanner() {
   const [isInteractive, setIsInteractive] = useState(false);
@@ -51,48 +53,62 @@ export function CookieConsentBanner() {
       aria-label="Cookie consent"
       aria-hidden={!isInteractive}
       data-consent-banner=""
-      className="vt-cookie-consent-banner pointer-events-none fixed bottom-4 left-4 z-[90] w-[min(calc(100vw-5.5rem),22rem)] sm:bottom-5 sm:left-5"
+      className="vt-cookie-consent-banner pointer-events-none fixed bottom-4 left-4 z-[90] w-[min(calc(100vw-5.5rem),24rem)] sm:bottom-6 sm:left-6"
     >
-      <div className="pointer-events-auto relative overflow-hidden rounded-2xl border border-border bg-bg-card p-5 shadow-2xl shadow-black/50">
+      <div className="pointer-events-auto relative overflow-hidden rounded-2xl border border-accent/35 bg-bg-card p-5 shadow-xl shadow-accent/15 sm:p-6">
         <div
-          className="pointer-events-none absolute -right-12 -top-12 h-32 w-32 rounded-full bg-accent/[0.1] blur-3xl"
+          className="pointer-events-none absolute -left-16 top-1/2 h-48 w-48 -translate-y-1/2 rounded-full bg-accent/[0.14] blur-[90px]"
           aria-hidden
         />
-        <div className="relative space-y-4">
-          <div className="space-y-2">
-            <p className="text-sm font-semibold tracking-tight text-text-primary">
-              Cookie preferences
+        <div
+          className="pointer-events-none absolute -right-10 -top-10 h-36 w-36 rounded-full bg-accent-amber/[0.12] blur-[70px]"
+          aria-hidden
+        />
+        <div className="relative space-y-5">
+          <div className="space-y-2.5">
+            <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.24em] text-accent">
+              <span
+                className="h-1.5 w-1.5 rounded-full bg-accent"
+                style={{ animation: "badge-pulse 2s ease-in-out infinite" }}
+                aria-hidden
+              />
+              Cookies
+            </span>
+            <p className="text-lg font-bold tracking-tight text-text-primary sm:text-xl">
+              Help us measure what works
             </p>
             <p className="text-sm leading-relaxed text-text-muted">
-              We use essential storage to run the site. Analytics and ads cookies are optional —
-              choose Accept or Reject. Details in our{" "}
+              Essential storage keeps the site running. Optional analytics &amp; ads cookies
+              help us improve campaigns.{" "}
               <Link
                 href="/privacy"
-                className="font-medium text-text-primary underline decoration-border underline-offset-2 transition-colors hover:decoration-accent"
+                className="font-medium text-accent underline decoration-accent/40 underline-offset-2 transition-colors hover:decoration-accent"
               >
                 Privacy Policy
               </Link>
-              .
             </p>
           </div>
-          {/* Equal size/weight on first layer — no Accept-only emphasis (EDPB parity). */}
-          <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
-            <button
+          <div className="flex flex-col gap-2.5">
+            <Button
               type="button"
+              variant="secondary"
+              size="md"
               disabled={!isInteractive}
-              className="inline-flex min-h-11 items-center justify-center rounded-xl border border-border px-4 py-2.5 text-sm font-medium text-text-primary transition-colors hover:border-border-hover hover:bg-bg-card-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent disabled:opacity-50"
-              onClick={() => handleChoice("denied")}
-            >
-              Reject
-            </button>
-            <button
-              type="button"
-              disabled={!isInteractive}
-              className="inline-flex min-h-11 items-center justify-center rounded-xl border border-border px-4 py-2.5 text-sm font-medium text-text-primary transition-colors hover:border-border-hover hover:bg-bg-card-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent disabled:opacity-50"
+              className="w-full min-h-11 shadow-lg shadow-accent-amber/25"
               onClick={() => handleChoice("granted")}
             >
-              Accept
-            </button>
+              Accept all
+            </Button>
+            <Button
+              type="button"
+              variant="outline"
+              size="md"
+              disabled={!isInteractive}
+              className="w-full min-h-11"
+              onClick={() => handleChoice("denied")}
+            >
+              Reject non-essential
+            </Button>
           </div>
         </div>
       </div>
