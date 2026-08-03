@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import {
   applyStoredConsentDecision,
@@ -8,7 +9,6 @@ import {
   hasConsentDecision,
   persistAndUpdateConsent,
 } from "@/lib/consent";
-import Button from "@/components/ui/Button";
 
 function setBannerAttr(isVisible: boolean): void {
   if (typeof document === "undefined") return;
@@ -19,6 +19,10 @@ function setBannerAttr(isVisible: boolean): void {
   document.documentElement.removeAttribute(CONSENT_BANNER_ATTR);
 }
 
+/**
+ * Corner consent card (not a full-bleed bar): leaves support FAB clear,
+ * equal Accept/Reject prominence (GDPR / EDPB), privacy link for informed choice.
+ */
 export function CookieConsentBanner() {
   const [isInteractive, setIsInteractive] = useState(false);
   useEffect(() => {
@@ -47,44 +51,48 @@ export function CookieConsentBanner() {
       aria-label="Cookie consent"
       aria-hidden={!isInteractive}
       data-consent-banner=""
-      className="vt-cookie-consent-banner pointer-events-none fixed inset-x-0 bottom-0 z-[90] flex justify-start p-4 pr-[5.5rem] sm:bottom-5 sm:left-5 sm:right-auto sm:max-w-md sm:p-0 sm:pr-0"
+      className="vt-cookie-consent-banner pointer-events-none fixed bottom-4 left-4 z-[90] w-[min(calc(100vw-5.5rem),22rem)] sm:bottom-5 sm:left-5"
     >
-      <div className="pointer-events-auto relative w-full overflow-hidden rounded-2xl border border-border bg-bg-card p-5 shadow-2xl shadow-black/50 sm:p-6">
+      <div className="pointer-events-auto relative overflow-hidden rounded-2xl border border-border bg-bg-card p-5 shadow-2xl shadow-black/50">
         <div
-          className="pointer-events-none absolute -right-10 -top-10 h-36 w-36 rounded-full bg-accent/[0.12] blur-3xl"
+          className="pointer-events-none absolute -right-12 -top-12 h-32 w-32 rounded-full bg-accent/[0.1] blur-3xl"
           aria-hidden
         />
         <div className="relative space-y-4">
           <div className="space-y-2">
-            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-accent">
-              Cookies
+            <p className="text-sm font-semibold tracking-tight text-text-primary">
+              Cookie preferences
             </p>
             <p className="text-sm leading-relaxed text-text-muted">
-              Essential storage keeps ViralThumblify running. Accept analytics and ads
-              measurement if you want us to improve campaigns and understand signups.
+              We use essential storage to run the site. Analytics and ads cookies are optional —
+              choose Accept or Reject. Details in our{" "}
+              <Link
+                href="/privacy"
+                className="font-medium text-text-primary underline decoration-border underline-offset-2 transition-colors hover:decoration-accent"
+              >
+                Privacy Policy
+              </Link>
+              .
             </p>
           </div>
-          <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
-            <Button
+          {/* Equal size/weight on first layer — no Accept-only emphasis (EDPB parity). */}
+          <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
+            <button
               type="button"
-              variant="primary"
-              size="sm"
               disabled={!isInteractive}
-              className="w-full sm:w-auto"
-              onClick={() => handleChoice("granted")}
-            >
-              Accept all
-            </Button>
-            <Button
-              type="button"
-              variant="outline"
-              size="sm"
-              disabled={!isInteractive}
-              className="w-full sm:w-auto"
+              className="inline-flex min-h-11 items-center justify-center rounded-xl border border-border px-4 py-2.5 text-sm font-medium text-text-primary transition-colors hover:border-border-hover hover:bg-bg-card-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent disabled:opacity-50"
               onClick={() => handleChoice("denied")}
             >
-              Reject non-essential
-            </Button>
+              Reject
+            </button>
+            <button
+              type="button"
+              disabled={!isInteractive}
+              className="inline-flex min-h-11 items-center justify-center rounded-xl border border-border px-4 py-2.5 text-sm font-medium text-text-primary transition-colors hover:border-border-hover hover:bg-bg-card-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent disabled:opacity-50"
+              onClick={() => handleChoice("granted")}
+            >
+              Accept
+            </button>
           </div>
         </div>
       </div>
