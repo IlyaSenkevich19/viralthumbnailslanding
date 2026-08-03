@@ -76,7 +76,7 @@ export default function FeaturesGrid() {
 
               {/* Image — shared aspect so text blocks start at the same row height */}
               <div
-                className={`relative hidden w-full shrink-0 overflow-hidden md:block ${FEATURE_IMAGE_ASPECT}`}
+                className={`relative w-full shrink-0 overflow-hidden ${FEATURE_IMAGE_ASPECT}`}
               >
                 <Image
                   src={f.image}

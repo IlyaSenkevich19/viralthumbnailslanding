@@ -7,6 +7,7 @@ import BenefitsSection from "@/components/BenefitsSection";
 import Pricing from "@/components/Pricing";
 import CtaBanner from "@/components/CtaBanner";
 import Footer from "@/components/Footer";
+import MobileStickyCta from "@/components/MobileStickyCta";
 
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
         <CtaBanner />
       </main>
       <Footer />
+      <MobileStickyCta />
     </>
   );
 }

@@ -1,9 +1,11 @@
+/* eslint-disable @next/next/no-img-element */
 import { Play, Clock, DollarSign, Paintbrush } from "lucide-react";
 import Button from "@/components/ui/Button";
 import AppCtaButton from "@/components/AppCtaButton";
 import { VIRAL_APP_SIGNUP_URL } from "@/lib/app-url";
 import ThumbnailBackground from "@/components/ThumbnailBackground";
 import ThumbnailMarquee from "@/components/ThumbnailMarquee";
+import { MARQUEE_ROW_LEFT, thumbSrc } from "@/lib/thumbnail-assets";
 
 const featurePills = [
   {
@@ -20,9 +22,15 @@ const featurePills = [
   },
 ];
 
+/** Compact mobile proof — first six marquee thumbs. */
+const MOBILE_PROOF_THUMBS = MARQUEE_ROW_LEFT.slice(0, 6);
+
 export default function HeroAnimated() {
   return (
-    <section className="relative overflow-x-hidden pt-28 pb-10 md:pt-36 md:pb-12">
+    <section
+      id="hero"
+      className="relative overflow-x-hidden pt-24 pb-8 md:pt-36 md:pb-12"
+    >
       {/* Floating thumbnail grid (background) */}
       <ThumbnailBackground />
 
@@ -38,22 +46,11 @@ export default function HeroAnimated() {
 
       {/* Content */}
       <div className="relative z-10 mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
-        {/* Badge */}
-        {/* <div style={{ animation: "hero-fade-in 0.7s ease-out 0s both" }}>
-          <span className="inline-flex items-center gap-2 rounded-full border border-accent/20 bg-accent/5 px-4 py-1.5 text-xs font-medium text-accent">
-            <span
-              className="h-1.5 w-1.5 rounded-full bg-accent"
-              style={{ animation: "badge-pulse 2s ease-in-out infinite" }}
-            />
-            AI-Powered Thumbnail Generator
-          </span>
-        </div> */}
-
         <p className="text-xs font-semibold uppercase tracking-[0.24em] text-accent">
           YouTube thumbnail studio
         </p>
 
-        <h1 className="mt-6 w-full text-center text-3xl leading-tight font-extrabold tracking-tight text-text-primary sm:text-4xl md:text-5xl lg:text-6xl">
+        <h1 className="mt-4 w-full text-center text-3xl leading-tight font-extrabold tracking-tight text-text-primary sm:mt-6 sm:text-4xl md:text-5xl lg:text-6xl">
           <span className="block">Create Thumbnails That Go</span>
           <span className="mt-1 block sm:mt-2">
             <span className="bg-gradient-to-r from-accent via-orange-400 to-accent-amber bg-clip-text text-transparent">
@@ -63,14 +60,14 @@ export default function HeroAnimated() {
           </span>
         </h1>
 
-        <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-text-muted md:text-lg lg:text-xl">
+        <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-text-muted md:mt-6 md:text-lg lg:text-xl">
           Stop wasting hours designing thumbnails. Generate high-CTR,
           creator-worthy designs in under 60 seconds. Built for YouTubers
           who upload weekly and want more views without the busywork.
         </p>
 
         {/* CTAs */}
-        <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+        <div className="mt-7 flex flex-col items-center justify-center gap-3 sm:mt-10 sm:flex-row sm:gap-4">
           <AppCtaButton
             variant="secondary"
             size="lg"
@@ -84,8 +81,32 @@ export default function HeroAnimated() {
           </Button>
         </div>
 
+        {/* Mobile product proof — desktop uses dual-row marquee below */}
+        <div
+          className="relative mt-6 overflow-hidden md:hidden"
+          aria-hidden="true"
+        >
+          <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-8 bg-gradient-to-r from-bg to-transparent" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-8 bg-gradient-to-l from-bg to-transparent" />
+          <div className="flex gap-2.5 overflow-x-auto pb-1 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+            {MOBILE_PROOF_THUMBS.map((n, i) => (
+              <img
+                key={n}
+                src={thumbSrc(n)}
+                alt=""
+                width={160}
+                height={90}
+                loading={i < 2 ? "eager" : "lazy"}
+                decoding="async"
+                fetchPriority={i < 2 ? "low" : undefined}
+                className="h-[72px] w-[128px] shrink-0 rounded-lg object-cover ring-1 ring-white/10"
+              />
+            ))}
+          </div>
+        </div>
+
         {/* Feature pills */}
-        <div className="mx-auto mt-10 flex max-w-2xl flex-wrap items-center justify-center gap-2 sm:gap-3">
+        <div className="mx-auto mt-6 flex max-w-2xl flex-wrap items-center justify-center gap-2 sm:mt-10 sm:gap-3">
           {featurePills.map((pill, i) => (
             <div
               key={i}
@@ -98,7 +119,7 @@ export default function HeroAnimated() {
         </div>
 
         {/* Trust line */}
-        <p className="mt-6 text-sm text-text-dim">
+        <p className="mt-4 text-sm text-text-dim md:mt-6">
           3 free starter credits · no credit card required.
         </p>
       </div>

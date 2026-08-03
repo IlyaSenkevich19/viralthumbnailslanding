@@ -108,7 +108,7 @@ export default function HowItWorks() {
                   </ul>
                 </div>
 
-                <div className="hidden w-full flex-1 md:block">
+                <div className="w-full flex-1">
                   <div className="group relative overflow-hidden rounded-lg border border-border/90 bg-bg-elevated shadow-[0_24px_80px_-40px_rgba(0,0,0,0.85)] ring-1 ring-white/[0.06]">
                     <div className="absolute top-3 left-3 z-10 flex h-7 w-7 items-center justify-center rounded-md bg-accent text-xs font-bold text-white shadow-md">
                       {step.number}

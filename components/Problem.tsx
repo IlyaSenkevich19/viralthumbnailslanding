@@ -56,7 +56,7 @@ export default function Problem() {
           <ScrollReveal key={i} delay={i * 0.12}>
             <div className="group flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-bg-card transition-all duration-300 hover:-translate-y-1 hover:border-accent/20 hover:shadow-lg hover:shadow-accent/5">
               {/* Image */}
-              <div className="relative hidden aspect-[4/3] w-full overflow-hidden md:block">
+              <div className="relative aspect-[4/3] w-full overflow-hidden">
                 <Image
                   src={point.image}
                   alt={point.imageAlt}

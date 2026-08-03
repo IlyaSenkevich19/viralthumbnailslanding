@@ -34,6 +34,11 @@ html[data-vt-consent-banner="1"] .vt-support-dock {
   display: none;
 }
 
+/* Lift support above the mobile sticky CTA bar. */
+html[data-vt-sticky-cta="1"] .vt-support-dock {
+  bottom: calc(4.75rem + env(safe-area-inset-bottom, 0px));
+}
+
 body {
   background-color: var(--color-bg);
   color: var(--color-text-primary);
