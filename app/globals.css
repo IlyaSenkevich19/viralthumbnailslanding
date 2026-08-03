@@ -29,15 +29,16 @@ html {
   color-scheme: dark;
 }
 
-/* First-paint consent banner: head script sets data-vt-consent-banner before paint (avoids late-mount CLS). */
+/* First-paint consent card: head script sets data-vt-consent-banner before paint (avoids late-mount CLS).
+ * Floating bottom-left card leaves the support widget (bottom-right) uncovered. */
 .vt-cookie-consent-banner {
   display: none;
   pointer-events: none;
 }
 
 html[data-vt-consent-banner="1"] .vt-cookie-consent-banner {
-  display: block;
-  pointer-events: auto;
+  display: flex;
+  pointer-events: none;
 }
 
 body {

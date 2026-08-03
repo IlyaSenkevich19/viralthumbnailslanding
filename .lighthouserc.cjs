@@ -2,6 +2,7 @@
  * Lighthouse CI gates for landing (production build on CI).
  * Baseline snapshot: docs/pagespeed-baseline.md (2026-07-10).
  * CI audits homepage only; /terms and /privacy are tracked in baseline doc.
+ * Floating consent card (not full-bleed) keeps support widget visible.
  */
 /** @type {import('@lhci/cli').LHCI.ServerCommand.Options} */
 module.exports = {

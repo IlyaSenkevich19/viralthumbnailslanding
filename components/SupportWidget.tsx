@@ -134,7 +134,7 @@ export default function SupportWidget() {
   }
 
   return (
-    <div className="pointer-events-none fixed bottom-5 right-5 z-50 flex flex-col items-end">
+    <div className="pointer-events-none fixed bottom-5 right-5 z-[100] flex flex-col items-end">
       <div className="relative mb-3 w-[320px] sm:w-[340px]">
         <SupportProactiveNudge
           visible={showNudge && !open}

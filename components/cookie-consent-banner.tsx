@@ -8,6 +8,7 @@ import {
   hasConsentDecision,
   persistAndUpdateConsent,
 } from "@/lib/consent";
+import Button from "@/components/ui/Button";
 
 function setBannerAttr(isVisible: boolean): void {
   if (typeof document === "undefined") return;
@@ -46,30 +47,45 @@ export function CookieConsentBanner() {
       aria-label="Cookie consent"
       aria-hidden={!isInteractive}
       data-consent-banner=""
-      className="vt-cookie-consent-banner fixed inset-x-0 bottom-0 z-[90] border-t border-border bg-bg-card/95 px-4 py-4 shadow-lg backdrop-blur-md"
+      className="vt-cookie-consent-banner pointer-events-none fixed inset-x-0 bottom-0 z-[90] flex justify-start p-4 pr-[5.5rem] sm:bottom-5 sm:left-5 sm:right-auto sm:max-w-md sm:p-0 sm:pr-0"
     >
-      <div className="mx-auto flex max-w-5xl flex-col gap-3 text-sm text-text-primary sm:flex-row sm:items-center sm:justify-between">
-        <p className="max-w-3xl leading-relaxed text-text-dim">
-          We use essential storage to run ViralThumblify. With your permission, we also use
-          analytics and ads measurement to understand signups and improve campaigns.
-        </p>
-        <div className="flex shrink-0 flex-col gap-2 sm:flex-row">
-          <button
-            type="button"
-            disabled={!isInteractive}
-            className="rounded-md border border-border px-4 py-2 font-medium text-text-primary transition-colors hover:bg-bg-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent disabled:opacity-60"
-            onClick={() => handleChoice("denied")}
-          >
-            Reject non-essential
-          </button>
-          <button
-            type="button"
-            disabled={!isInteractive}
-            className="rounded-md bg-text-primary px-4 py-2 font-medium text-bg-page transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent disabled:opacity-60"
-            onClick={() => handleChoice("granted")}
-          >
-            Accept all
-          </button>
+      <div className="pointer-events-auto relative w-full overflow-hidden rounded-2xl border border-border bg-bg-card p-5 shadow-2xl shadow-black/50 sm:p-6">
+        <div
+          className="pointer-events-none absolute -right-10 -top-10 h-36 w-36 rounded-full bg-accent/[0.12] blur-3xl"
+          aria-hidden
+        />
+        <div className="relative space-y-4">
+          <div className="space-y-2">
+            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-accent">
+              Cookies
+            </p>
+            <p className="text-sm leading-relaxed text-text-muted">
+              Essential storage keeps ViralThumblify running. Accept analytics and ads
+              measurement if you want us to improve campaigns and understand signups.
+            </p>
+          </div>
+          <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
+            <Button
+              type="button"
+              variant="primary"
+              size="sm"
+              disabled={!isInteractive}
+              className="w-full sm:w-auto"
+              onClick={() => handleChoice("granted")}
+            >
+              Accept all
+            </Button>
+            <Button
+              type="button"
+              variant="outline"
+              size="sm"
+              disabled={!isInteractive}
+              className="w-full sm:w-auto"
+              onClick={() => handleChoice("denied")}
+            >
+              Reject non-essential
+            </Button>
+          </div>
         </div>
       </div>
     </div>
