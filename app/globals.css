@@ -29,33 +29,14 @@ html {
   color-scheme: dark;
 }
 
-/* Corner consent card: head script sets data-vt-consent-banner before paint.
- * Sized/positioned bottom-left so the bottom-right support FAB stays clear by layout, not z-index. */
-.vt-cookie-consent-banner {
-  display: none;
-  pointer-events: none;
+/* When the consent bar is visible, lift the support dock so the FAB is not covered. */
+html[data-vt-consent-banner="1"] .vt-support-dock {
+  bottom: 7.25rem;
 }
 
-html[data-vt-consent-banner="1"] .vt-cookie-consent-banner {
-  display: block;
-  pointer-events: none;
-  animation: vt-consent-enter 0.45s cubic-bezier(0.25, 1, 0.5, 1) both;
-}
-
-@keyframes vt-consent-enter {
-  from {
-    opacity: 0;
-    transform: translateY(12px) scale(0.98);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html[data-vt-consent-banner="1"] .vt-cookie-consent-banner {
-    animation: none;
+@media (min-width: 640px) {
+  html[data-vt-consent-banner="1"] .vt-support-dock {
+    bottom: 5.75rem;
   }
 }
 

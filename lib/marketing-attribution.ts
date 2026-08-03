@@ -1,3 +1,5 @@
+import { CONSENT_QUERY_PARAM, getConsentHandoffValue } from "@/lib/consent";
+
 const ATTRIBUTION_QUERY_KEYS = [
   "utm_source",
   "utm_medium",
@@ -100,10 +102,9 @@ export function getMarketingAttributionSearch(search?: string): string {
   return value ? `?${value}` : "";
 }
 
-/** Forward landing campaign params into app URLs (cross-origin; localStorage does not apply). */
+/** Forward landing campaign params + consent choice into app URLs (cross-origin). */
 export function appendMarketingAttributionToAppUrl(appUrl: string, search = ""): string {
   const sourceParams = new URLSearchParams(search.startsWith("?") ? search.slice(1) : search);
-  if ([...sourceParams.keys()].length === 0) return appUrl;
   let target: URL;
   try {
     target = new URL(appUrl);
@@ -115,6 +116,10 @@ export function appendMarketingAttributionToAppUrl(appUrl: string, search = ""):
     if (value && !target.searchParams.has(key)) {
       target.searchParams.set(key, value);
     }
+  }
+  const consent = getConsentHandoffValue();
+  if (consent && !target.searchParams.has(CONSENT_QUERY_PARAM)) {
+    target.searchParams.set(CONSENT_QUERY_PARAM, consent);
   }
   return target.toString();
 }

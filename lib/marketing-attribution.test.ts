@@ -55,6 +55,23 @@ describe("marketing-attribution", () => {
     expect(url.searchParams.get("wbraid")).toBe("wb123");
   });
 
+  it("appends consent handoff even when there are no UTM params", () => {
+    window.localStorage.setItem(
+      "vt_consent_v1",
+      JSON.stringify({
+        ad_storage: "granted",
+        analytics_storage: "granted",
+        ad_user_data: "granted",
+        ad_personalization: "granted",
+      }),
+    );
+    const href = appendMarketingAttributionToAppUrl(
+      "https://app.viralthumblify.com/",
+      "",
+    );
+    expect(new URL(href).searchParams.get("vt_consent")).toBe("granted");
+  });
+
   it("does not overwrite params already on the app URL", () => {
     const href = appendMarketingAttributionToAppUrl(
       "https://app.viralthumblify.com/auth/register?utm_source=existing",

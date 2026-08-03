@@ -5,6 +5,7 @@ import { LEGAL_CONTACT_EMAIL, LEGAL_OPERATOR_NAME } from "@/lib/legal";
 import { SITE_NAME, SITE_URL } from "@/lib/site";
 import { CookieConsentBanner } from "@/components/cookie-consent-banner";
 import { GtmDataLayerBootstrap } from "@/components/gtm-data-layer-bootstrap";
+import { MarketingAttributionBoot } from "@/components/marketing-attribution-boot";
 import { NetworkStatusBanner } from "@/components/network-status-banner";
 import { ServiceWorkerProvider } from "@/components/service-worker-provider";
 import SupportWidgetLazy from "@/components/support-widget-lazy";
@@ -139,6 +140,7 @@ export default function RootLayout({
           </noscript>
         ) : null}
         <ServiceWorkerProvider />
+        <MarketingAttributionBoot />
         <NetworkStatusBanner />
         <div className="flex min-h-dvh flex-1 flex-col">{children}</div>
         <SupportWidgetLazy />

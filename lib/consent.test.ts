@@ -1,10 +1,13 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import {
   applyConsentDefault,
+  CONSENT_QUERY_PARAM,
   CONSENT_STORAGE_KEY,
   CONSENT_UPDATED_EVENT,
+  getConsentHandoffValue,
   getStoredConsent,
   hasConsentDecision,
+  hydrateConsentFromCrossDomain,
   isAdUserDataGranted,
   isAnalyticsStorageGranted,
   persistAndUpdateConsent,
@@ -35,13 +38,39 @@ function createStorage(): Storage {
 }
 
 describe("consent", () => {
+  let cookieJar: string;
+
   beforeEach(() => {
+    cookieJar = "";
     const localStorage = createStorage();
     vi.stubGlobal("localStorage", localStorage);
+    vi.stubGlobal("document", {
+      get cookie() {
+        return cookieJar;
+      },
+      set cookie(value: string) {
+        const [pair] = value.split(";");
+        const [key] = pair.split("=");
+        const rest = cookieJar
+          .split("; ")
+          .filter((part) => part && !part.startsWith(`${key}=`));
+        rest.push(pair);
+        cookieJar = rest.join("; ");
+      },
+    });
     vi.stubGlobal("window", {
       localStorage,
       dataLayer: [],
       dispatchEvent: vi.fn(),
+      location: {
+        protocol: "https:",
+        hostname: "www.viralthumblify.com",
+        href: "https://www.viralthumblify.com/",
+        search: "",
+        pathname: "/",
+        hash: "",
+      },
+      history: { replaceState: vi.fn() },
     });
   });
 
@@ -67,6 +96,8 @@ describe("consent", () => {
       ad_personalization: "granted",
     });
     expect(stored).toEqual(consent);
+    expect(cookieJar).toContain(`${CONSENT_STORAGE_KEY}=granted`);
+    expect(getConsentHandoffValue()).toBe("granted");
     expect(dataLayer).toContainEqual(["consent", "update", consent]);
     expect(dataLayer).toContainEqual({ event: "consent_update", ...consent });
     expect(window.dispatchEvent).toHaveBeenCalledWith(expect.objectContaining({ type: CONSENT_UPDATED_EVENT }));
@@ -82,6 +113,21 @@ describe("consent", () => {
     });
     expect(isAnalyticsStorageGranted()).toBe(false);
     expect(isAdUserDataGranted()).toBe(false);
+  });
+
+  it("hydrates consent from inbound vt_consent query param", () => {
+    window.location.search = `?${CONSENT_QUERY_PARAM}=granted`;
+    window.location.href = `https://app.viralthumblify.com/?${CONSENT_QUERY_PARAM}=granted`;
+    const consent = hydrateConsentFromCrossDomain();
+    expect(consent?.analytics_storage).toBe("granted");
+    expect(hasConsentDecision()).toBe(true);
+    expect(window.history.replaceState).toHaveBeenCalled();
+  });
+
+  it("reads shared cookie when localStorage is empty", () => {
+    cookieJar = `${CONSENT_STORAGE_KEY}=denied`;
+    expect(getStoredConsent()?.ad_storage).toBe("denied");
+    expect(hasConsentDecision()).toBe(true);
   });
 
   it("generates default denied bootstrap with wait_for_update", () => {
