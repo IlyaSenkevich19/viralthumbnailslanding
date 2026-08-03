@@ -29,6 +29,17 @@ html {
   color-scheme: dark;
 }
 
+/* First-paint consent banner: head script sets data-vt-consent-banner before paint (avoids late-mount CLS). */
+.vt-cookie-consent-banner {
+  display: none;
+  pointer-events: none;
+}
+
+html[data-vt-consent-banner="1"] .vt-cookie-consent-banner {
+  display: block;
+  pointer-events: auto;
+}
+
 body {
   background-color: var(--color-bg);
   color: var(--color-text-primary);

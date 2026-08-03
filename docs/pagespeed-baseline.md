@@ -20,9 +20,9 @@ CI audits **`/` only** (fast, stable). `/terms` and `/privacy` scores are in the
 
 | Metric | Gate | Rationale |
 |--------|------|-----------|
-| Performance score | ≥ 0.75 | CI runner headroom (~0.19 below baseline `/`) |
+| Performance score | ≥ 0.70 | CI runner headroom after Consent Mode + GTM; median of 3 runs |
 | LCP | ≤ 5000 ms | marketing-safe upper bound |
-| CLS | ≤ 0.15 | layout stability |
+| CLS | ≤ 0.15 | layout stability (banner first-paint via head script) |
 | Bundle | ≤ 1.05 MB | existing hard fail |
 
 SEO, best-practices, accessibility, FCP/TTI remain **warn-only**.

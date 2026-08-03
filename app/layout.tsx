@@ -118,7 +118,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {gtmId ? <script dangerouslySetInnerHTML={{ __html: applyConsentDefault() }} /> : null}
+        <script dangerouslySetInnerHTML={{ __html: applyConsentDefault() }} />
         {gtmId ? <GtmDataLayerBootstrap /> : null}
         <script
           type="application/ld+json"

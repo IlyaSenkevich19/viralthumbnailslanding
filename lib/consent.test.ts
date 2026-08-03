@@ -92,5 +92,6 @@ describe("consent", () => {
     expect(script).toContain('"ad_user_data":"denied"');
     expect(script).toContain('"ad_personalization":"denied"');
     expect(script).toContain('"wait_for_update":500');
+    expect(script).toContain('setAttribute("data-vt-consent-banner","1")');
   });
 });

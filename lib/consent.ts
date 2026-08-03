@@ -10,6 +10,7 @@ export type ConsentState = {
 export const CONSENT_STORAGE_KEY = "vt_consent_v1";
 export const CONSENT_UPDATED_EVENT = "vt:consent-updated";
 export const COOKIE_PREFERENCES_OPEN_EVENT = "vt:cookie-preferences-open";
+export const CONSENT_BANNER_ATTR = "data-vt-consent-banner";
 
 const CONSENT_KEYS = [
   "ad_storage",
@@ -88,6 +89,9 @@ export function applyConsentDefault(): string {
       ...denied,
       wait_for_update: CONSENT_WAIT_FOR_UPDATE_MS,
     })});`,
+    `try{var __vtRaw=localStorage.getItem(${JSON.stringify(CONSENT_STORAGE_KEY)});`,
+    `if(!__vtRaw){document.documentElement.setAttribute(${JSON.stringify(CONSENT_BANNER_ATTR)},"1");}`,
+    `}catch(e){document.documentElement.setAttribute(${JSON.stringify(CONSENT_BANNER_ATTR)},"1");}`,
   ].join("");
 }
 
